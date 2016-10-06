@@ -26,7 +26,7 @@ class MFService: AnyObject {
     func xauthorize(username: String, password: String) {
         let oauthSwift = OAuth1Swift(consumerKey: MFService.FanfouConsumerKey, consumerSecret: MFService.FanfouConsumerSecret, accessTokenUrl: "http://fanfou.com/oauth/access_token")
         oauthSwift.xauthorizeWithUsername(username: username, password: password, success: { (credential, response, parameters) in
-            print("authorize succeed with token: \(credential.oauth_token) and secret: \(credential.oauth_token_secret)")
+            print("authorize succeed with token: \(credential.oauthToken) and secret: \(credential.oauthTokenSecret)")
             self.client = oauthSwift.client
             }, failure:{ (error) in
                 print("authorize failure with error: \(error)")

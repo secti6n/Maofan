@@ -75,22 +75,34 @@ class SignTests: XCTestCase {
     }
 
     func testSignatureWithSpaceInURL() {
-
         testSignature("http://photos.example.net/ph%20otos",
-            consumer: "abcd",
-            secret: "efgh",
-            token: "ijkl",
-            token_secret: "mnop",
-            parameters: ["name":"value"],
-            nonce: "rkNG5bfzqFw",
-            timestamp: "1451152366",
-            method: .GET,
-            // TODO: see https://github.com/OAuthSwift/OAuthSwift/issues/115 maybe bY1K6fPxYDwb34nUm8CIZjKtWWY= is the correct signature?
+                      consumer: "abcd",
+                      secret: "efgh",
+                      token: "ijkl",
+                      token_secret: "mnop",
+                      parameters: ["name":"value"],
+                      nonce: "rkNG5bfzqFw",
+                      timestamp: "1451152366",
+                      method: .GET,
+                      // TODO: see https://github.com/OAuthSwift/OAuthSwift/issues/115 maybe bY1K6fPxYDwb34nUm8CIZjKtWWY= is the correct signature?
             expected: "g2HpPCyQIVxLC3NNVn2x9oeUtyg=")
-
+        
     }
-
-    func testSignature(  _ url : String
+    
+    func testSignatureWithSamePrefix() {
+        testSignature("http://photos.example.net/photos",
+                      consumer: "dpf43f3p2l4k3l03",
+                      secret: "kd94hf93k423kf44",
+                      token: "nnch734d00sl2jdk",
+                      token_secret: "pfkkdhi9sl3r4s00",
+                      parameters: ["file_1":"vacation.jpg", "file_10":"original"],
+                      nonce: "kllo9940pd9333jh",
+                      timestamp: "1191242096",
+                      method: .GET,
+                      expected: "2qG5S5iX/g/6NIKutdcSYACUHsg=")
+    }
+    
+    func testSignature(_ urlString : String
         , consumer : String
         , secret: String
         , token: String
@@ -102,22 +114,22 @@ class SignTests: XCTestCase {
         , expected : String
         ) {
         var parameters = parameters
-            let credential = OAuthSwiftCredential(consumer_key: consumer, consumer_secret: secret)
-            credential.oauth_token = token
-            credential.oauth_token_secret = token_secret
-
-            parameters.merge(credential.authorizationParameters(nil, timestamp: timestamp, nonce: nonce))
-
-            guard let nsurl = URL(string: url) else {
-                XCTFail("Not able to create NSURL \(url)")
-                return
-            }
-            print(nsurl.absoluteString)
-            XCTAssertEqual(nsurl.absoluteString, url)
-
-            let signature = credential.signatureForMethod(method, url: nsurl, parameters: parameters)
-
-            XCTAssertEqual(signature, expected,  "HMAC-SHA1 request signature does not match OAuth Spec, Appendix A.5.3")
+        let credential = OAuthSwiftCredential(consumerKey: consumer, consumerSecret: secret)
+        credential.oauthToken = token
+        credential.oauthTokenSecret = token_secret
+        
+        parameters.merge(credential.authorizationParameters(nil, timestamp: timestamp, nonce: nonce))
+        
+        guard let url = URL(string: urlString) else {
+            XCTFail("Not able to create URL \(urlString)")
+            return
+        }
+        print(url.absoluteString)
+        XCTAssertEqual(url.absoluteString, urlString)
+        
+        let signature = credential.signature(method: method, url: url, parameters: parameters)
+        
+        XCTAssertEqual(signature, expected,  "HMAC-SHA1 request signature does not match OAuth Spec, Appendix A.5.3")
     }
 
     /*func testAuthorizationHeader() {
@@ -134,7 +146,7 @@ class SignTests: XCTestCase {
         credential.oauth_token = token
         credential.oauth_token_secret = token_secret
         
-        let header = credential.authorizationHeaderForMethod(.GET, url: NSURL(string: url)!, parameters: parameters, timestamp: timestamp, nonce: nonce)
+        let header = credential.authorizationHeader(method: .GET, url: URL(string: url)!, parameters: parameters, timestamp: timestamp, nonce: nonce)
 
         XCTAssertEqual(header, "")// TODO add checked header
     }*/
