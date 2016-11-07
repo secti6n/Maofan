@@ -138,8 +138,8 @@ open class OAuthSwiftHTTPRequest: NSObject, URLSessionDelegate, OAuthSwiftReques
                     let userInfo: OAuthSwift.Parameters = [
                         NSLocalizedDescriptionKey: localizedDescription,
                         "Response-Headers": response.allHeaderFields,
-                        "Response-Body": responseString,
-                        NSURLErrorFailingURLErrorKey: response.url?.absoluteString,
+                        "Response-Body": responseString as Any,
+                        NSURLErrorFailingURLErrorKey: response.url?.absoluteString as Any,
                         OAuthSwiftError.ResponseKey: response,
                         OAuthSwiftError.ResponseDataKey: responseData
                     ]
