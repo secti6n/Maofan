@@ -28,10 +28,8 @@ extension OAuthSwiftClient {
         let body = self.mf_multiPartBodyFromParams(boundary: boundary, parameters: parameters, paramImage: paramImage)
         let headers = [kHTTPHeaderContentType: type]
         let mf_hackEmptyParameter: [String: String] = [:]
-        if let request = makeRequest(url, method: method, parameters: mf_hackEmptyParameter, headers: headers, body: body) { // TODO check if headers do not override others...
-            request.successHandler = success
-            request.failureHandler = failure
-            request.start()
+        if let request = makeRequest(url, method: method, parameters: mf_hackEmptyParameter, headers: headers, body: body) {
+            request.start(success: success, failure: failure)
         }
     }
     

@@ -161,6 +161,8 @@ extension ViewController {
             doOAuthTypetalk(parameters)
         case "SoundCloud":
             doOAuthSoundCloud(parameters)
+        case "Wordpress" :
+            doOAuthWordpress(parameters)
         default:
             print("\(service) not implemented")
         }
@@ -240,15 +242,15 @@ extension ViewController {
     func testTwitter(_ oauthswift: OAuth1Swift) {
         let _ = oauthswift.client.get(
             "https://api.twitter.com/1.1/statuses/mentions_timeline.json", parameters: [:],
-            success: { data, response in
-                let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                print(jsonDict)
+            success: { response in
+                let jsonDict = try? response.jsonObject()
+                print(jsonDict as Any)
             }, failure: { error in
                 print(error)
             }
         )
     }
-    
+
     // MARK: Flickr
     func doOAuthFlickr(_ serviceParameters: [String:String]){
         let oauthswift = OAuth1Swift(
@@ -283,9 +285,9 @@ extension ViewController {
         ]
         let _ = oauthswift.client.get(
             url, parameters: parameters,
-            success: { data, response in
-                let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                print(jsonDict)
+            success: { response in
+                let jsonDict = try? response.jsonObject()
+                print(jsonDict as Any)
             },
             failure: { error in
                 print(error)
@@ -370,10 +372,9 @@ extension ViewController {
         let parameters :Dictionary = Dictionary<String, AnyObject>()
         let _ = oauthswift.client.get(
             url, parameters: parameters,
-            success: {
-                data, response in
-                let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                print(jsonDict)
+            success: { response in
+                let jsonDict = try? response.jsonObject()
+                print(jsonDict as Any)
                 
             },
             failure: { error in
@@ -455,10 +456,9 @@ extension ViewController {
         let _ = oauthswift.client.get(
             "https://api.fitbit.com/1/user/-/profile.json",
             parameters: [:],
-            success: {
-                data, response in
-                let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                print(jsonDict)
+            success: { response in
+                let jsonDict = try? response.jsonObject()
+                print(jsonDict as Any)
             },
             failure: { error in
                 print(error.description)
@@ -493,10 +493,9 @@ extension ViewController {
         oauthswift.client.paramsLocation = .requestURIQuery
         let _ = oauthswift.client.get(
             "https://wbsapi.withings.net/v2/measure", parameters: ["action":"getactivity", "userid":userId, "date":"2016-02-15"],
-            success: {
-                data, response in
-                let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                print(jsonDict)
+            success: { response in
+                let jsonDict = try? response.jsonObject()
+                print(jsonDict as Any)
             }, failure: { error in
                 print(error.description)
             }
@@ -527,14 +526,15 @@ extension ViewController {
         )
     }
     func testLinkedin(_ oauthswift: OAuth1Swift) {
-        let _ = oauthswift.client.get("https://api.linkedin.com/v1/people/~", parameters: [:],
-                              success: {
-                                data, response in
-                                let dataString = String(data: data, encoding: String.Encoding.utf8)
-                                print(dataString)
+        let _ = oauthswift.client.get(
+            "https://api.linkedin.com/v1/people/~", parameters: [:],
+            success: { response in
+                let dataString = response.string!
+                print(dataString)
             }, failure: { error in
                 print(error)
-        })
+            }
+        )
     }
     
     func doOAuthLinkedin2(_ serviceParameters: [String:String]){
@@ -563,8 +563,8 @@ extension ViewController {
     func testLinkedin2(_ oauthswift: OAuth2Swift) {
         let _ = oauthswift.client.get(
             "https://api.linkedin.com/v1/people/~?format=json", parameters: [:],
-            success: { data, response in
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+            success: { response in
+                let dataString = response.string!
                 print(dataString)
             },
             failure: { error in
@@ -617,9 +617,9 @@ extension ViewController {
                 let parameters =  Dictionary<String, AnyObject>()
                 let _ = oauthswift.client.get(
                     "https://api.dropbox.com/1/account/info", parameters: parameters,
-                    success: { data, response in
-                        let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                        print(jsonDict)
+                    success: { response in
+                        let jsonDict = try? response.jsonObject()
+                        print(jsonDict as Any)
                     }, failure: { error in
                         print(error)
                     }
@@ -650,9 +650,9 @@ extension ViewController {
                 let parameters =  [String: Any]()
                 let _ = oauthswift.client.get(
                     "https://api.dribbble.com/v1/user?access_token=\(credential.oauthToken)", parameters: parameters,
-                    success: { data, response in
-                        let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
-                        print(jsonDict)
+                    success: { response in
+                        let jsonDict = try? response.jsonObject()
+                        print(jsonDict as Any)
                     },
                     failure: { error in
                         print(error)
@@ -690,8 +690,8 @@ extension ViewController {
     func testBitBucket(_ oauthswift: OAuth1Swift) {
         let _ = oauthswift.client.get(
             "https://bitbucket.org/api/1.0/user", parameters: [:],
-            success: { data, response in
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+            success: { response in
+                let dataString = response.string!
                 print(dataString)
             },
             failure: { error in
@@ -721,8 +721,8 @@ extension ViewController {
                 // Multi-part upload
                 let _ = oauthswift.client.postImage(
                     "https://www.googleapis.com/upload/drive/v2/files", parameters: parameters, image: self.snapshot(),
-                    success: { data, response in
-                        let jsonDict = try? JSONSerialization.jsonObject(with:data, options: [])
+                    success: { response in
+                        let jsonDict = try? response.jsonObject()
                         print("SUCCESS: \(jsonDict)")
                     },
                     failure: { error in
@@ -763,9 +763,8 @@ extension ViewController {
         if let companyId = serviceParameters["companyId"]  {
             let _ = oauthswift.client.get(
                 "https://sandbox-quickbooks.api.intuit.com/v3/company/\(companyId)/account/1", headers: ["Accept":"application/json"],
-                success: {
-                    data, response in
-                    if let jsonDict = try? JSONSerialization.jsonObject(with:data, options: .allowFragments) , let dico = jsonDict as? [String: AnyObject] {
+                success: { response in
+                    if let jsonDict = try? response.jsonObject(options: .allowFragments) , let dico = jsonDict as? [String: AnyObject] {
                         print(dico)
                         
                         // XXX to generate with good date etc...
@@ -794,8 +793,8 @@ extension ViewController {
                         let _ = oauthswift.client.post(
                             "https://sandbox-quickbooks.api.intuit.com/v3/company/\(companyId)/account?operation=update", parameters: jsonUpdate,
                             headers: ["Accept": "application/json", "Content-Type":"application/json"],
-                            success: { data, response in
-                                print(data)
+                            success: { response in
+                                print(response.data)
                             },
                             failure: { error in
                                 print(error)
@@ -840,11 +839,11 @@ extension ViewController {
     // MARK: Tumblr
     func doOAuthTumblr(_ serviceParameters: [String:String]){
         let oauthswift = OAuth1Swift(
-            consumerKey:    serviceParameters["consumerKey"]!,
-            consumerSecret: serviceParameters["consumerSecret"]!,
-            requestTokenUrl: "http://www.tumblr.com/oauth/request_token",
-            authorizeUrl:    "http://www.tumblr.com/oauth/authorize",
-            accessTokenUrl:  "http://www.tumblr.com/oauth/access_token"
+            consumerKey:     serviceParameters["consumerKey"]!,
+            consumerSecret:  serviceParameters["consumerSecret"]!,
+            requestTokenUrl: "https://www.tumblr.com/oauth/request_token",
+            authorizeUrl:    "https://www.tumblr.com/oauth/authorize",
+            accessTokenUrl:  "https://www.tumblr.com/oauth/access_token"
         )
         
         self.oauthswift = oauthswift
@@ -853,12 +852,42 @@ extension ViewController {
             withCallbackURL: URL(string: "oauth-swift://oauth-callback/tumblr")!,
             success: { credential, response, parameters in
                 self.showTokenAlert(name: serviceParameters["name"], credential: credential)
+                self.testTumblr(oauthswift, serviceParameters: serviceParameters)
             },
             failure: { error in
                 print(error.description)
             }
         )
     }
+    func testTumblr(_ oauthswift: OAuth1Swift, serviceParameters: [String:String]){
+        let _ = oauthswift.client.get(
+            "https://api.tumblr.com/v2/user/info", headers: ["Accept":"application/json"],
+            success: { response in
+                if let jsonDict = try? response.jsonObject(options: .allowFragments) , let dico = jsonDict as? [String: Any] {
+                    print(dico)
+                }
+                else {
+                    print("no json response")
+                }
+            },
+            failure: { error in
+                print(error)
+            }
+        )
+        
+        let url = serviceParameters["blogURL"] ?? "good.tumblr.com"
+        let _ = oauthswift.client.post(
+            "https://api.tumblr.com/v2/user/follow", parameters: ["url": url],
+            success: { response in
+                let dataString = response.string!
+                print(dataString)
+            },
+            failure: { error in
+                print(error)
+            }
+        )
+    }
+    
     
     // MARK: Slack
     func doOAuthSlack(_ serviceParameters: [String:String]){
@@ -960,8 +989,8 @@ extension ViewController {
     func testFacebook(_ oauthswift: OAuth2Swift) {
         let _ = oauthswift.client.get(
             "https://graph.facebook.com/me?",
-            success: { data, response in
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+            success: { response in
+                let dataString = response.string!
                 print(dataString)
             }, failure: { error in
                 print(error)
@@ -1017,14 +1046,15 @@ extension ViewController {
     }
     
     func testTrello(_ oauthswift: OAuth1Swift) {
-        let _ = oauthswift.client.get("https://trello.com/1/members/me/boards",
-                              success: {
-                                data, response in
-                                let dataString = String(data: data, encoding: String.Encoding.utf8)
-                                print(dataString)
+        let _ = oauthswift.client.get(
+            "https://trello.com/1/members/me/boards",
+            success: { response in
+                let dataString = response.string!
+                print(dataString)
             }, failure: { error in
                 print(error)
-        })
+            }
+        )
     }
     
     // MARK: Buffer
@@ -1054,8 +1084,8 @@ extension ViewController {
     func testBuffer(_ oauthswift: OAuth2Swift) {
         let _ = oauthswift.client.get(
             "https://api.bufferapp.com/1/user.json",
-            success: { data, response in
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+            success: { response in
+                let dataString = response.string!
                 print(dataString)
             }, failure: { error in
                 print(error)
@@ -1093,9 +1123,9 @@ extension ViewController {
     func testGoodreads(_ oauthswift: OAuth1Swift) {
         let _ = oauthswift.client.get(
             "https://www.goodreads.com/api/auth_user",
-            success: { data, response in
+            success: { response in
                 // Most Goodreads methods return XML, you'll need a way to parse it.
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+                let dataString = response.string!
                 print(dataString)
             }, failure: { error in
                 print(error)
@@ -1131,8 +1161,8 @@ extension ViewController {
     func testTypetalk(_ oauthswift: OAuth2Swift) {
         let _ = oauthswift.client.get(
             "https://typetalk.in/api/v1/profile",
-            success: { data, response in
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+            success: { response in
+                let dataString = response.string!
                 print(dataString)
             }, failure: { error in
                 print(error)
@@ -1167,13 +1197,40 @@ extension ViewController {
     func testSoundCloud(_ oauthswift: OAuth2Swift, _ oauthToken: String) {
         let _ = oauthswift.client.get(
             "https://api.soundcloud.com/me?oauth_token=\(oauthToken)",
-            success: { data, response in
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
+            success: { response in
+                let dataString = response.string!
                 print(dataString)
             }, failure: { error in
                 print(error)
             }
         )
+    }
+    
+    func doOAuthWordpress(_ serviceParameters: [String:String]) {
+        let wordpressURL = serviceParameters["url"] ?? "http://localhost/wordpress"
+        let oauthswift = OAuth1Swift(
+            consumerKey:        serviceParameters["consumerKey"]!,
+            consumerSecret:     serviceParameters["consumerSecret"]!,
+            requestTokenUrl:    "\(wordpressURL)/oauth1/request",
+            authorizeUrl:       "\(wordpressURL)/oauth1/authorize",
+            accessTokenUrl:     "\(wordpressURL)/oauth1/access"
+            
+        )
+        self.oauthswift = oauthswift
+        oauthswift.authorizeURLHandler = getURLHandler()
+        // The callback url you set here doesn't seem to make a differnce,
+        // you have to set it up at the site when you get your developer key.
+        let _ = oauthswift.authorize(
+            withCallbackURL: URL(string: "oauth-swift://oauth-callback/wordpress")!,
+            success: { credential, response, parameters in
+                self.showTokenAlert(name: serviceParameters["name"], credential: credential)
+              
+            },
+            failure: { error in
+                print(error.localizedDescription, terminator: "")
+            }
+        )
+
     }
 }
 
@@ -1289,7 +1346,7 @@ extension ViewController {
     func showTokenAlert(name: String?, credential: OAuthSwiftCredential) {
         var message = "oauth_token:\(credential.oauthToken)"
         if !credential.oauthTokenSecret.isEmpty {
-            message += "\n\noauth_toke_secret:\(credential.oauthTokenSecret)"
+            message += "\n\noauth_token_secret:\(credential.oauthTokenSecret)"
         }
         self.showAlertView(title: name ?? "Service", message: message)
         

@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - OAuthSwift errors
 public enum OAuthSwiftError: Error {
+
     // Configuration problem with oauth provider.
     case configurationError(message: String)
     // The provided token is expired, retrieve new token by using the refresh token
@@ -30,7 +31,7 @@ public enum OAuthSwiftError: Error {
     // Please retain OAuthSwift object or handle
     case retain
     // Request error
-    case requestError(error: Error)
+    case requestError(error: Error, request: URLRequest)
     // Request cancelled
     case cancelled
     
@@ -69,13 +70,24 @@ public enum OAuthSwiftError: Error {
         case .cancelled : return Code.cancelled
         }
     }
-    // For NSError
-    public var _code: Int {
-        return self.code.rawValue
+
+    public var underlyingError: Error? {
+        switch self {
+        case .tokenExpired(let e): return e
+        case .requestError(let e, _): return e
+        default: return nil
+        }
     }
-    public var _domain: String {
-        return OAuthSwiftError.Domain
+    
+    public var underlyingMessage: String? {
+        switch self {
+        case .serverError(let m): return m
+        case .configurationError(let m): return m
+        case .requestCreation(let m): return m
+        default: return nil
+        }
     }
+
 }
 
 extension OAuthSwiftError: CustomStringConvertible {
@@ -92,25 +104,10 @@ extension OAuthSwiftError: CustomStringConvertible {
         case .requestCreation(let m): return "requestCreation[\(m)]"
         case .missingToken: return "missingToken"
         case .retain: return "retain"
-        case .requestError(let e): return "requestError[\(e)]"
+        case .requestError(let e, _): return "requestError[\(e)]"
         case .cancelled : return "cancelled"
         }
     }
-}
-
-extension NSError {
-    fileprivate convenience init(code: OAuthSwiftError.Code, message: String, errorKey: String = NSLocalizedFailureReasonErrorKey) {
-        let userInfo = [errorKey: message]
-        self.init(domain: OAuthSwiftError.Domain, code: code.rawValue, userInfo: userInfo)
-    }
-}
-
-extension OAuthSwiftError {
-    
-    var nsError: NSError {
-        return NSError(code: self.code, message: "")
-    }
-    
 }
 
 extension OAuthSwift {
@@ -121,4 +118,36 @@ extension OAuthSwift {
         #endif
     }
     
+}
+
+// MARK NSError
+extension OAuthSwiftError: CustomNSError {
+    
+    public static var errorDomain: String { return OAuthSwiftError.Domain }
+    
+    public var errorCode: Int { return self.code.rawValue }
+    
+    /// The user-info dictionary.
+    public var errorUserInfo: [String : Any] {
+        switch self {
+        case .configurationError(let m): return ["message": m]
+        case .serverError(let m): return ["message": m]
+        case .requestCreation(let m): return ["message": m]
+            
+        case .tokenExpired(let e): return ["error": e as Any]
+        case .requestError(let e, let request): return ["error": e, "request": request]
+            
+        case .encodingError(let urlString): return ["url": urlString]
+            
+        case .stateNotEqual(let s, let e): return ["state": s, "expected": e]
+        default: return [:]
+        }
+    }
+
+    public var _code: Int {
+        return self.code.rawValue
+    }
+    public var _domain: String {
+        return OAuthSwiftError.Domain
+    }
 }

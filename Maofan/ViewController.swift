@@ -21,9 +21,9 @@ class ViewController: UIViewController {
             "format": "html",
             "status": "Hello, world! \(arc4random())"
         ]
-        MFService.sharedInstance.postText(parameters: parameters, success: nil, failure: nil)
-//        let image = UIImageJPEGRepresentation(UIImage(named: "ImageTest")!, 0.1)!
-//        MFService.sharedInstance.postImage(parameters: parameters, image: image, success: nil, failure: nil)
+//        MFService.sharedInstance.postText(parameters: parameters, success: nil, failure: nil)
+        let image = UIImageJPEGRepresentation(UIImage(named: "ImageTest")!, 0.1)!
+        MFService.sharedInstance.postImage(parameters: parameters, image: image, success: nil, failure: nil)
     }
 
 }
