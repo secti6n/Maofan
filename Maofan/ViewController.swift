@@ -12,18 +12,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MFService.sharedInstance.xauthorize(username: FanfouConsumer.username, password: FanfouConsumer.password)
+        Service.sharedInstance.xauthorize(username: FanfouConsumer.username, password: FanfouConsumer.password)
     }
     
-    // MARK: 测试发消息和图片
     @IBAction func helloButtonDidTouch(_ sender: AnyObject) {
-        let parameters = [
+        let param1 = [
             "format": "html",
             "status": "Hello, world! \(arc4random())"
         ]
-//        MFService.sharedInstance.postText(parameters: parameters, success: nil, failure: nil)
-        let image = UIImageJPEGRepresentation(UIImage(named: "ImageTest")!, 0.1)!
-        MFService.sharedInstance.postImage(parameters: parameters, image: image, success: nil, failure: nil)
+        Service.sharedInstance.postText(parameters: param1, success: nil, failure: nil)
+        let param2 = [
+            "format": "html",
+            "status": "Hello, world! \(arc4random())"
+        ]
+        let image = UIImageJPEGRepresentation(UIImage(named: "test")!, 0.1)!
+        Service.sharedInstance.postImage(parameters: param2, image: image, success: { (response) in
+            print(JSON(data: response.data))
+        }) { (error) in
+            Misc.handleError(error)
+        }
     }
 
 }

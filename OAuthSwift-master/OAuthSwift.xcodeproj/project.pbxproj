@@ -486,8 +486,8 @@
 		C72362D71DD70FDA00C0FB62 /* MFOAuthSwiftExtension */ = {
 			isa = PBXGroup;
 			children = (
-				C72362D81DD70FDA00C0FB62 /* OAuth1SwiftExtension.swift */,
 				C72362D91DD70FDA00C0FB62 /* OAuthSwiftClientExtension.swift */,
+				C72362D81DD70FDA00C0FB62 /* OAuth1SwiftExtension.swift */,
 			);
 			path = MFOAuthSwiftExtension;
 			sourceTree = "<group>";

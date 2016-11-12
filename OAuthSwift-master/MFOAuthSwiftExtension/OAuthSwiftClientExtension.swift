@@ -10,30 +10,33 @@ import Foundation
 
 extension OAuthSwiftClient {
     
-    public func mf_postText(urlString: String, parameters: [String: String], success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
+    public func mf_postText(_ urlString: String, parameters: [String: String], success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
         self.mf_multiPartRequest(url: urlString, method: .POST, parameters: parameters, image: nil, success: success, failure: failure)
     }
     
-    public func mf_postImage(urlString: String, parameters: [String: String], image: Data, success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
+    public func mf_postImage(_ urlString: String, parameters: [String: String], image: Data, success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
         self.mf_multiPartRequest(url: urlString, method: .POST, parameters: parameters, image: image, success: success, failure: failure)
     }
     
-    func mf_multiPartRequest(url: String, method: OAuthSwiftHTTPRequest.Method, parameters: [String:String], image: Data?, success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
+    public func mf_postProfileImage(_ urlString: String, parameters: [String: String], image: Data, success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
+        self.mf_multiPartRequest(url: urlString, method: .POST, parameters: parameters, image: image, name: "image", success: success, failure: failure)
+    }
+    
+    func mf_multiPartRequest(url: String, method: OAuthSwiftHTTPRequest.Method, parameters: [String:String], image: Data?, name: String = "photo", success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
         let boundary = "AS-boundary-\(arc4random())-\(arc4random())"
         let type = "multipart/form-data; boundary=\(boundary)"
         var paramImage: [String: AnyObject] = [:]
         if let image = image {
             paramImage["media"] = image as AnyObject
         }
-        let body = self.mf_multiPartBodyFromParams(boundary: boundary, parameters: parameters, paramImage: paramImage)
+        let body = self.mf_multiPartBodyFromParams(boundary: boundary, parameters: parameters, paramImage: paramImage, name: name)
         let headers = [kHTTPHeaderContentType: type]
-        let mf_hackEmptyParameter: [String: String] = [:]
-        if let request = makeRequest(url, method: method, parameters: mf_hackEmptyParameter, headers: headers, body: body) {
+        if let request = makeRequest(url, method: method, headers: headers, body: body) {
             request.start(success: success, failure: failure)
         }
     }
     
-    func mf_multiPartBodyFromParams(boundary: String, parameters: [String: String], paramImage: [String: AnyObject]) -> Data {
+    func mf_multiPartBodyFromParams(boundary: String, parameters: [String: String], paramImage: [String: AnyObject], name: String) -> Data {
         var data = Data()
         let prefixData = "--\(boundary)\r\n".data(using: OAuthSwiftDataEncoding)!
         let seperData = "\r\n".data(using: OAuthSwiftDataEncoding)!
@@ -68,7 +71,7 @@ extension OAuthSwiftClient {
             // 1
             data.append(prefixData)
             // 2
-            let sectionDisposition = "Content-Disposition: form-data; name=\"photo\";\(sectionFilename)\r\n".data(using: OAuthSwiftDataEncoding)! // 这里的 name 原本是 media，根据饭否 API 修改为 photo
+            let sectionDisposition = "Content-Disposition: form-data; name=\"\(name)\";\(sectionFilename)\r\n".data(using: OAuthSwiftDataEncoding)! // 这里的 name 原本是 media，根据饭否 API 修改为 photo
             data.append(sectionDisposition)
             if let type = sectionType {
                 let sectionContentType = "Content-Type: \(type)\r\n".data(using: OAuthSwiftDataEncoding)!
