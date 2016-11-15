@@ -12,21 +12,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Service.sharedInstance.xauthorize(username: FanfouConsumer.username, password: FanfouConsumer.password)
     }
     
-    @IBAction func helloButtonDidTouch(_ sender: AnyObject) {
-        let param1 = [
+    @IBAction func loginButtonDidTouch(_ sender: AnyObject) {
+        Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
+    }
+    
+    @IBAction func textButtonDidTouch(_ sender: AnyObject) {
+        let param = [
             "format": "html",
             "status": "Hello, world! \(arc4random())"
         ]
-        Service.sharedInstance.postText(parameters: param1, success: nil, failure: nil)
-        let param2 = [
+        Service.sharedInstance.postText(parameters: param, success: nil, failure: nil)
+    }
+    
+    @IBAction func imageButtonDidTouch(_ sender: AnyObject) {
+        let param = [
             "format": "html",
             "status": "Hello, world! \(arc4random())"
         ]
         let image = UIImageJPEGRepresentation(UIImage(named: "test")!, 0.1)!
-        Service.sharedInstance.postImage(parameters: param2, image: image, success: { (response) in
+        Service.sharedInstance.postImage(parameters: param, image: image, success: { (response) in
             print(JSON(data: response.data))
         }) { (error) in
             Misc.handleError(error)
