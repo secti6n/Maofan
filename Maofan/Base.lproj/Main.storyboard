@@ -21,12 +21,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-gm-7l3">
-                                <rect key="frame" x="141" y="223" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-db-LL2">
+                                <rect key="frame" x="39" y="171" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hello"/>
+                                <state key="normal" title="Login 2"/>
                                 <connections>
-                                    <action selector="helloButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BEk-E7-sZi"/>
+                                    <action selector="login2ButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6OM-yI-ur4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZP-he-yxu">
+                                <rect key="frame" x="50" y="222" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="text"/>
+                                <connections>
+                                    <action selector="textButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG1-tf-xbS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbw-5J-2aM">
+                                <rect key="frame" x="44" y="273" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="image"/>
+                                <connections>
+                                    <action selector="imageButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2PW-cd-3BF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-gm-7l3">
+                                <rect key="frame" x="41" y="116" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login 1"/>
+                                <connections>
+                                    <action selector="login1ButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6A-8N-BQC"/>
                                 </connections>
                             </button>
                         </subviews>
