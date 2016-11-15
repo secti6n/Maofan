@@ -11,6 +11,7 @@
 		C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */; };
 		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
 		C708DF2B1DDB44AD006E2F28 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF2A1DDB44AD006E2F28 /* Login.swift */; };
+		C708DF481DDB5D0C006E2F28 /* FanfouConsumer.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C708DF471DDB5D0C006E2F28 /* FanfouConsumer.swift.example */; };
 		C72362D31DD70F8100C0FB62 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */; };
 		C72362D41DD70F8100C0FB62 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72362DC1DD72AEB00C0FB62 /* Misc.swift */; };
@@ -107,6 +108,7 @@
 		C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
 		C708DF2A1DDB44AD006E2F28 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		C708DF471DDB5D0C006E2F28 /* FanfouConsumer.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FanfouConsumer.swift.example; sourceTree = "<group>"; };
 		C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-master/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		C72362DC1DD72AEB00C0FB62 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		C7700A481D81BBEE00908DB2 /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
 				C708B8ED1D990C81006B1C8A /* Service.swift */,
 				C708DF2A1DDB44AD006E2F28 /* Login.swift */,
+				C708DF471DDB5D0C006E2F28 /* FanfouConsumer.swift.example */,
 				C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */,
 				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
 				C7700A551D81BBEE00908DB2 /* Assets.xcassets */,
@@ -311,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C708DF481DDB5D0C006E2F28 /* FanfouConsumer.swift.example in Resources */,
 				C7700A591D81BBEE00908DB2 /* LaunchScreen.storyboard in Resources */,
 				C7700A561D81BBEE00908DB2 /* Assets.xcassets in Resources */,
 				C7700A511D81BBEE00908DB2 /* Main.storyboard in Resources */,
