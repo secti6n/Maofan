@@ -16,7 +16,7 @@ class Service {
         sharedInstance = Service()
     }
     
-    var client: OAuthSwiftClient = OAuthSwiftClient(consumerKey: FanfouConsumer.key, consumerSecret: FanfouConsumer.secret)
+    var client = OAuthSwiftClient(consumerKey: FanfouConsumer.key, consumerSecret: FanfouConsumer.secret)
     typealias Success = OAuthSwiftHTTPRequest.SuccessHandler
     typealias Failure = OAuthSwiftHTTPRequest.FailureHandler
     
