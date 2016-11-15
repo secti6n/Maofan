@@ -10,6 +10,7 @@
 		C708B8EE1D990C81006B1C8A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8ED1D990C81006B1C8A /* Service.swift */; };
 		C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */; };
 		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
+		C708DF081DDAF049006E2F28 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF071DDAF049006E2F28 /* Client.swift */; };
 		C72362D31DD70F8100C0FB62 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */; };
 		C72362D41DD70F8100C0FB62 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72362DC1DD72AEB00C0FB62 /* Misc.swift */; };
@@ -105,6 +106,7 @@
 		C708B8ED1D990C81006B1C8A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
+		C708DF071DDAF049006E2F28 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-master/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		C72362DC1DD72AEB00C0FB62 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		C7700A481D81BBEE00908DB2 /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
+				C708DF071DDAF049006E2F28 /* Client.swift */,
 				C708B8ED1D990C81006B1C8A /* Service.swift */,
 				C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */,
 				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
@@ -327,6 +330,7 @@
 				C708B8EE1D990C81006B1C8A /* Service.swift in Sources */,
 				C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */,
 				C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */,
+				C708DF081DDAF049006E2F28 /* Client.swift in Sources */,
 				C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
