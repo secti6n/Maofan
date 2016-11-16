@@ -15,12 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func saveButtonDidTouch(_ sender: AnyObject) {
-        Service.sharedInstance.verify_credentials(parameters: [:], success: { (response) in
-            CoreDataTool.sharedInstance.save(jsonData: response.data as NSData, token: Service.sharedInstance.client.credential.oauthToken, secret: Service.sharedInstance.client.credential.oauthTokenSecret)
-        }, failure: nil)
-    }
-    
     @IBAction func deleteAllButtonDidTouch(_ sender: AnyObject) {
         CoreDataTool.sharedInstance.delete(forEntityName: "Account")
     }

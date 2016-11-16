@@ -28,15 +28,6 @@ class CoreDataTool {
         return try! context.fetch(request)
     }
     
-    func insert(jsonData: NSData, token: String, secret: String) {
-        let entity = NSEntityDescription.insertNewObject(forEntityName: "Account", into: context) as! Account
-        entity.jsonData = jsonData
-        entity.token = token
-        entity.secret = secret
-        entity.unique_id = JSON(data: jsonData as Data)["unique_id"].stringValue
-        try! context.save()
-    }
-    
     func delete(unique_id: String) {
         let array = fetch()
         for account in array {
@@ -56,7 +47,16 @@ class CoreDataTool {
         }
     }
     
-    func update(jsonData: NSData) -> Bool {
+    private func insert(jsonData: NSData, token: String, secret: String) {
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "Account", into: context) as! Account
+        entity.jsonData = jsonData
+        entity.token = token
+        entity.secret = secret
+        entity.unique_id = JSON(data: jsonData as Data)["unique_id"].stringValue
+        try! context.save()
+    }
+    
+    private func update(jsonData: NSData) -> Bool {
         let array = fetch()
         let unique_id = JSON(data: jsonData as Data)["unique_id"].stringValue
         for account in array {

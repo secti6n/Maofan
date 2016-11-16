@@ -17,10 +17,15 @@ class Service {
     }
     
     var client = OAuthSwiftClient(consumerKey: FanfouConsumer.key, consumerSecret: FanfouConsumer.secret)
+    
     typealias Success = OAuthSwiftHTTPRequest.SuccessHandler
     typealias Failure = OAuthSwiftHTTPRequest.FailureHandler
     
-    private init () {}
+    private init () {
+        if let account = CoreDataTool.sharedInstance.fetch().first {
+            client = OAuthSwiftClient(consumerKey: FanfouConsumer.key, consumerSecret: FanfouConsumer.secret, oauthToken: account.token!, oauthTokenSecret: account.secret!, version: .oauth1)
+        }
+    }
     
     func apiPath(_ string: String) -> String {
         return "http://api.fanfou.com\(string).json"
