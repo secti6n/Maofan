@@ -15,5 +15,13 @@ class Misc {
         let error = error.underlyingError as! NSError
         print(error)
     }
+    
+    class func handleError(_ error: NSError) {
+        print(error)
+    }
+    
+    class func handleError(_ error: Error) {
+        print(error)
+    }
 
 }

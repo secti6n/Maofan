@@ -22,15 +22,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-db-LL2">
-                                <rect key="frame" x="39" y="171" width="51" height="30"/>
+                                <rect key="frame" x="122" y="329" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login 2"/>
+                                <state key="normal" title="login2"/>
                                 <connections>
                                     <action selector="login2ButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6OM-yI-ur4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZP-he-yxu">
-                                <rect key="frame" x="50" y="222" width="30" height="30"/>
+                                <rect key="frame" x="50" y="379" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="text"/>
                                 <connections>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbw-5J-2aM">
-                                <rect key="frame" x="44" y="273" width="42" height="30"/>
+                                <rect key="frame" x="88" y="379" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="image"/>
                                 <connections>
@@ -46,11 +46,35 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-gm-7l3">
-                                <rect key="frame" x="41" y="116" width="49" height="30"/>
+                                <rect key="frame" x="55" y="329" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login 1"/>
+                                <state key="normal" title="login1"/>
                                 <connections>
                                     <action selector="login1ButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6A-8N-BQC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yW-Y8-nv2">
+                                <rect key="frame" x="37" y="157" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="save"/>
+                                <connections>
+                                    <action selector="saveButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cMq-9B-AXL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIr-qO-qyL">
+                                <rect key="frame" x="103" y="157" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="deleteAll"/>
+                                <connections>
+                                    <action selector="deleteAllButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oC0-VS-VTF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qye-WP-Xwh">
+                                <rect key="frame" x="201" y="157" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="fetch"/>
+                                <connections>
+                                    <action selector="fetchButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fYU-Ss-oW4"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -21,6 +21,7 @@
 		C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */; };
 		C7700A561D81BBEE00908DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7700A551D81BBEE00908DB2 /* Assets.xcassets */; };
 		C7700A591D81BBEE00908DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */; };
+		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		C7700A551D81BBEE00908DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7700A581D81BBEE00908DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7700A5A1D81BBEE00908DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
+				C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */,
 				C708B8ED1D990C81006B1C8A /* Service.swift */,
 				C708DF131DDB2B5E006E2F28 /* Login.swift */,
 				C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */,
@@ -335,6 +338,7 @@
 				C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */,
 				C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */,
 				C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */,
+				C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */,
 				C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

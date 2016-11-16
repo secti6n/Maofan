@@ -7,11 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func saveButtonDidTouch(_ sender: AnyObject) {
+        Service.sharedInstance.verify_credentials(parameters: [:], success: { (response) in
+            CoreDataTool.sharedInstance.save(jsonData: response.data as NSData, token: Service.sharedInstance.client.credential.oauthToken, secret: Service.sharedInstance.client.credential.oauthTokenSecret)
+        }, failure: nil)
+    }
+    
+    @IBAction func deleteAllButtonDidTouch(_ sender: AnyObject) {
+        CoreDataTool.sharedInstance.delete(forEntityName: "Account")
+    }
+    
+    @IBAction func fetchButtonDidTouch(_ sender: AnyObject) {
+        let arr = CoreDataTool.sharedInstance.fetch()
+        for account in arr {
+            let json = JSON(data: account.jsonData as! Data)
+            print(json)
+            print(account.unique_id as Any)
+        }
     }
     
     @IBAction func login1ButtonDidTouch(_ sender: AnyObject) {
