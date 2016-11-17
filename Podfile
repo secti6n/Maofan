@@ -9,5 +9,6 @@ target 'Maofan' do
 
   # Pods for Maofan
     pod 'TTTAttributedLabel'
+    pod 'YYText'
 
 end

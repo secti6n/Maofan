@@ -20,6 +20,7 @@ class ViewController: OAuthViewController {
     
     var currentParameters = [String: String]()
     let formData = Semaphore<FormViewControllerData>()
+    @IBOutlet weak var label: TTTAttributedLabel!
 
     lazy var internalWebViewController: WebViewController = {
         let controller = WebViewController()

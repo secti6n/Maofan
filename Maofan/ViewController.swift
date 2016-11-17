@@ -10,13 +10,44 @@ import UIKit
 import CoreData
 import TTTAttributedLabel
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TTTAttributedLabelDelegate {
+    
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        print(url)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let l = TTTAttributedLabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        print(l)
+        label.attributedText = NSAttributedString(string: "😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃testhttps://fanfou.com", attributes: [
+            NSFontAttributeName : UIFont.systemFont(ofSize: 17)
+            ])
+//        let mas = NSMutableAttributedString()
+//        let as1 = NSAttributedString(string: "abc")
+//        let as2 = NSAttributedString(string: "test", attributes: [
+//            NSLinkAttributeName : URL(string: "http://fanfou.com")!,
+//            NSForegroundColorAttributeName : UIColor.red,
+//            NSFontAttributeName : UIFont.systemFont(ofSize: 20)
+//            ])
+//        mas.append(as1)
+//        mas.append(as2)
+//        label.attributedText = mas
+        label.delegate = self
+        let range = (label.text! as NSString).range(of: "https://fanfou.com")
+        label.linkAttributes = [
+            NSForegroundColorAttributeName : UIColor.red,
+        ]
+        label.activeLinkAttributes = [
+            kCTForegroundColorAttributeName as AnyHashable : UIColor.green,
+        ]
+        print(label.attributedText)
+        label.addLink(to: URL(string: "http://fanfou.com"), with: range)
+//        label.text = nil
+//        label.attributedText = NSAttributedString(string: "testtthttps://fanfou.1", attributes: [
+//            NSFontAttributeName : UIFont.systemFont(ofSize: 17)
+//            ])
     }
+    
+    @IBOutlet weak var label: TTTAttributedLabel!
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
         print(Service.sharedInstance.client.credential.oauthToken)
