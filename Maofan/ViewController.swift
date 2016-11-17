@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import TTTAttributedLabel
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let l = TTTAttributedLabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        print(l)
     }
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {

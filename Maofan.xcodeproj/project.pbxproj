@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */; };
 		C708B8EE1D990C81006B1C8A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8ED1D990C81006B1C8A /* Service.swift */; };
 		C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */; };
 		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
@@ -105,6 +106,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maofan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.release.xcconfig"; sourceTree = "<group>"; };
 		C708B8ED1D990C81006B1C8A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		C7700A581D81BBEE00908DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7700A5A1D81BBEE00908DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
+		FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +133,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72362D31DD70F8100C0FB62 /* OAuthSwift.framework in Frameworks */,
+				ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AADC5378274757ED199CC43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		556652EB90D553078A265754 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */,
+				9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C708B8F61D991ADB006B1C8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +186,8 @@
 				C7700A4A1D81BBEE00908DB2 /* Maofan */,
 				C7700A491D81BBEE00908DB2 /* Products */,
 				C708B8F61D991ADB006B1C8A /* Library */,
+				556652EB90D553078A265754 /* Pods */,
+				4AADC5378274757ED199CC43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,10 +226,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7700A5D1D81BBEE00908DB2 /* Build configuration list for PBXNativeTarget "Maofan" */;
 			buildPhases = (
+				09767873107F7AE63EB97318 /* 📦 Check Pods Manifest.lock */,
 				C7700A441D81BBEE00908DB2 /* Sources */,
 				C7700A451D81BBEE00908DB2 /* Frameworks */,
 				C7700A461D81BBEE00908DB2 /* Resources */,
 				C708B8F51D99175A006B1C8A /* Embed Frameworks */,
+				443BD11518E682B1254DD8A8 /* 📦 Embed Pods Frameworks */,
+				D9E7BB34490685A0FAF03381 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -325,6 +352,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09767873107F7AE63EB97318 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		443BD11518E682B1254DD8A8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E7BB34490685A0FAF03381 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C7700A441D81BBEE00908DB2 /* Sources */ = {
@@ -473,6 +548,7 @@
 		};
 		C7700A5E1D81BBEE00908DB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -487,6 +563,7 @@
 		};
 		C7700A5F1D81BBEE00908DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
