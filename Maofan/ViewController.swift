@@ -13,6 +13,28 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    @IBAction func testButtonDidTouch(_ sender: AnyObject) {
+        print(Service.sharedInstance.client.credential.oauthToken)
+        let param = [
+            "id" : "CgQlwCFDq-Y", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
+            "format" : "html"
+        ]
+        Service.sharedInstance.show(parameters: param, success: { (response) in
+            let json = JSON(data: response.data)
+            let string = json["text"].stringValue
+            print(string+"\n")
+            let pattern = "[@#]?<a href=\"([^\"]+)[^>]*>([^<]+)</a>[#]?"
+            let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
+            let array = regular.matches(in: string, options: [], range: NSMakeRange(0, string.characters.count))
+            for e in array {
+                print((string as NSString).substring(with: e.rangeAt(0)))
+                print((string as NSString).substring(with: e.rangeAt(1)))
+                print((string as NSString).substring(with: e.rangeAt(2))+"\n")
+            }
+        }, failure: nil)
     }
     
     @IBAction func deleteAllButtonDidTouch(_ sender: AnyObject) {
