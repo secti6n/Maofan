@@ -5,68 +5,60 @@
 //  Created by Catt Liu on 16/9/8.
 //  Copyright © 2016年 Catt Liu. All rights reserved.
 //
-
 import UIKit
 import CoreData
-import TTTAttributedLabel
+import YYText
 
-class ViewController: UIViewController, TTTAttributedLabelDelegate {
-    
-    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-        print(url)
-    }
+class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.attributedText = NSAttributedString(string: "😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃testhttps://fanfou.com", attributes: [
-            NSFontAttributeName : UIFont.systemFont(ofSize: 17)
-            ])
-//        let mas = NSMutableAttributedString()
-//        let as1 = NSAttributedString(string: "abc")
-//        let as2 = NSAttributedString(string: "test", attributes: [
-//            NSLinkAttributeName : URL(string: "http://fanfou.com")!,
-//            NSForegroundColorAttributeName : UIColor.red,
-//            NSFontAttributeName : UIFont.systemFont(ofSize: 20)
-//            ])
-//        mas.append(as1)
-//        mas.append(as2)
-//        label.attributedText = mas
-        label.delegate = self
-        let range = (label.text! as NSString).range(of: "https://fanfou.com")
-        label.linkAttributes = [
-            NSForegroundColorAttributeName : UIColor.red,
-        ]
-        label.activeLinkAttributes = [
-            kCTForegroundColorAttributeName as AnyHashable : UIColor.green,
-        ]
-        print(label.attributedText)
-        label.addLink(to: URL(string: "http://fanfou.com"), with: range)
-//        label.text = nil
-//        label.attributedText = NSAttributedString(string: "testtthttps://fanfou.1", attributes: [
-//            NSFontAttributeName : UIFont.systemFont(ofSize: 17)
-//            ])
+        label.numberOfLines = 0
+        let text = NSMutableAttributedString(string: "Some Text, blabla...")
+        text.yy_font = UIFont.systemFont(ofSize: 17)
+        let range = NSRange(location: 0, length: 8)
+        let highlight = YYTextHighlight()
+        highlight.setColor(UIColor.red)
+        text.yy_setTextHighlight(highlight, range: range)
+        label.attributedText = text
+        label.highlightTapAction = { (view, attrString, range, rect) in
+            let url = attrString.attributedSubstring(from: range).attribute(NSLinkAttributeName, at: 0, effectiveRange: nil)
+            print(url as Any)
+        }
+        label.highlightLongPressAction = { (view, attrString, range, rect) in
+            print("long press")
+        }
     }
     
-    @IBOutlet weak var label: TTTAttributedLabel!
+    @IBOutlet weak var label: YYLabel!
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
-        print(Service.sharedInstance.client.credential.oauthToken)
         let param = [
-            "id" : "CgQlwCFDq-Y", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
+            "id" : "IhY_NBPnw-g", // "CgQlwCFDq-Y" "IhY_NBPnw-g" "9NrjB94ISbI"
             "format" : "html"
         ]
         Service.sharedInstance.show(parameters: param, success: { (response) in
             let json = JSON(data: response.data)
             let string = json["text"].stringValue
-            print(string+"\n")
-            let pattern = "[@#]?<a href=\"([^\"]+)[^>]*>([^<]+)</a>[#]?"
+            print("原始字串：\(string)\n")
+            let pattern = "([@#]?)<a href=\"([^\"]+)[^>]*>([^<]+)</a>([#]?)"
             let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
             let array = regular.matches(in: string, options: [], range: NSMakeRange(0, string.characters.count))
+            var index = 0
+            var plainTexts: [String] = []
+            var linkTexts: [LinkText] = []
             for e in array {
-                print((string as NSString).substring(with: e.rangeAt(0)))
-                print((string as NSString).substring(with: e.rangeAt(1)))
-                print((string as NSString).substring(with: e.rangeAt(2))+"\n")
+                let range = e.rangeAt(0)
+                let beforeRange = NSRange(location: index, length: range.location - index)
+                index = range.location + range.length
+                plainTexts.append((string as NSString).substring(with: beforeRange))
+                let text = (string as NSString).substring(with: e.rangeAt(1)) + (string as NSString).substring(with: e.rangeAt(3)) + (string as NSString).substring(with: e.rangeAt(4))
+                let urlString = (string as NSString).substring(with: e.rangeAt(2))
+                linkTexts.append(LinkText(text: text, url: URL(string: urlString)))
             }
+            let feedText = FeedText(plainTexts: plainTexts, linkTexts: linkTexts)
+            feedText.parse(to: self.label)
+            print(feedText)
         }, failure: nil)
     }
     
@@ -114,3 +106,7 @@ class ViewController: UIViewController, TTTAttributedLabelDelegate {
 
 }
 
+//每次使用前先清空。
+//点击颜色跟着范围终点走，如果范围不够终点了，那么颜色消失。
+//点击跟着跟着范围起点走，如果范围不够起点了，那么点击消失。
+//只要 label 的 text 没有重置，link 的点击效果和逻辑都还在，一旦范围够了，都会恢复。
