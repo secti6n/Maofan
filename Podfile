@@ -8,7 +8,6 @@ target 'Maofan' do
   use_frameworks!
 
   # Pods for Maofan
-    pod 'TTTAttributedLabel'
     pod 'YYText'
 
 end
