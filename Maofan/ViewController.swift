@@ -13,14 +13,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text = "press test button"
         label.numberOfLines = 0
-        let text = NSMutableAttributedString(string: "Some Text, blabla...")
-        text.yy_font = UIFont.systemFont(ofSize: 17)
-        let range = NSRange(location: 0, length: 8)
-        let highlight = YYTextHighlight()
-        highlight.setColor(UIColor.red)
-        text.yy_setTextHighlight(highlight, range: range)
-        label.attributedText = text
         label.highlightTapAction = { (view, attrString, range, rect) in
             let url = attrString.attributedSubstring(from: range).attribute(NSLinkAttributeName, at: 0, effectiveRange: nil)
             print(url as Any)
