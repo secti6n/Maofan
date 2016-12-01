@@ -86,19 +86,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C708B8F61D991ADB006B1C8A /* Library */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Library;
-			sourceTree = "<group>";
-		};
 		C7700A3F1D81BBEE00908DB2 = {
 			isa = PBXGroup;
 			children = (
 				C7700A4A1D81BBEE00908DB2 /* Maofan */,
 				C7700A491D81BBEE00908DB2 /* Products */,
-				C708B8F61D991ADB006B1C8A /* Library */,
 				556652EB90D553078A265754 /* Pods */,
 				4AADC5378274757ED199CC43 /* Frameworks */,
 			);
