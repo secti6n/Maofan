@@ -32,7 +32,6 @@ extension OAuthSwiftClient {
         let body = self.mf_multiPartBodyFromParams(boundary: boundary, parameters: parameters, paramImage: paramImage, name: name)
         let headers = [kHTTPHeaderContentType: type]
         if let request = makeRequest(url, method: method, headers: headers, body: body) {
-            //            request.start(success: success, failure: failure)
             request.successHandler = success
             request.failureHandler = failure
             request.start()
