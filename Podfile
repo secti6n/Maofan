@@ -9,5 +9,5 @@ target 'Maofan' do
 
   # Pods for Maofan
     pod 'YYText'
-
+    pod 'SwiftyJSON'
 end

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */; };
 		C708B8EE1D990C81006B1C8A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8ED1D990C81006B1C8A /* Service.swift */; };
-		C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */; };
 		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
 		C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF131DDB2B5E006E2F28 /* Login.swift */; };
 		C708DF511DDB5D65006E2F28 /* FanfouConsumer.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */; };
@@ -110,7 +109,6 @@
 		7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maofan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.release.xcconfig"; sourceTree = "<group>"; };
 		C708B8ED1D990C81006B1C8A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
 		C708DF131DDB2B5E006E2F28 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FanfouConsumer.swift.example; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 		C708B8F61D991ADB006B1C8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				C708B8F71D991AEE006B1C8A /* SwiftyJSON.swift */,
 				C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */,
 			);
 			name = Library;
@@ -415,7 +412,6 @@
 				C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */,
 				C708B8EE1D990C81006B1C8A /* Service.swift in Sources */,
 				C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */,
-				C708B8F81D991AEE006B1C8A /* SwiftyJSON.swift in Sources */,
 				C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */,
 				C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */,
 				C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */,

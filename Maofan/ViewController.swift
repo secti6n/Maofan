@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import YYText
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
