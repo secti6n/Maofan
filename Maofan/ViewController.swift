@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         label.text = "press test button"
         label.numberOfLines = 0
         label.highlightTapAction = { (view, attrString, range, rect) in
-            let url = attrString.attributedSubstring(from: range).attribute(NSLinkAttributeName, at: 0, effectiveRange: nil)
-            print(url as Any)
+            let hightlight = attrString.attributedSubstring(from: range).attribute(YYTextHighlightAttributeName, at: 0, effectiveRange: nil)
+            print((hightlight as! YYTextHighlight).userInfo!["urlString"] as! String)
         }
         label.highlightLongPressAction = { (view, attrString, range, rect) in
             print("long press")
@@ -28,31 +28,12 @@ class ViewController: UIViewController {
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
         let param = [
-            "id" : "IhY_NBPnw-g", // "CgQlwCFDq-Y" "IhY_NBPnw-g" "9NrjB94ISbI"
+            "id" : "IhY_NBPnw-g", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
             "format" : "html"
         ]
         Service.sharedInstance.show(parameters: param, success: { (response) in
             let json = JSON(data: response.data)
-            let string = json["text"].stringValue
-            print("原始字串：\(string)\n")
-            let pattern = "([@#]?)<a href=\"([^\"]+)[^>]*>([^<]+)</a>([#]?)"
-            let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
-            let array = regular.matches(in: string, options: [], range: NSMakeRange(0, string.characters.count))
-            var index = 0
-            var plainTexts: [String] = []
-            var linkTexts: [LinkText] = []
-            for e in array {
-                let range = e.rangeAt(0)
-                let beforeRange = NSRange(location: index, length: range.location - index)
-                index = range.location + range.length
-                plainTexts.append((string as NSString).substring(with: beforeRange))
-                let text = (string as NSString).substring(with: e.rangeAt(1)) + (string as NSString).substring(with: e.rangeAt(3)) + (string as NSString).substring(with: e.rangeAt(4))
-                let urlString = (string as NSString).substring(with: e.rangeAt(2))
-                linkTexts.append(LinkText(text: text, url: URL(string: urlString)))
-            }
-            let feedText = FeedText(plainTexts: plainTexts, linkTexts: linkTexts)
-            feedText.parse(to: self.label)
-            print(feedText)
+            self.label.attributedText = FeedText(string: json["text"].stringValue).parseToAttrString()
         }, failure: nil)
     }
     
