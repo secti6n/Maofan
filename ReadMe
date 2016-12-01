@@ -1,4 +1,4 @@
 Hello, world!
 请查看 FanfouConsumer.swift.example 替换 Consumer key、Consumer secret。
 
-service 分支是一个只有网络接口的项目，可以以此为基础实现界面功能和储存功能。
+service 分支只有网络接口，可以此为网络基础。
