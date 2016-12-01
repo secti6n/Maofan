@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = "press test button"
+        label.text = "press test button to parse a fanfou feed"
         label.numberOfLines = 0
         label.highlightTapAction = { (view, attrString, range, rect) in
             let hightlight = attrString.attributedSubstring(from: range).attribute(YYTextHighlightAttributeName, at: 0, effectiveRange: nil)
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
         let param = [
-            "id" : "IhY_NBPnw-g", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
+            "id" : "CgQlwCFDq-Y", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
             "format" : "html"
         ]
         Service.sharedInstance.show(parameters: param, success: { (response) in
