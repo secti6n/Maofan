@@ -12,8 +12,6 @@
 		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
 		C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF131DDB2B5E006E2F28 /* Login.swift */; };
 		C708DF511DDB5D65006E2F28 /* FanfouConsumer.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */; };
-		C72362D31DD70F8100C0FB62 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */; };
-		C72362D41DD70F8100C0FB62 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72362DC1DD72AEB00C0FB62 /* Misc.swift */; };
 		C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */; };
 		C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7700A4D1D81BBEE00908DB2 /* ViewController.swift */; };
@@ -25,72 +23,6 @@
 		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C72362C11DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F435027A1A6791B200038A29;
-			remoteInfo = OAuthSwift;
-		};
-		C72362C31DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C48B28021AFA598D00C7DEF6;
-			remoteInfo = OAuthSwiftOSX;
-		};
-		C72362C51DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C4B6EE1E1BF74CE300443596;
-			remoteInfo = OAuthSwiftTVOS;
-		};
-		C72362C71DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C40890C01C11B37000E3146A;
-			remoteInfo = OAuthSwiftWatchOS;
-		};
-		C72362C91DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F451E3C5195B8CD80051434C;
-			remoteInfo = OAuthSwiftDemo;
-		};
-		C72362CB1DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C49FD5241AFB5DF500791E1A;
-			remoteInfo = OAuthSwiftOSXDemo;
-		};
-		C72362CD1DD70F5400C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C4D50DF71BFB693F0053B624;
-			remoteInfo = OAuthSwiftTests;
-		};
-		C72362D11DD70F7B00C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F43502791A6791B200038A29;
-			remoteInfo = OAuthSwift;
-		};
-		C72362D51DD70F8100C0FB62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F43502791A6791B200038A29;
-			remoteInfo = OAuthSwift;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		C708B8F51D99175A006B1C8A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -98,7 +30,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C72362D41DD70F8100C0FB62 /* OAuthSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +43,6 @@
 		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
 		C708DF131DDB2B5E006E2F28 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FanfouConsumer.swift.example; sourceTree = "<group>"; };
-		C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-master/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		C72362DC1DD72AEB00C0FB62 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		C7700A481D81BBEE00908DB2 /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C72362D31DD70F8100C0FB62 /* OAuthSwift.framework in Frameworks */,
 				ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,23 +89,8 @@
 		C708B8F61D991ADB006B1C8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		C72362B81DD70F5300C0FB62 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */,
-				C72362C41DD70F5400C0FB62 /* OAuthSwift.framework */,
-				C72362C61DD70F5400C0FB62 /* OAuthSwift.framework */,
-				C72362C81DD70F5400C0FB62 /* OAuthSwift.framework */,
-				C72362CA1DD70F5400C0FB62 /* OAuthSwiftDemo.app */,
-				C72362CC1DD70F5400C0FB62 /* OAuthSwiftOSXDemo.app */,
-				C72362CE1DD70F5400C0FB62 /* OAuthSwiftTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		C7700A3F1D81BBEE00908DB2 = {
@@ -237,8 +151,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C72362D21DD70F7B00C0FB62 /* PBXTargetDependency */,
-				C72362D61DD70F8100C0FB62 /* PBXTargetDependency */,
 			);
 			name = Maofan;
 			productName = Maofan;
@@ -274,70 +186,12 @@
 			mainGroup = C7700A3F1D81BBEE00908DB2;
 			productRefGroup = C7700A491D81BBEE00908DB2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C72362B81DD70F5300C0FB62 /* Products */;
-					ProjectRef = C72362B71DD70F5300C0FB62 /* OAuthSwift.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				C7700A471D81BBEE00908DB2 /* Maofan */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C72362C21DD70F5400C0FB62 /* OAuthSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OAuthSwift.framework;
-			remoteRef = C72362C11DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72362C41DD70F5400C0FB62 /* OAuthSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OAuthSwift.framework;
-			remoteRef = C72362C31DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72362C61DD70F5400C0FB62 /* OAuthSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OAuthSwift.framework;
-			remoteRef = C72362C51DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72362C81DD70F5400C0FB62 /* OAuthSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OAuthSwift.framework;
-			remoteRef = C72362C71DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72362CA1DD70F5400C0FB62 /* OAuthSwiftDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = OAuthSwiftDemo.app;
-			remoteRef = C72362C91DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72362CC1DD70F5400C0FB62 /* OAuthSwiftOSXDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = OAuthSwiftOSXDemo.app;
-			remoteRef = C72362CB1DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72362CE1DD70F5400C0FB62 /* OAuthSwiftTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OAuthSwiftTests.xctest;
-			remoteRef = C72362CD1DD70F5400C0FB62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C7700A461D81BBEE00908DB2 /* Resources */ = {
@@ -419,19 +273,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C72362D21DD70F7B00C0FB62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OAuthSwift;
-			targetProxy = C72362D11DD70F7B00C0FB62 /* PBXContainerItemProxy */;
-		};
-		C72362D61DD70F8100C0FB62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OAuthSwift;
-			targetProxy = C72362D51DD70F8100C0FB62 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7700A4F1D81BBEE00908DB2 /* Main.storyboard */ = {

@@ -10,4 +10,5 @@ target 'Maofan' do
   # Pods for Maofan
     pod 'YYText'
     pod 'SwiftyJSON'
+    pod 'OAuthSwift', '~> 1.1.0'
 end
