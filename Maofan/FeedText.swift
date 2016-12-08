@@ -17,7 +17,7 @@ struct FeedText {
     init(string: String) {
         let pattern = "([@#]?)<a href=\"(.*?)\".*?>(.*?)</a>([#]?)"
         let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
-        let array = regular.matches(in: string, options: [], range: NSMakeRange(0, string.characters.count))
+        let array = regular.matches(in: string, options: [], range: NSMakeRange(0, (string as NSString).length))
         var plainTexts: [String] = []
         var linkTexts: [LinkText] = []
         var index = 0
