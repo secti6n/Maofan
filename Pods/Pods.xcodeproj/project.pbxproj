@@ -32,8 +32,6 @@
 		A8ADCA6F3E0654C7C768BA6725EC6CCF /* OAuthSwiftCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3533E6D206C2E046058D53950ABB11 /* OAuthSwiftCredential.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B3636B80B94AAE43B5844660386FF532 /* Collection+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF81A41EB1206273AC25B049C993AF51 /* Collection+OAuthSwift.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C77876F2CFC6DBA23EC72649515FA984 /* NSError+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253DD2BA82407B8773D023454A0358D7 /* NSError+OAuthSwift.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C7BB5A821DF08AE400420C53 /* OAuth1SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB5A801DF08AE400420C53 /* OAuth1SwiftExtension.swift */; };
-		C7BB5A831DF08AE400420C53 /* OAuthSwiftClientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB5A811DF08AE400420C53 /* OAuthSwiftClientExtension.swift */; };
 		DC396AF63F86C85D07B9B8E06360699A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		DD4BBCA881FC450134049E450BA13F4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		E2E19FB7901CDF864C62D818D172952F /* OAuthSwiftHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98893DE073E360B1EA2234CC75037E84 /* OAuthSwiftHTTPRequest.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -104,8 +102,6 @@
 		B7901CFF777B6AF4A4F97A744015C00B /* Pods-Maofan-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Maofan-acknowledgements.plist"; sourceTree = "<group>"; };
 		B8531A31D2F7D8B09C98D2E97EDD174C /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
 		BD22798D94BC225E4F3660A86F4C54A4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7BB5A801DF08AE400420C53 /* OAuth1SwiftExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth1SwiftExtension.swift; sourceTree = "<group>"; };
-		C7BB5A811DF08AE400420C53 /* OAuthSwiftClientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftClientExtension.swift; sourceTree = "<group>"; };
 		CB3FFD440D987429342DD219B7ACCB0A /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		CCD579665912376CF0232CE8593E2287 /* Pods-Maofan-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Maofan-umbrella.h"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -232,7 +228,6 @@
 		B95E5985B83C43333A368CCD93DB3047 /* OAuthSwift */ = {
 			isa = PBXGroup;
 			children = (
-				C7BB5A7F1DF08AE400420C53 /* MFOAuthSwiftExtension */,
 				FF81A41EB1206273AC25B049C993AF51 /* Collection+OAuthSwift.swift */,
 				8AF6075921282C51295D93157491A512 /* Data+OAuthSwift.swift */,
 				2AD5F7456C20F51DE6B14E88D78248C7 /* Dictionary+OAuthSwift.swift */,
@@ -275,15 +270,6 @@
 				86780D7FD2AE247BDD6FFB17BEFA720B /* Pods-Maofan */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C7BB5A7F1DF08AE400420C53 /* MFOAuthSwiftExtension */ = {
-			isa = PBXGroup;
-			children = (
-				C7BB5A801DF08AE400420C53 /* OAuth1SwiftExtension.swift */,
-				C7BB5A811DF08AE400420C53 /* OAuthSwiftClientExtension.swift */,
-			);
-			path = MFOAuthSwiftExtension;
 			sourceTree = "<group>";
 		};
 		CE130AB1AD1F4442246674CAF4519011 /* Pods */ = {
@@ -436,7 +422,6 @@
 				C77876F2CFC6DBA23EC72649515FA984 /* NSError+OAuthSwift.swift in Sources */,
 				12F1F72D542B56A5032C974F3346B9B1 /* OAuth1Swift.swift in Sources */,
 				8507F3564DD6453EA31D894E5E02E094 /* OAuth2Swift.swift in Sources */,
-				C7BB5A831DF08AE400420C53 /* OAuthSwiftClientExtension.swift in Sources */,
 				3A7F8BBAE5C24CDE9464435EED64936D /* OAuthSwift-dummy.m in Sources */,
 				3346DF5C8AB502C60C180CC89E00AEA6 /* OAuthSwift.swift in Sources */,
 				E4B7351901902F6AB7E569718F25BD97 /* OAuthSwiftClient.swift in Sources */,
@@ -450,7 +435,6 @@
 				68A30E31E6FB7FC3694D72A0B0673E33 /* Objc.swift in Sources */,
 				841FF7BEB461CDD5F08E89BC0625FAE1 /* SHA1.swift in Sources */,
 				3BB1DBB1B57EE48D8781D9DE40012E5D /* String+OAuthSwift.swift in Sources */,
-				C7BB5A821DF08AE400420C53 /* OAuth1SwiftExtension.swift in Sources */,
 				7A6787C0EBE6F06B6119A1A0183797F0 /* UIApplication+OAuthSwift.swift in Sources */,
 				1052E0C665998A79086A1E1266596EBB /* URL+OAuthSwift.swift in Sources */,
 				5F0F3F43CB45D3E19FA58CE31087A33B /* Utils.swift in Sources */,
@@ -475,69 +459,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		19320BCA099E92B72124D55350E9D1C8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2C344F05176C44FBEC180275062FA30 /* SwiftyJSON.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3FDFD5DF3947FEF0163784B953A49357 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 971FB346156BE31542815107A8E78A1B /* Pods-Maofan.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Maofan/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Maofan/Pods-Maofan.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Maofan;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		42287DDF97330524BA3EF220F0276DA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -576,37 +497,7 @@
 			};
 			name = Release;
 		};
-		48EB787103FD455538779760AB912C42 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1741AF14284B4CBECEB50E515A530A83 /* OAuthSwift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/OAuthSwift/OAuthSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OAuthSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/OAuthSwift/OAuthSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = OAuthSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		49643EE8D61C2B2BD0CD7E25F8CE5D25 /* Debug */ = {
+		45FAFC371FE568F3444FC8CF096AA685 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8531A31D2F7D8B09C98D2E97EDD174C /* Pods-Maofan.debug.xcconfig */;
 			buildSettings = {
@@ -634,13 +525,79 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		6BC98522E6D51272C6AA7DB522D14D49 /* Release */ = {
+		8AE9D1DDDF96B2AD88E9F356AF91B7EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2C344F05176C44FBEC180275062FA30 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		99BCF7434475B1AA320035398B661471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 971FB346156BE31542815107A8E78A1B /* Pods-Maofan.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Maofan/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Maofan/Pods-Maofan.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Maofan;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ABE5A3E850C1E32E60EF8883952FFF0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2C344F05176C44FBEC180275062FA30 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
@@ -663,42 +620,12 @@
 				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		6D59BD1B1E9493E08630F613DA198F4B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1741AF14284B4CBECEB50E515A530A83 /* OAuthSwift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/OAuthSwift/OAuthSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OAuthSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/OAuthSwift/OAuthSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = OAuthSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		AE9439C22469D35336242DD983DB5C5F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -742,14 +669,75 @@
 			};
 			name = Debug;
 		};
+		B4A9CDA84DCDB00D9253837EEAD929B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1741AF14284B4CBECEB50E515A530A83 /* OAuthSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OAuthSwift/OAuthSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OAuthSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/OAuthSwift/OAuthSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = OAuthSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA4F710B295DFE877F7E01BA856D96B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1741AF14284B4CBECEB50E515A530A83 /* OAuthSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OAuthSwift/OAuthSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OAuthSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/OAuthSwift/OAuthSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = OAuthSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		03D5FFF7FD86B6C073978BC5629A135C /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19320BCA099E92B72124D55350E9D1C8 /* Debug */,
-				6BC98522E6D51272C6AA7DB522D14D49 /* Release */,
+				8AE9D1DDDF96B2AD88E9F356AF91B7EB /* Debug */,
+				ABE5A3E850C1E32E60EF8883952FFF0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -766,8 +754,8 @@
 		A4604DD0058516F76A34C65A65EA86BE /* Build configuration list for PBXNativeTarget "OAuthSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D59BD1B1E9493E08630F613DA198F4B /* Debug */,
-				48EB787103FD455538779760AB912C42 /* Release */,
+				B4A9CDA84DCDB00D9253837EEAD929B6 /* Debug */,
+				CA4F710B295DFE877F7E01BA856D96B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -775,8 +763,8 @@
 		F6E9D262FD6197ED1CA98EB00A889273 /* Build configuration list for PBXNativeTarget "Pods-Maofan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49643EE8D61C2B2BD0CD7E25F8CE5D25 /* Debug */,
-				3FDFD5DF3947FEF0163784B953A49357 /* Release */,
+				45FAFC371FE568F3444FC8CF096AA685 /* Debug */,
+				99BCF7434475B1AA320035398B661471 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
