@@ -37,6 +37,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: YYLabel!
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
+        let image = UIImageJPEGRepresentation(UIImage(named: "a1")!, 0.1)!
+        Service.sharedInstance.update_profile_image(parameters: [ : ], image: image, success: { (response) in
+            print(JSON(data: response.data))
+        }, failure: { (error) in
+            Misc.handleError(error)
+        })
+        
+        
+        
         let param = [
             "id" : "CgQlwCFDq-Y", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
             "format" : "html"
@@ -73,7 +82,11 @@ class ViewController: UIViewController {
             "format": "html",
             "status": "Hello, world! \(arc4random())"
         ]
-        Service.sharedInstance.postText(parameters: param, success: nil, failure: nil)
+        Service.sharedInstance.postText(parameters: param, success: { (response) in
+            print(JSON(data: response.data))
+        }, failure: { (error) in
+            Misc.handleError(error)
+        })
     }
     
     @IBAction func imageButtonDidTouch(_ sender: AnyObject) {
@@ -84,9 +97,9 @@ class ViewController: UIViewController {
         let image = UIImageJPEGRepresentation(UIImage(named: "test")!, 0.1)!
         Service.sharedInstance.postImage(parameters: param, image: image, success: { (response) in
             print(JSON(data: response.data))
-        }) { (error) in
+        }, failure: { (error) in
             Misc.handleError(error)
-        }
+        })
     }
 
 }

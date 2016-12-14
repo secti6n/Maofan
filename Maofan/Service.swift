@@ -34,11 +34,11 @@ class Service {
     // MARK: post feed
     
     func postText(parameters: [String: String], success: Success?, failure: Failure?) {
-        client.mf_postText(apiPath("/statuses/update"), parameters: parameters, success: success, failure: failure)
+        client.post(apiPath("/statuses/update"), parameters: parameters, success: success, failure: failure)
     }
     
     func postImage(parameters: [String: String], image: Data, success: Success?, failure: Failure?) {
-        client.mf_postImage(apiPath("/photos/upload"), parameters: parameters, image: image, success: success, failure: failure)
+        client.mf_postImage(name: "photo", urlString: apiPath("/photos/upload"), parameters: parameters, image: image, success: success, failure: failure)
     }
     
     // MARK: statuses
@@ -176,7 +176,7 @@ class Service {
     }
     
     func update_profile_image(parameters: [String: String], image: Data, success: Success?, failure: Failure?) {
-        client.mf_postProfileImage(apiPath("/account/update_profile_image"), parameters: parameters, image: image, success: success, failure: failure)
+        client.mf_postImage(name: "image", urlString: apiPath("/account/update_profile_image"), parameters: parameters, image: image, success: success, failure: failure)
     }
     
     func update_profile(parameters: [String: String], success: Success?, failure: Failure?) {

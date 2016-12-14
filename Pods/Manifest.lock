@@ -1,8 +1,8 @@
 PODS:
-  - AsyncDisplayKit (2.0-rc.2):
-    - AsyncDisplayKit/PINRemoteImage (= 2.0-rc.2)
-  - AsyncDisplayKit/Core (2.0-rc.2)
-  - AsyncDisplayKit/PINRemoteImage (2.0-rc.2):
+  - AsyncDisplayKit (2.0):
+    - AsyncDisplayKit/PINRemoteImage (= 2.0)
+  - AsyncDisplayKit/Core (2.0)
+  - AsyncDisplayKit/PINRemoteImage (2.0):
     - AsyncDisplayKit/Core
     - PINRemoteImage/iOS (= 3.0.0-beta.7)
     - PINRemoteImage/PINCache
@@ -23,19 +23,19 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
-  - AsyncDisplayKit (>= 2.0-rc.2)
+  - AsyncDisplayKit
   - OAuthSwift (~> 1.1.0)
   - SwiftyJSON
   - YYText
 
 SPEC CHECKSUMS:
-  AsyncDisplayKit: 1581af9c1b2f9f4e625087ae404e1ab116ba4118
+  AsyncDisplayKit: ed88de8d9fb404e098f4fdde9b8db50f23972f56
   OAuthSwift: 7ec2c62274f6bdc30b1ba3b799c39a6fdcaea0e5
   PINCache: 6d273a6e0754bd26e3f12a38a90dde73cc6a42b2
   PINRemoteImage: ff63baf185088530db6cfa41cb665e2b5126b5c3
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: f46378aaa2ad5f9783b88e7204a00ab21d4cea09
+PODFILE CHECKSUM: a248d6c4aeb8b2f7fe65ee67e555eb0238f59f0c
 
 COCOAPODS: 1.0.0

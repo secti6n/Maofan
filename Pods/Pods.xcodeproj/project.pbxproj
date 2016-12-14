@@ -363,10 +363,9 @@
 		C5655DE301E54DDF6B9AA3AD37947955 /* ASEnvironmentInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D20464BE7EBF76F1D966134DC8B56D /* ASEnvironmentInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C61DEB7B9DDF4CD51BEC0B03CF98E931 /* ASObjectDescriptionHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = A51F71DC3A8581CD5512D57F8C60080E /* ASObjectDescriptionHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6DF879C71003F2D7E31EAD9CC4F8E24 /* ASInternalHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A033A01D4E63097BD270CB3B6EE147 /* ASInternalHelpers.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C72A19181DF9B86E00C92436 /* OAuth1SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A19161DF9B86E00C92436 /* OAuth1SwiftExtension.swift */; };
-		C72A19191DF9B86E00C92436 /* OAuthSwiftClientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A19171DF9B86E00C92436 /* OAuthSwiftClientExtension.swift */; };
 		C7777C525BF3499F7861AF024D3CFA07 /* PINImage+WebP.h in Headers */ = {isa = PBXBuildFile; fileRef = 06874838F33F58AB9267E3310501848E /* PINImage+WebP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C77876F2CFC6DBA23EC72649515FA984 /* NSError+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916B5A9D567D0E70A5D96B08547636C /* NSError+OAuthSwift.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C7944BE51E011736005D8C4B /* MFOAuthSwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7944BE41E011736005D8C4B /* MFOAuthSwiftExtension.swift */; };
 		C815C724AEE5DD83DF2E031798C7041D /* ASLayoutElementInspectorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D283DB40682A6D1837890842F81FC254 /* ASLayoutElementInspectorNode.m */; };
 		C8C67AE18F7B0E722FCAE37E912BC707 /* ASTableNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5FE55EC152E3FA3F04F9B44DCA1A1AA /* ASTableNode.mm */; };
 		CA91FEE33EFCB48382FA5B292FA6E543 /* ASWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE4FF925180987EBE15256D451A0BD /* ASWeakProxy.m */; };
@@ -904,9 +903,8 @@
 		C53F17912968138FE029967E5F58F7C2 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		C6F527D26462C961426DDFB2BC108775 /* ASSectionContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASSectionContext.h; path = AsyncDisplayKit/Details/ASSectionContext.h; sourceTree = "<group>"; };
 		C6F7E4ABF87CB8D0541E69C48A3CF878 /* ASPINRemoteImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASPINRemoteImageDownloader.h; path = AsyncDisplayKit/Details/ASPINRemoteImageDownloader.h; sourceTree = "<group>"; };
-		C72A19161DF9B86E00C92436 /* OAuth1SwiftExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth1SwiftExtension.swift; sourceTree = "<group>"; };
-		C72A19171DF9B86E00C92436 /* OAuthSwiftClientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftClientExtension.swift; sourceTree = "<group>"; };
 		C75A821EF195F703454186E117D8088C /* ASDimension.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = ASDimension.mm; path = AsyncDisplayKit/Layout/ASDimension.mm; sourceTree = "<group>"; };
+		C7944BE41E011736005D8C4B /* MFOAuthSwiftExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MFOAuthSwiftExtension.swift; path = ../Maofan/MFOAuthSwiftExtension.swift; sourceTree = "<group>"; };
 		C7BDBF367BDBE9CB57B959D8B94F3E6E /* ASBackgroundLayoutSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASBackgroundLayoutSpec.h; path = AsyncDisplayKit/Layout/ASBackgroundLayoutSpec.h; sourceTree = "<group>"; };
 		C96027458D6087B8C964AF9603AD4A38 /* ASDisplayNode+DebugTiming.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ASDisplayNode+DebugTiming.h"; path = "AsyncDisplayKit/Private/ASDisplayNode+DebugTiming.h"; sourceTree = "<group>"; };
 		C9A96F994593A88CCB8B09D00285A445 /* _ASHierarchyChangeSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _ASHierarchyChangeSet.h; path = AsyncDisplayKit/Private/_ASHierarchyChangeSet.h; sourceTree = "<group>"; };
@@ -1651,6 +1649,7 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
+				C7944BE41E011736005D8C4B /* MFOAuthSwiftExtension.swift */,
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				72C4ADFC4D5D5D9A99F07D8DA82AF2CF /* Frameworks */,
 				C9AC3214B32AED724791831E92697D03 /* Pods */,
@@ -1708,7 +1707,6 @@
 		A8359D40B3718C6B91A352E449906D49 /* OAuthSwift */ = {
 			isa = PBXGroup;
 			children = (
-				C72A19151DF9B86E00C92436 /* MFOAuthSwiftExtension */,
 				5EA0150C754CF921BBB8680B0DECA9F8 /* Collection+OAuthSwift.swift */,
 				05CB41CB9086ACE558F5DC5E6A5A3F66 /* Data+OAuthSwift.swift */,
 				622614C210E610D5007BE6A95A4A1CE2 /* Dictionary+OAuthSwift.swift */,
@@ -1743,15 +1741,6 @@
 				86780D7FD2AE247BDD6FFB17BEFA720B /* Pods-Maofan */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C72A19151DF9B86E00C92436 /* MFOAuthSwiftExtension */ = {
-			isa = PBXGroup;
-			children = (
-				C72A19161DF9B86E00C92436 /* OAuth1SwiftExtension.swift */,
-				C72A19171DF9B86E00C92436 /* OAuthSwiftClientExtension.swift */,
-			);
-			path = MFOAuthSwiftExtension;
 			sourceTree = "<group>";
 		};
 		C9AC3214B32AED724791831E92697D03 /* Pods */ = {
@@ -2462,6 +2451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7944BE51E011736005D8C4B /* MFOAuthSwiftExtension.swift in Sources */,
 				B3636B80B94AAE43B5844660386FF532 /* Collection+OAuthSwift.swift in Sources */,
 				7DE96239D72D23E881FF86AA1D985E0F /* Data+OAuthSwift.swift in Sources */,
 				048A31B21E2D8DF4BD7CCA77277EF21E /* Dictionary+OAuthSwift.swift in Sources */,
@@ -2470,7 +2460,6 @@
 				C77876F2CFC6DBA23EC72649515FA984 /* NSError+OAuthSwift.swift in Sources */,
 				12F1F72D542B56A5032C974F3346B9B1 /* OAuth1Swift.swift in Sources */,
 				8507F3564DD6453EA31D894E5E02E094 /* OAuth2Swift.swift in Sources */,
-				C72A19191DF9B86E00C92436 /* OAuthSwiftClientExtension.swift in Sources */,
 				3A7F8BBAE5C24CDE9464435EED64936D /* OAuthSwift-dummy.m in Sources */,
 				3346DF5C8AB502C60C180CC89E00AEA6 /* OAuthSwift.swift in Sources */,
 				E4B7351901902F6AB7E569718F25BD97 /* OAuthSwiftClient.swift in Sources */,
@@ -2484,7 +2473,6 @@
 				68A30E31E6FB7FC3694D72A0B0673E33 /* Objc.swift in Sources */,
 				841FF7BEB461CDD5F08E89BC0625FAE1 /* SHA1.swift in Sources */,
 				3BB1DBB1B57EE48D8781D9DE40012E5D /* String+OAuthSwift.swift in Sources */,
-				C72A19181DF9B86E00C92436 /* OAuth1SwiftExtension.swift in Sources */,
 				7A6787C0EBE6F06B6119A1A0183797F0 /* UIApplication+OAuthSwift.swift in Sources */,
 				1052E0C665998A79086A1E1266596EBB /* URL+OAuthSwift.swift in Sources */,
 				5F0F3F43CB45D3E19FA58CE31087A33B /* Utils.swift in Sources */,
