@@ -11,10 +11,10 @@ import OAuthSwift
 class Login {
     
     class func xauth(username: String, password: String) {
-        let oauthSwift = OAuth1Swift(mf_consumerKey: FanfouConsumer.key, mf_consumerSecret: FanfouConsumer.secret)
-        oauthSwift.mf_xauthorizeWithUsername(username: username, password: password, success: {  (credential, response, parameters) in
+        let client = OAuthSwiftClient(consumerKey: FanfouConsumer.key, consumerSecret: FanfouConsumer.secret)
+        client.mf_xauthorizeWithUsername(username: username, password: password, success: {  (credential, response, parameters) in
             Service.reloadSharedInstance()
-            Service.sharedInstance.client = oauthSwift.client
+            Service.sharedInstance.client = client
             }, failure:{ (error) in
                 Misc.handleError(error)
         })

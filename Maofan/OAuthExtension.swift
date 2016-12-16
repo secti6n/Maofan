@@ -8,69 +8,34 @@
 
 import OAuthSwift
 
-extension OAuth1Swift {
+extension OAuthSwiftClient {
     
-    convenience public init(mf_consumerKey: String, mf_consumerSecret: String) {
-        self.init(consumerKey: mf_consumerKey, consumerSecret: mf_consumerSecret, requestTokenUrl: "", authorizeUrl: "", accessTokenUrl: "")
-    }
-    
-    public func mf_xauthorizeWithUsername(username: String, password:String, success: @escaping TokenSuccessHandler, failure: FailureHandler?) {
+    func mf_xauthorizeWithUsername(username: String, password:String, success: @escaping OAuthSwift.TokenSuccessHandler, failure: OAuthSwift.FailureHandler?) {
         var parameters = Dictionary<String, Any>()
         parameters["x_auth_username"] = username
         parameters["x_auth_password"] = password
         parameters["x_auth_mode"] = "client_auth"
-        let _ = self.client.post(
+        self.post(
             FanfouConsumer.access_token_url, parameters: parameters,
             success: { [weak self] response in
                 guard let this = self else { return }
                 let parameters = response.string?.parametersFromQueryString ?? [:]
-                print(parameters)
                 if let oauthToken = parameters["oauth_token"] {
-                    this.client.credential.oauthToken = oauthToken
+                    this.credential.oauthToken = oauthToken
                 }
                 if let oauthTokenSecret = parameters["oauth_token_secret"] {
-                    this.client.credential.oauthTokenSecret = oauthTokenSecret
+                    this.credential.oauthTokenSecret = oauthTokenSecret
                 }
-                success(this.client.credential, response, parameters)
+                success(this.credential, response, parameters)
             }, failure: failure
         )
     }
     
-    
 }
-
-extension String {
-    
-    var parametersFromQueryString: [String: String] {
-        return dictionaryBySplitting(elementSeparator: "&", keyValueSeparator: "=")
-    }
-    
-    func dictionaryBySplitting(elementSeparator: String, keyValueSeparator: String) -> [String: String] {
-        var parameters: [String: String] = [ : ]
-        let scanner = Scanner(string: self)
-        var key: NSString?
-        var value: NSString?
-        while !scanner.isAtEnd {
-            key = nil
-            scanner.scanUpTo(keyValueSeparator, into: &key)
-            scanner.scanString(keyValueSeparator, into: nil)
-            value = nil
-            scanner.scanUpTo(elementSeparator, into: &value)
-            scanner.scanString(elementSeparator, into: nil)
-            if let key = key as? String, let value = value as? String {
-                parameters.updateValue(value, forKey: key)
-            }
-        }
-        return parameters
-    }
-    
-}
-
-
 
 extension OAuthSwiftClient {
     
-    public func mf_postImage(name: String, urlString: String, parameters: OAuthSwift.Parameters, image: Data, success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
+    func mf_postImage(name: String, urlString: String, parameters: OAuthSwift.Parameters, image: Data, success: OAuthSwiftHTTPRequest.SuccessHandler?, failure: OAuthSwiftHTTPRequest.FailureHandler?) {
         let multiparts = [ OAuthSwiftMultipartData(name: name, data: image, fileName: "file", mimeType: "image/jpeg") ]
         let boundary = "AS-boundary-\(arc4random())-\(arc4random())"
         let kHTTPHeaderContentType = "Content-Type"
@@ -103,6 +68,33 @@ extension OAuthSwiftClient {
         data.append(endingData)
         
         return data
+    }
+    
+}
+
+extension String {
+    
+    var parametersFromQueryString: [String: String] {
+        return dictionaryBySplitting(elementSeparator: "&", keyValueSeparator: "=")
+    }
+    
+    func dictionaryBySplitting(elementSeparator: String, keyValueSeparator: String) -> [String: String] {
+        var parameters: [String: String] = [ : ]
+        let scanner = Scanner(string: self)
+        var key: NSString?
+        var value: NSString?
+        while !scanner.isAtEnd {
+            key = nil
+            scanner.scanUpTo(keyValueSeparator, into: &key)
+            scanner.scanString(keyValueSeparator, into: nil)
+            value = nil
+            scanner.scanUpTo(elementSeparator, into: &value)
+            scanner.scanString(elementSeparator, into: nil)
+            if let key = key as? String, let value = value as? String {
+                parameters.updateValue(value, forKey: key)
+            }
+        }
+        return parameters
     }
     
 }
