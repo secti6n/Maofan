@@ -11,7 +11,6 @@ target 'Maofan' do
     pod 'YYText'
     pod 'SwiftyJSON'
     pod 'OAuthSwift', '~> 1.1.0'
-    pod 'AsyncDisplayKit'
 end
 
 post_install do |installer|

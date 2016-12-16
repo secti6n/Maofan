@@ -9,20 +9,11 @@ import UIKit
 import CoreData
 import YYText
 import SwiftyJSON
-import AsyncDisplayKit
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let string = NSAttributedString(string: "Hey, here's some text.")
-        
-        let node = ASTextNode()
-        node.attributedText = string
-        node.frame = CGRect(x: 50, y: 50, width: 100, height: 20)
-        view.addSubnode(node)
-        
-        
         label.text = "press test button to parse a fanfou feed"
         label.numberOfLines = 0
         label.highlightTapAction = { (view, attrString, range, rect) in
