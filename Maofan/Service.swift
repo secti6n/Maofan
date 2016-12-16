@@ -28,7 +28,7 @@ class Service {
     }
     
     func apiPath(_ string: String) -> String {
-        return "http://api.fanfou.com\(string).json"
+        return FanfouConsumer.api_url + string + ".json"
     }
     
     // MARK: post feed
