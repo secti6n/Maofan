@@ -20,7 +20,6 @@ extension OAuthSwiftClient {
             success: { [weak self] response in
                 guard let this = self else { return }
                 let parameters = response.string?.parametersFromQueryString ?? [:]
-                print(parameters)
                 if let oauthToken = parameters["oauth_token"] {
                     this.credential.oauthToken = oauthToken
                 }
