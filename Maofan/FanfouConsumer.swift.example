@@ -13,6 +13,8 @@ class FanfouConsumer: AnyObject {
     // 在这里申请饭否 API 权限：http://fanfou.com/apps
     // 填好后，将本文件名改成 FanfouConsumer.swift
     
+    static let access_token_url = "http://fanfou.com/oauth/access_token"
+    static let api_url = "http://api.fanfou.com"
     // Consumer key
     static let key = ""
     // Consumer secret
