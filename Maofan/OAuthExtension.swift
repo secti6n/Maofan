@@ -81,13 +81,11 @@ extension String {
     func dictionaryBySplitting(elementSeparator: String, keyValueSeparator: String) -> [String: String] {
         var parameters: [String: String] = [ : ]
         let scanner = Scanner(string: self)
-        var key: NSString?
-        var value: NSString?
         while !scanner.isAtEnd {
-            key = nil
+            var key: NSString? = nil
+            var value: NSString? = nil
             scanner.scanUpTo(keyValueSeparator, into: &key)
             scanner.scanString(keyValueSeparator, into: nil)
-            value = nil
             scanner.scanUpTo(elementSeparator, into: &value)
             scanner.scanString(elementSeparator, into: nil)
             if let key = key as? String, let value = value as? String {
