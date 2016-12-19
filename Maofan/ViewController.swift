@@ -28,15 +28,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: YYLabel!
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
-        let image = UIImageJPEGRepresentation(UIImage(named: "a1")!, 0.1)!
-        Service.sharedInstance.update_profile_image(parameters: [ : ], image: image, success: { (response) in
-            print(JSON(data: response.data))
-        }, failure: { (error) in
-            Misc.handleError(error)
-        })
-        
-        
-        
         let param = [
             "id" : "CgQlwCFDq-Y", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
             "format" : "html"
@@ -44,6 +35,7 @@ class ViewController: UIViewController {
         Service.sharedInstance.show(parameters: param, success: { (response) in
             let json = JSON(data: response.data)
             self.label.attributedText = FeedText(string: json["text"].stringValue).parseToAttrString()
+            self.label.frame.size = self.label.sizeThatFits(CGSize(width: 200, height: CGFloat.greatestFiniteMagnitude))
         }, failure: nil)
     }
     
