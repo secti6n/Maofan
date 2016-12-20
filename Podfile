@@ -9,9 +9,7 @@ target 'Maofan' do
 
   # Pods for Maofan
     pod 'YYText'
-    pod 'SDWebImage', '~> 4.0.0-beta2'
-#     pod 'PINRemoteImage/WebP'
-    pod 'FLAnimatedImage'
+    pod 'SDWebImage/GIF', '~> 4.0.0-beta2'
     pod 'SwiftyJSON'
     pod 'OAuthSwift'
 end

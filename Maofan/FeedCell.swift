@@ -26,21 +26,9 @@ class FeedCell: UITableViewCell {
         }
     }
     
-    var gif: FLAnimatedImage?
-
     func config(feed: Feed) {
         feed.applyLayoutTo(label: label)
         photo.sd_setImage(with: feed.photo)
-//        
-//        
-//        if let gif = gif {
-//            self.photo.animatedImage = gif
-//        } else {
-//            SDWebImageDownloader.shared().downloadImage(with: url, options: SDWebImageDownloaderOptions.lowPriority, progress: nil, completed: {(image, data, error, bool) in
-//                self.gif = FLAnimatedImage(animatedGIFData: data)
-//            })
-//        }
-        
     }
 
 }
