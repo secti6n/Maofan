@@ -34,13 +34,12 @@ struct FeedText {
         plainTexts.append((string as NSString).substring(with: afterRange).stringByDecodingHTMLEntities)
         self.plainTexts = plainTexts
         self.linkTexts = linkTexts
-        print("原始字串：\(string)\n")
-        print("count: \(plainTexts.count) \(linkTexts.count)")
-        print(self)
+//        print("原始字串：\(string)\n")
+//        print("count: \(plainTexts.count) \(linkTexts.count)")
+//        print(self)
     }
     
-    func parseToAttrString() -> NSAttributedString? {
-        guard let last = plainTexts.last else { return nil }
+    func parseToAttrString() -> NSAttributedString {
         let text = NSMutableAttributedString()
         for (index, linkText) in linkTexts.enumerated() {
             let plainAttr = NSAttributedString(string: plainTexts[index])
@@ -54,7 +53,7 @@ struct FeedText {
             linkAttr.yy_color = UIColor.blue
             text.append(linkAttr)
         }
-        text.append(NSAttributedString(string: last))
+        text.append(NSAttributedString(string: plainTexts.last!))
         text.yy_font = UIFont.systemFont(ofSize: 17)
         text.yy_lineSpacing = 10
         return text

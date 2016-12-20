@@ -13,12 +13,15 @@
 		C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF131DDB2B5E006E2F28 /* Login.swift */; };
 		C708DF511DDB5D65006E2F28 /* FanfouConsumer.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */; };
 		C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72362DC1DD72AEB00C0FB62 /* Misc.swift */; };
+		C743C18A1E095C500009A457 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743C1891E095C500009A457 /* FeedCell.swift */; };
+		C743C18C1E095DBA0009A457 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743C18B1E095DBA0009A457 /* HomeViewController.swift */; };
 		C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */; };
 		C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7700A4D1D81BBEE00908DB2 /* ViewController.swift */; };
 		C7700A511D81BBEE00908DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7700A4F1D81BBEE00908DB2 /* Main.storyboard */; };
 		C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */; };
 		C7700A561D81BBEE00908DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7700A551D81BBEE00908DB2 /* Assets.xcassets */; };
 		C7700A591D81BBEE00908DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */; };
+		C77DDCBF1E09778000E1D02D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DDCBE1E09778000E1D02D /* Feed.swift */; };
 		C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78561E91DEF2C4E00956277 /* FeedText.swift */; };
 		C7A63B3B1E0457560077A7F7 /* OAuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */; };
 		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
@@ -45,14 +48,17 @@
 		C708DF131DDB2B5E006E2F28 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FanfouConsumer.swift.example; sourceTree = "<group>"; };
 		C72362DC1DD72AEB00C0FB62 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		C743C1891E095C500009A457 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		C743C18B1E095DBA0009A457 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C7700A481D81BBEE00908DB2 /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7700A4D1D81BBEE00908DB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7700A501D81BBEE00908DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7700A531D81BBEE00908DB2 /* Maofan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maofan.xcdatamodel; sourceTree = "<group>"; };
-		C7700A551D81BBEE00908DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7700A551D81BBEE00908DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Maofan/Assets.xcassets; sourceTree = "<group>"; };
 		C7700A581D81BBEE00908DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7700A5A1D81BBEE00908DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C77DDCBE1E09778000E1D02D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C78561E91DEF2C4E00956277 /* FeedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedText.swift; sourceTree = "<group>"; };
 		C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthExtension.swift; sourceTree = "<group>"; };
 		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
@@ -91,7 +97,9 @@
 		C7700A3F1D81BBEE00908DB2 = {
 			isa = PBXGroup;
 			children = (
+				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
 				C7700A4A1D81BBEE00908DB2 /* Maofan */,
+				C7700A551D81BBEE00908DB2 /* Assets.xcassets */,
 				C7700A491D81BBEE00908DB2 /* Products */,
 				556652EB90D553078A265754 /* Pods */,
 				4AADC5378274757ED199CC43 /* Frameworks */,
@@ -110,17 +118,18 @@
 			isa = PBXGroup;
 			children = (
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
+				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
+				C743C1891E095C500009A457 /* FeedCell.swift */,
+				C77DDCBE1E09778000E1D02D /* Feed.swift */,
+				C78561E91DEF2C4E00956277 /* FeedText.swift */,
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */,
 				C708B8ED1D990C81006B1C8A /* Service.swift */,
 				C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
-				C78561E91DEF2C4E00956277 /* FeedText.swift */,
 				C708DF131DDB2B5E006E2F28 /* Login.swift */,
 				C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */,
 				C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */,
-				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
-				C7700A551D81BBEE00908DB2 /* Assets.xcassets */,
 				C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */,
 				C7700A5A1D81BBEE00908DB2 /* Info.plist */,
 				C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */,
@@ -256,15 +265,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */,
+				C77DDCBF1E09778000E1D02D /* Feed.swift in Sources */,
 				C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */,
 				C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */,
 				C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */,
+				C743C18A1E095C500009A457 /* FeedCell.swift in Sources */,
 				C708B8EE1D990C81006B1C8A /* Service.swift in Sources */,
 				C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */,
 				C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */,
 				C7A63B3B1E0457560077A7F7 /* OAuthExtension.swift in Sources */,
 				C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */,
 				C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */,
+				C743C18C1E095DBA0009A457 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +289,7 @@
 				C7700A501D81BBEE00908DB2 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Maofan;
 			sourceTree = "<group>";
 		};
 		C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */ = {

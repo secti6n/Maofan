@@ -9,8 +9,11 @@ target 'Maofan' do
 
   # Pods for Maofan
     pod 'YYText'
+    pod 'SDWebImage', '~> 4.0.0-beta2'
+#     pod 'PINRemoteImage/WebP'
+    pod 'FLAnimatedImage'
     pod 'SwiftyJSON'
-    pod 'OAuthSwift', '~> 1.1.0'
+    pod 'OAuthSwift'
 end
 
 post_install do |installer|
