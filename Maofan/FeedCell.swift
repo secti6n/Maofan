@@ -28,7 +28,7 @@ class FeedCell: UITableViewCell {
     
     func config(feed: Feed) {
         feed.applyLayoutTo(label: label)
-        photo.sd_setImage(with: feed.photo)
+        photo.sd_setImage(with: feed.smallPhoto)
     }
 
 }

@@ -66,4 +66,10 @@ class Feed {
         }
     }
     
+    var smallPhoto: URL? {
+        get {
+            return json["photo"]["imageurl"].URL
+        }
+    }
+    
 }
