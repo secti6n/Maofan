@@ -60,6 +60,12 @@ class Feed {
         }
     }
     
+    var id: String {
+        get {
+            return json["id"].stringValue
+        }
+    }
+    
     var photo: URL? {
         get {
             return json["photo"]["largeurl"].URL

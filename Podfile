@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 project 'Maofan.xcodeproj'
 
 # Uncomment this line to define a global platform for your project
@@ -9,7 +11,9 @@ target 'Maofan' do
 
   # Pods for Maofan
     pod 'YYText'
-    pod 'SDWebImage/GIF', '~> 4.0.0-beta2'
+#     pod 'SDWebImage', '~> 4.0.0-beta'
+    pod 'AsyncDisplayKit', '>= 2.0'
+#     pod 'FLAnimatedImage'
     pod 'SwiftyJSON'
     pod 'OAuthSwift'
 end

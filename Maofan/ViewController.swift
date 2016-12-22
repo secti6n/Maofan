@@ -9,11 +9,18 @@ import UIKit
 import CoreData
 import YYText
 import SwiftyJSON
+import AsyncDisplayKit
 
 class ViewController: UIViewController {
     
+    let photoNode = ASNetworkImageNode()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoNode.url = URL(string: "https://media.giphy.com/media/13EZQUYWIlK5xe/giphy.gif")!
+        photoNode.frame = CGRect(x: self.view.frame.width - 200, y: 200, width: 200, height: 200)
+        self.view.addSubnode(photoNode)
+        
         label.text = "press test button to parse a fanfou feed"
         label.numberOfLines = 0
         label.highlightTapAction = { (view, attrString, range, rect) in

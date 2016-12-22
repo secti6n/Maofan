@@ -23,6 +23,7 @@
 {
     if (self = [super init]) {
         _canSetDataTaskPriority = [NSURLSessionTask instancesRespondToSelector:@selector(setPriority:)];
+        _numberOfRetries = 0;
     }
     return self;
 }
@@ -67,7 +68,7 @@
             dispatch_async(queue, ^
             {
                 progressImageBlock([PINRemoteImageManagerResult imageResultWithImage:image
-                                                                       animatedImage:nil
+                                                           alternativeRepresentation:nil
                                                                        requestLength:CACurrentMediaTime() - requestTime
                                                                                error:nil
                                                                           resultType:PINRemoteImageResultTypeProgress

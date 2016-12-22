@@ -120,13 +120,13 @@
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
 				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
 				C743C1891E095C500009A457 /* FeedCell.swift */,
+				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
 				C77DDCBE1E09778000E1D02D /* Feed.swift */,
 				C78561E91DEF2C4E00956277 /* FeedText.swift */,
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */,
 				C708B8ED1D990C81006B1C8A /* Service.swift */,
 				C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */,
-				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
 				C708DF131DDB2B5E006E2F28 /* Login.swift */,
 				C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */,
 				C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */,
@@ -144,13 +144,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7700A5D1D81BBEE00908DB2 /* Build configuration list for PBXNativeTarget "Maofan" */;
 			buildPhases = (
-				09767873107F7AE63EB97318 /* 📦 Check Pods Manifest.lock */,
+				88A71DD7BEA8B2E5B0332833 /* 📦 Check Pods Manifest.lock */,
+				09767873107F7AE63EB97318 /* [CP] Check Pods Manifest.lock */,
 				C7700A441D81BBEE00908DB2 /* Sources */,
 				C7700A451D81BBEE00908DB2 /* Frameworks */,
 				C7700A461D81BBEE00908DB2 /* Resources */,
 				C708B8F51D99175A006B1C8A /* Embed Frameworks */,
-				443BD11518E682B1254DD8A8 /* 📦 Embed Pods Frameworks */,
-				D9E7BB34490685A0FAF03381 /* 📦 Copy Pods Resources */,
+				443BD11518E682B1254DD8A8 /* [CP] Embed Pods Frameworks */,
+				D9E7BB34490685A0FAF03381 /* [CP] Copy Pods Resources */,
+				469E182FA81628BD33F3D744 /* 📦 Embed Pods Frameworks */,
+				3D0292BE58FA82B41DC3F6E7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Catt Liu";
 				TargetAttributes = {
 					C7700A471D81BBEE00908DB2 = {
@@ -212,22 +215,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09767873107F7AE63EB97318 /* 📦 Check Pods Manifest.lock */ = {
+		09767873107F7AE63EB97318 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		443BD11518E682B1254DD8A8 /* 📦 Embed Pods Frameworks */ = {
+		3D0292BE58FA82B41DC3F6E7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		443BD11518E682B1254DD8A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		469E182FA81628BD33F3D744 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -242,14 +275,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9E7BB34490685A0FAF03381 /* 📦 Copy Pods Resources */ = {
+		88A71DD7BEA8B2E5B0332833 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E7BB34490685A0FAF03381 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
