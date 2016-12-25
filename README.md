@@ -13,7 +13,7 @@
 
 - Product Design
 
----
+## Use
 
 请查看 FanfouConsumer.swift.example 替换 Consumer key、Consumer secret。去掉 .example 后缀名，使之正确加载。
 service 分支只有网络接口。
