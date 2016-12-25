@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
-				C7700A4A1D81BBEE00908DB2 /* Maofan */,
 				C7700A551D81BBEE00908DB2 /* Assets.xcassets */,
+				C7700A4A1D81BBEE00908DB2 /* Maofan */,
 				C7700A491D81BBEE00908DB2 /* Products */,
 				556652EB90D553078A265754 /* Pods */,
 				4AADC5378274757ED199CC43 /* Frameworks */,
