@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-db-LL2">
-                                <rect key="frame" x="131" y="488" width="42" height="30"/>
+                                <rect key="frame" x="125" y="455" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="login2"/>
                                 <connections>
@@ -30,23 +30,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZP-he-yxu">
-                                <rect key="frame" x="59" y="538" width="30" height="30"/>
+                                <rect key="frame" x="36" y="499" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="text"/>
                                 <connections>
                                     <action selector="textButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG1-tf-xbS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbw-5J-2aM">
-                                <rect key="frame" x="97" y="538" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="image"/>
-                                <connections>
-                                    <action selector="imageButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2PW-cd-3BF"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-gm-7l3">
-                                <rect key="frame" x="64" y="488" width="40" height="30"/>
+                                <rect key="frame" x="29" y="448" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="login1"/>
                                 <connections>
@@ -54,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIr-qO-qyL">
-                                <rect key="frame" x="54" y="316" width="60" height="30"/>
+                                <rect key="frame" x="29" y="344" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="deleteAll"/>
                                 <connections>
@@ -62,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qye-WP-Xwh">
-                                <rect key="frame" x="160" y="316" width="36" height="30"/>
+                                <rect key="frame" x="131" y="344" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="fetch"/>
                                 <connections>
@@ -78,22 +70,35 @@
                                     <segue destination="UHO-98-qfa" kind="show" id="69a-Rf-X2d"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3HW-zk-PHA">
+                                <rect key="frame" x="0.0" y="216" width="103" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gk9-j1-Vjn" customClass="YYLabel">
-                                <rect key="frame" x="27" y="110" width="302" height="128"/>
+                                <rect key="frame" x="1" y="80" width="302" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96407700600000001" green="0.96407700600000001" blue="0.96407700600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbw-5J-2aM">
+                                <rect key="frame" x="90" y="499" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="image"/>
+                                <connections>
+                                    <action selector="imageButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2PW-cd-3BF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="mkr-0C-tOX"/>
                     <connections>
                         <outlet property="label" destination="gk9-j1-Vjn" id="qaQ-GZ-Env"/>
+                        <outlet property="photo" destination="3HW-zk-PHA" id="e1c-Ok-c1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408.80000000000001" y="71.514242878560722"/>
+            <point key="canvasLocation" x="408.75" y="70.774647887323951"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="hY6-ui-ZSq">
@@ -116,7 +121,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNZ-Qg-qgP">
-                                                    <rect key="frame" x="133" y="92" width="108" height="108"/>
+                                                    <rect key="frame" x="196" y="92" width="108" height="108"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -131,7 +136,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="6WW-MF-8YQ" id="UcX-Zh-aBR"/>
-                                    <outlet property="photo" destination="RNZ-Qg-qgP" id="GiL-gc-Yer"/>
+                                    <outlet property="photo" destination="RNZ-Qg-qgP" id="dqg-pA-blY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

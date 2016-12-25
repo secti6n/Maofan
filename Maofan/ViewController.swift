@@ -13,13 +13,14 @@ import AsyncDisplayKit
 
 class ViewController: UIViewController {
     
-    let photoNode = ASNetworkImageNode()
+    @IBOutlet weak var photo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoNode.url = URL(string: "https://media.giphy.com/media/13EZQUYWIlK5xe/giphy.gif")!
-        photoNode.frame = CGRect(x: self.view.frame.width - 200, y: 200, width: 200, height: 200)
-        self.view.addSubnode(photoNode)
+        photo.frame = CGRect(x: self.view.frame.width - 200, y: 200, width: 200, height: 200)
+        let url = URL(string: "http://images11.app.happyjuzi.com/content/201512/24/cdf3775e-7542-43b7-a29e-4f03cd291db9.gif!ac1.nw.gif")!
+//        photo.sd_setImage(with: url)
+        photo.pin_setImage(from: url)
         
         label.text = "press test button to parse a fanfou feed"
         label.numberOfLines = 0

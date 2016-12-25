@@ -11,9 +11,7 @@ target 'Maofan' do
 
   # Pods for Maofan
     pod 'YYText'
-#     pod 'SDWebImage', '~> 4.0.0-beta'
-    pod 'AsyncDisplayKit', '>= 2.0'
-#     pod 'FLAnimatedImage'
+    pod 'AsyncDisplayKit'
     pod 'SwiftyJSON'
     pod 'OAuthSwift'
 end

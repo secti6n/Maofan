@@ -25,6 +25,8 @@
 		C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78561E91DEF2C4E00956277 /* FeedText.swift */; };
 		C7A63B3B1E0457560077A7F7 /* OAuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */; };
 		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
+		C7FBC5411E0C30A700BBF6AA /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FBC53F1E0C30A700BBF6AA /* FeedsViewController.swift */; };
+		C7FBC5451E0C31BF00BBF6AA /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FBC5441E0C31BF00BBF6AA /* FeedCellNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,8 @@
 		C78561E91DEF2C4E00956277 /* FeedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedText.swift; sourceTree = "<group>"; };
 		C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthExtension.swift; sourceTree = "<group>"; };
 		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
+		C7FBC53F1E0C30A700BBF6AA /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		C7FBC5441E0C31BF00BBF6AA /* FeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
 		FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,9 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
+				C7FBC5441E0C31BF00BBF6AA /* FeedCellNode.swift */,
+				C7FBC53F1E0C30A700BBF6AA /* FeedsViewController.swift */,
 				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
-				C743C1891E095C500009A457 /* FeedCell.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
+				C743C1891E095C500009A457 /* FeedCell.swift */,
 				C77DDCBE1E09778000E1D02D /* Feed.swift */,
 				C78561E91DEF2C4E00956277 /* FeedText.swift */,
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
@@ -144,7 +150,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7700A5D1D81BBEE00908DB2 /* Build configuration list for PBXNativeTarget "Maofan" */;
 			buildPhases = (
-				88A71DD7BEA8B2E5B0332833 /* 📦 Check Pods Manifest.lock */,
+				88A71DD7BEA8B2E5B0332833 /* [CP] Check Pods Manifest.lock */,
 				09767873107F7AE63EB97318 /* [CP] Check Pods Manifest.lock */,
 				C7700A441D81BBEE00908DB2 /* Sources */,
 				C7700A451D81BBEE00908DB2 /* Frameworks */,
@@ -177,7 +183,7 @@
 					C7700A471D81BBEE00908DB2 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = LK4XTSG397;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -275,19 +281,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		88A71DD7BEA8B2E5B0332833 /* 📦 Check Pods Manifest.lock */ = {
+		88A71DD7BEA8B2E5B0332833 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E7BB34490685A0FAF03381 /* [CP] Copy Pods Resources */ = {
@@ -314,7 +320,9 @@
 			files = (
 				C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */,
 				C77DDCBF1E09778000E1D02D /* Feed.swift in Sources */,
+				C7FBC5451E0C31BF00BBF6AA /* FeedCellNode.swift in Sources */,
 				C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */,
+				C7FBC5411E0C30A700BBF6AA /* FeedsViewController.swift in Sources */,
 				C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */,
 				C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */,
 				C743C18A1E095C500009A457 /* FeedCell.swift in Sources */,
@@ -448,13 +456,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LK4XTSG397;
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -463,13 +474,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LK4XTSG397;
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
