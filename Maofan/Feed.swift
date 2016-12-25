@@ -8,17 +8,19 @@
 
 import SwiftyJSON
 import YYText
+import YYWebImage
 
 class Feed {
     
-    // 是否需要有 weak？
     let json: JSON
     var layout: YYTextLayout?
-    var label: YYLabel?
     
     init(json: JSON) {
         self.json = json
         generateLayout()
+        if let photo = photo {
+            YYWebImageManager.shared().requestImage(with: photo, progress: nil, transform: nil)
+        }
     }
     
     func generateLayout() {
@@ -28,31 +30,18 @@ class Feed {
             container.size = CGSize(width: 414, height: CGFloat.greatestFiniteMagnitude)
             container.maximumNumberOfRows = 0
             let layout = YYTextLayout(container: container, text: text)!
-            self.layout = layout // *
-            if let label = self.label {
-                DispatchQueue.main.async {
-                    label.frame.size = layout.textBoundingSize
-                    label.textLayout = layout
-                }
-            }
+            self.layout = layout
         }
     }
     
-    /*
-    生成不会重复，排版可能重复：当下面方法中 1、2 两句之间发生了 * 就会这样。但机率很小。
-    1. 赋值（下面
-    *. 生成+排版（上面，因为有 1 的赋值了
-    2. 排版（下面，因为有 2 的排版了
-    */
     func exportLayoutTo(label: YYLabel) {
-        self.label = label // 1
-        if let layout = self.layout { // 2
+        if let layout = self.layout {
             DispatchQueue.main.async {
                 label.frame.size = layout.textBoundingSize
                 label.textLayout = layout
             }
         } else {
-            print("layout not ready")
+            print("Layout not ready. Consider generate layout instantly.")
         }
     }
     
