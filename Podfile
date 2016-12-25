@@ -1,19 +1,19 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
 project 'Maofan.xcodeproj'
 
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
 target 'Maofan' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   use_frameworks!
 
   # Pods for Maofan
+  
     pod 'YYText'
-    pod 'AsyncDisplayKit'
+    pod 'YYWebImage'
     pod 'SwiftyJSON'
     pod 'OAuthSwift'
+    
 end
 
 post_install do |installer|

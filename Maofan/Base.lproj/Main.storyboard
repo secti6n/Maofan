@@ -70,10 +70,6 @@
                                     <segue destination="UHO-98-qfa" kind="show" id="69a-Rf-X2d"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3HW-zk-PHA">
-                                <rect key="frame" x="0.0" y="216" width="103" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gk9-j1-Vjn" customClass="YYLabel">
                                 <rect key="frame" x="1" y="80" width="302" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,7 +89,6 @@
                     <navigationItem key="navigationItem" id="mkr-0C-tOX"/>
                     <connections>
                         <outlet property="label" destination="gk9-j1-Vjn" id="qaQ-GZ-Env"/>
-                        <outlet property="photo" destination="3HW-zk-PHA" id="e1c-Ok-c1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,8 +115,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNZ-Qg-qgP">
-                                                    <rect key="frame" x="196" y="92" width="108" height="108"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNZ-Qg-qgP" customClass="YYAnimatedImageView">
+                                                    <rect key="frame" x="153" y="0.0" width="200" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>

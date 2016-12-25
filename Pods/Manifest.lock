@@ -1,41 +1,29 @@
 PODS:
-  - AsyncDisplayKit (2.0.1):
-    - AsyncDisplayKit/PINRemoteImage (= 2.0.1)
-  - AsyncDisplayKit/Core (2.0.1)
-  - AsyncDisplayKit/PINRemoteImage (2.0.1):
-    - AsyncDisplayKit/Core
-    - PINRemoteImage/iOS (= 3.0.0-beta.7)
-    - PINRemoteImage/PINCache
   - OAuthSwift (1.1.0)
-  - PINCache (3.0.1-beta.2):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.2)
-    - PINCache/Core (= 3.0.1-beta.2)
-  - PINCache/Arc-exception-safe (3.0.1-beta.2):
-    - PINCache/Core
-  - PINCache/Core (3.0.1-beta.2)
-  - PINRemoteImage/Core (3.0.0-beta.7)
-  - PINRemoteImage/iOS (3.0.0-beta.7):
-    - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.7):
-    - PINCache (= 3.0.1-beta.2)
-    - PINRemoteImage/Core
   - SwiftyJSON (3.1.3)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
   - YYText (1.0.7)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
-  - AsyncDisplayKit
   - OAuthSwift
   - SwiftyJSON
   - YYText
+  - YYWebImage
 
 SPEC CHECKSUMS:
-  AsyncDisplayKit: 6c5a21d9ab30f3f48e877a67d44e3e19c1724f91
   OAuthSwift: 7ec2c62274f6bdc30b1ba3b799c39a6fdcaea0e5
-  PINCache: 6d273a6e0754bd26e3f12a38a90dde73cc6a42b2
-  PINRemoteImage: ff63baf185088530db6cfa41cb665e2b5126b5c3
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 9c0515f13f4c5bf27dbc4f909cebc471a3d474d0
+PODFILE CHECKSUM: e63846ca8000557893d51b556fccdf6d7035ad0a
 
 COCOAPODS: 1.1.1

@@ -20,7 +20,9 @@ class HomeViewController: UITableViewController {
             "page" : "1",
             "count" : "60",
         ]
-        Service.sharedInstance.photos_user_timeline(parameters: parameters, success: { (response) in
+        Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
+            
+            
             for json in JSON(data: response.data).array! {
                 self.feeds.append(Feed(json: json))
             }

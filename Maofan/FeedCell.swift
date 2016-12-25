@@ -8,11 +8,12 @@
 
 import UIKit
 import YYText
+import YYWebImage
 
 class FeedCell: UITableViewCell {
     
     @IBOutlet weak var label: YYLabel!
-    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var photo: YYAnimatedImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,10 +26,9 @@ class FeedCell: UITableViewCell {
     }
     
     func config(feed: Feed) {
-        feed.applyLayoutTo(label: label)
+        feed.exportLayoutTo(label: label)
         let url = feed.photo
-//        photo.sd_setImage(with: url)
-        photo.pin_setImage(from: url)
+        photo.yy_imageURL = url
     }
 
 }

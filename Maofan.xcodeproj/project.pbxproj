@@ -25,8 +25,6 @@
 		C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78561E91DEF2C4E00956277 /* FeedText.swift */; };
 		C7A63B3B1E0457560077A7F7 /* OAuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */; };
 		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
-		C7FBC5411E0C30A700BBF6AA /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FBC53F1E0C30A700BBF6AA /* FeedsViewController.swift */; };
-		C7FBC5451E0C31BF00BBF6AA /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FBC5441E0C31BF00BBF6AA /* FeedCellNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,8 +62,6 @@
 		C78561E91DEF2C4E00956277 /* FeedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedText.swift; sourceTree = "<group>"; };
 		C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthExtension.swift; sourceTree = "<group>"; };
 		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
-		C7FBC53F1E0C30A700BBF6AA /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
-		C7FBC5441E0C31BF00BBF6AA /* FeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
 		FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
-				C7FBC5441E0C31BF00BBF6AA /* FeedCellNode.swift */,
-				C7FBC53F1E0C30A700BBF6AA /* FeedsViewController.swift */,
 				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
 				C743C1891E095C500009A457 /* FeedCell.swift */,
@@ -320,9 +314,7 @@
 			files = (
 				C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */,
 				C77DDCBF1E09778000E1D02D /* Feed.swift in Sources */,
-				C7FBC5451E0C31BF00BBF6AA /* FeedCellNode.swift in Sources */,
 				C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */,
-				C7FBC5411E0C30A700BBF6AA /* FeedsViewController.swift in Sources */,
 				C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */,
 				C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */,
 				C743C18A1E095C500009A457 /* FeedCell.swift in Sources */,
