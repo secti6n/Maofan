@@ -12,24 +12,32 @@ import YYText
 
 class HomeViewController: UITableViewController {
     
-    var feeds: [Feed] = []
+    var feeds: [Feed] = [] {
+        didSet {
+            tableView.reloadData()
+            refreshControl?.endRefreshing()
+        }
+    }
     
-    override func viewDidLoad() {
+    func loadData() {
         let parameters = [
             "format" : "html",
-            "page" : "1",
-            "count" : "60",
-        ]
+            "count" : "42",
+            ]
         Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
-            
-            
+            var new: [Feed] = []
             for json in JSON(data: response.data).array! {
-                self.feeds.append(Feed(json: json))
+                new.append(Feed(json: json))
             }
-            self.tableView.reloadData()
+            self.feeds = new
         }, failure: { (error) in
             Misc.handleError(error)
         })
+    }
+    
+    override func viewDidLoad() {
+        tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        loadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

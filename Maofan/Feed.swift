@@ -61,9 +61,21 @@ class Feed {
         }
     }
     
+    var name: String {
+        get {
+            return json["user"]["name"].stringValue
+        }
+    }
+    
     var id: String {
         get {
             return json["id"].stringValue
+        }
+    }
+    
+    var rawid: Int {
+        get {
+            return json["rawid"].intValue
         }
     }
     
@@ -79,4 +91,32 @@ class Feed {
         }
     }
     
+}
+
+extension Feed: Hashable {
+    
+    var hashValue: Int {
+        return rawid
+    }
+
+}
+
+extension Feed: Comparable {}
+
+func ==(lhs: Feed, rhs: Feed) -> Bool {
+    return lhs.rawid == rhs.rawid
+}
+
+func >(lhs: Feed, rhs: Feed) -> Bool {
+    return lhs.rawid > rhs.rawid
+}
+
+func <(lhs: Feed, rhs: Feed) -> Bool {
+    return lhs.rawid < rhs.rawid
+}
+
+extension Feed {
+    
+    
+
 }

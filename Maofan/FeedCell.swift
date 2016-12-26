@@ -12,23 +12,25 @@ import YYWebImage
 
 class FeedCell: UITableViewCell {
     
-    @IBOutlet weak var label: YYLabel!
+    @IBOutlet weak var name: YYLabel!
+    @IBOutlet weak var story: YYLabel!
     @IBOutlet weak var photo: YYAnimatedImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        label.displaysAsynchronously = true
-        label.ignoreCommonProperties = true
-        label.highlightTapAction = { (view, attrString, range, rect) in
+        story.displaysAsynchronously = true
+        story.ignoreCommonProperties = true
+        story.highlightTapAction = { (view, attrString, range, rect) in
             let hightlight = attrString.attributedSubstring(from: range).attribute(YYTextHighlightAttributeName, at: 0, effectiveRange: nil)
             print((hightlight as! YYTextHighlight).userInfo!["urlString"] as! String)
         }
     }
     
     func config(feed: Feed) {
-        feed.exportLayoutTo(label: label)
+        feed.exportLayoutTo(label: story)
         let url = feed.photo
         photo.yy_imageURL = url
+        name.text = feed.name
     }
 
 }
