@@ -11,6 +11,7 @@
 
 ## Plan
 
+- 检查刷新是否导致图片闪烁
 - Product Design
 
 ## Use
