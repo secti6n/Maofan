@@ -14,6 +14,7 @@ class Feed {
     
     let json: JSON
     var layout: YYTextLayout?
+    weak var label: YYLabel?
     
     init(json: JSON) {
         self.json = json
@@ -31,17 +32,26 @@ class Feed {
             container.maximumNumberOfRows = 0
             let layout = YYTextLayout(container: container, text: text)!
             self.layout = layout
+            if let label = self.label {
+                DispatchQueue.main.async {
+                    label.frame.size = layout.textBoundingSize
+                    label.textLayout = layout
+                    self.label = nil
+                }
+            }
         }
     }
     
     func exportLayoutTo(label: YYLabel) {
+        self.label = label
         if let layout = self.layout {
             DispatchQueue.main.async {
                 label.frame.size = layout.textBoundingSize
                 label.textLayout = layout
+                self.label = nil
             }
         } else {
-            print("Layout not ready. Consider generate layout instantly.")
+            print("Layout not ready. Will be generated in 'generateLayout()'.")
         }
     }
     
