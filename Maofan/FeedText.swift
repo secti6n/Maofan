@@ -55,7 +55,7 @@ struct FeedText {
         }
         text.append(NSAttributedString(string: plainTexts.last!))
         text.yy_font = UIFont.systemFont(ofSize: 17)
-        text.yy_lineSpacing = 10
+//        text.yy_lineSpacing = 2
         return text
     }
     
