@@ -18,19 +18,21 @@ class FeedCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        story.displaysAsynchronously = true
-        story.ignoreCommonProperties = true
         story.highlightTapAction = { (view, attrString, range, rect) in
             let hightlight = attrString.attributedSubstring(from: range).attribute(YYTextHighlightAttributeName, at: 0, effectiveRange: nil)
             print((hightlight as! YYTextHighlight).userInfo!["urlString"] as! String)
         }
     }
     
-    func config(feed: Feed) {
-        feed.exportLayoutTo(label: story)
-        let url = feed.photo
-        photo.yy_imageURL = url
-        name.text = feed.name
+    weak var feed: Feed? {
+        didSet {
+            if let feed = feed {
+                feed.exportLayoutTo(label: story)
+                let url = feed.photo
+                photo.yy_imageURL = url
+                name.text = feed.name
+            }
+        }
     }
 
 }

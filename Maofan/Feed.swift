@@ -18,7 +18,7 @@ class Feed {
     
     init(json: JSON) {
         self.json = json
-        generateLayout()
+        self.generateLayout()
         if let photo = photo {
             YYWebImageManager.shared().requestImage(with: photo, progress: nil, transform: nil)
         }
@@ -34,9 +34,8 @@ class Feed {
             self.layout = layout
             if let label = self.label {
                 DispatchQueue.main.async {
-                    label.frame.size = layout.textBoundingSize
                     label.textLayout = layout
-                    self.label = nil
+                    label.frame.size.height = layout.textBoundingSize.height
                 }
             }
         }
@@ -45,10 +44,10 @@ class Feed {
     func exportLayoutTo(label: YYLabel) {
         self.label = label
         if let layout = self.layout {
+            print("Hit layout cache.")
             DispatchQueue.main.async {
-                label.frame.size = layout.textBoundingSize
                 label.textLayout = layout
-                self.label = nil
+                label.frame.size.height = layout.textBoundingSize.height
             }
         } else {
             print("Layout not ready. Will be generated in 'generateLayout()'.")
@@ -113,6 +112,18 @@ func >(lhs: Feed, rhs: Feed) -> Bool {
 
 func <(lhs: Feed, rhs: Feed) -> Bool {
     return lhs.rawid < rhs.rawid
+}
+
+func ==(lhs: Feed, rhs: Feed?) -> Bool {
+    return false
+}
+
+func >(lhs: Feed, rhs: Feed?) -> Bool {
+    return true
+}
+
+func <(lhs: Feed, rhs: Feed?) -> Bool {
+    return false
 }
 
 extension Feed {

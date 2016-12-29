@@ -12,12 +12,7 @@ import YYText
 
 class HomeViewController: UITableViewController {
     
-    var feeds: [Feed] = [] {
-        didSet {
-            tableView.reloadData()
-            refreshControl?.endRefreshing()
-        }
-    }
+    var feeds: [Feed] = []
     
     func loadData() {
         let parameters = [
@@ -30,8 +25,11 @@ class HomeViewController: UITableViewController {
                 new.append(Feed(json: json))
             }
             self.feeds = new
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }, failure: { (error) in
             Misc.handleError(error)
+            self.refreshControl?.endRefreshing()
         })
     }
     
@@ -50,8 +48,16 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
-        cell.config(feed: feeds[indexPath.row])
+        cell.feed = feeds[indexPath.row]
         return cell
+    }
+    
+    @IBAction func test(_ sender: Any) {
+        tableView.reloadData()
+    }
+    
+    @IBAction func testLoad(_ sender: Any) {
+        loadData()
     }
 
 }
