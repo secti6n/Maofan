@@ -13,56 +13,57 @@ import YYWebImage
 class Feed {
     
     let json: JSON
-    var layout: YYTextLayout?
+    var feedText: FeedText!
+    private var layout: YYTextLayout!
+    
     weak var label: YYLabel?
     
-    init(json: JSON) {
+    init(_ json: JSON) {
         self.json = json
-        self.generateLayout()
+        feedText = FeedText(text)
+        DispatchQueue.global().async {
+            self.layout = Style.layout(feed: self)
+        }
         if let photo = photo {
             YYWebImageManager.shared().requestImage(with: photo, progress: nil, transform: nil)
         }
     }
     
-    func generateLayout() {
-        DispatchQueue.global().async {
-            let text = FeedText(string: self.text).parseToAttrString()
-            let container = YYTextContainer()
-            container.size = CGSize(width: 414, height: CGFloat.greatestFiniteMagnitude)
-            container.maximumNumberOfRows = 0
-            let layout = YYTextLayout(container: container, text: text)!
-            self.layout = layout
-            if let label = self.label {
-                DispatchQueue.main.async {
-                    label.textLayout = layout
-                    label.frame.size.height = layout.textBoundingSize.height
-                }
+    func exportLayoutTo(label: YYLabel) {
+        self.label = label
+        var layout: YYTextLayout! = self.layout
+        if nil == layout {
+            print("Layout not ready. Calculate now.")
+            layout = Style.layout(feed: self)
+        } else {
+            print("Hit layout cache.")
+        }
+        label.textLayout = layout
+        label.frame.size = layout.textBoundingSize
+    }
+    
+    var feedTextHeight: CGFloat {
+        get {
+            if nil == self.layout {
+                self.layout = Style.layout(feed: self)
             }
+            return self.layout.textBoundingSize.height
         }
     }
     
-    func exportLayoutTo(label: YYLabel) {
-        self.label = label
-        if let layout = self.layout {
-            print("Hit layout cache.")
-            DispatchQueue.main.async {
-                label.textLayout = layout
-                label.frame.size.height = layout.textBoundingSize.height
+    var feedCellHeight: CGFloat {
+        get {
+            if hasPhoto {
+                return max(feedTextHeight, 100) + FeedCell.whitespace * 2
+            } else {
+                return feedTextHeight + FeedCell.whitespace * 2
             }
-        } else {
-            print("Layout not ready. Will be generated in 'generateLayout()'.")
         }
     }
     
     var text: String {
         get {
             return json["text"].stringValue
-        }
-    }
-    
-    var name: String {
-        get {
-            return json["user"]["name"].stringValue
         }
     }
     
@@ -78,15 +79,54 @@ class Feed {
         }
     }
     
+    var photoSize: CGSize? {
+        get {
+            if let image = YYImageCache.shared().getImageForKey(photoString) {
+                return image.size
+            }
+            return nil
+        }
+    }
+    
+    var hasPhoto: Bool {
+        get {
+            return nil != photo
+        }
+    }
+    
     var photo: URL? {
         get {
             return json["photo"]["largeurl"].URL
         }
     }
     
+    var photoString: String {
+        get {
+            return json["photo"]["largeurl"].stringValue
+        }
+    }
+    
     var smallPhoto: URL? {
         get {
             return json["photo"]["imageurl"].URL
+        }
+    }
+    
+    var user: User {
+        get {
+            return User(json["user"])
+        }
+    }
+    
+    var name: String {
+        get {
+            return json["user"]["name"].stringValue
+        }
+    }
+    
+    var userId: String {
+        get {
+            return json["user"]["id"].stringValue
         }
     }
     
@@ -124,10 +164,4 @@ func >(lhs: Feed, rhs: Feed?) -> Bool {
 
 func <(lhs: Feed, rhs: Feed?) -> Bool {
     return false
-}
-
-extension Feed {
-    
-    
-
 }

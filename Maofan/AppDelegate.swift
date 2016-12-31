@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import YYWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        YYWebImageManager.shared().queue?.maxConcurrentOperationCount = 6
+        Sound.configSound()
         return true
     }
 

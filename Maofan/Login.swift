@@ -10,7 +10,7 @@ import OAuthSwift
 
 class Login {
     
-    class func xauth(username: String, password: String) {
+    static func xauth(username: String, password: String) {
         let client = OAuthSwiftClient(consumerKey: FanfouConsumer.key, consumerSecret: FanfouConsumer.secret)
         client.mf_xauthorizeWithUsername(username: username, password: password, success: {  (credential, response, parameters) in
             Service.reloadSharedInstance()
@@ -21,7 +21,7 @@ class Login {
         })
     }
     
-    class func save(credential: OAuthSwiftCredential) {
+    static func save(credential: OAuthSwiftCredential) {
         Service.sharedInstance.verify_credentials(parameters: [:], success: { (response) in
             CoreDataTool.sharedInstance.save(jsonData: response.data as NSData, token: credential.oauthToken, secret: credential.oauthTokenSecret)
             print("account saved, token: \(credential.oauthToken) secret: \(credential.oauthTokenSecret)")

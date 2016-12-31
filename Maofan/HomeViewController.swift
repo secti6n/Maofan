@@ -11,22 +11,21 @@ import SwiftyJSON
 import YYText
 
 class HomeViewController: UITableViewController {
-    
-    var feeds: [Feed] = []
-    
-    func loadData() {
-        let parameters = [
+
+    func loadData(more: Bool = true) {
+        var parameters = [
             "format" : "html",
-            "count" : "42",
+            "count" : "\(loadCount)",
             ]
+        if more, let id = feeds.last?.id {
+            parameters.updateValue(id, forKey: "max_id")
+        }
         Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
             var new: [Feed] = []
             for json in JSON(data: response.data).array! {
-                new.append(Feed(json: json))
+                new.append(Feed(json))
             }
-            self.feeds = new
-            self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            self.feeds += new
         }, failure: { (error) in
             Misc.handleError(error)
             self.refreshControl?.endRefreshing()
@@ -34,6 +33,7 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        tableView.backgroundColor = Style.backgroundColor
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()
     }
@@ -43,7 +43,7 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return feeds[indexPath.row].feedCellHeight
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,12 +52,26 @@ class HomeViewController: UITableViewController {
         return cell
     }
     
-    @IBAction func test(_ sender: Any) {
-        tableView.reloadData()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Sound.playsound()
     }
     
-    @IBAction func testLoad(_ sender: Any) {
-        loadData()
+    var feeds: [Feed] = [] {
+        didSet {
+            let cells = tableView.visibleCells as! [FeedCell]
+            for cell in cells {
+                cell.label.displaysAsynchronously = false
+            }
+            self.tableView.reloadData()
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+                for cell in cells {
+                    cell.label.displaysAsynchronously = true
+                }
+            }
+            self.refreshControl?.endRefreshing()
+        }
     }
+    
+    var loadCount = 60
 
 }

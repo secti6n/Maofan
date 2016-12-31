@@ -12,7 +12,7 @@ class Service {
     
     static var sharedInstance = Service()
     
-    class func reloadSharedInstance() {
+    static func reloadSharedInstance() {
         sharedInstance = Service()
     }
     

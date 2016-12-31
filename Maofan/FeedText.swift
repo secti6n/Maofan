@@ -14,9 +14,9 @@ struct FeedText {
     let plainTexts: [String]
     let linkTexts: [LinkText]
     
-    init(string: String) {
+    init(_ string: String) {
         let pattern = "([@#]?)<a href=\"(.*?)\".*?>(.*?)</a>([#]?)"
-        let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
+        let regular = try! NSRegularExpression(pattern: pattern, options: [])
         let array = regular.matches(in: string, options: [], range: NSMakeRange(0, (string as NSString).length))
         var plainTexts: [String] = []
         var linkTexts: [LinkText] = []
@@ -34,29 +34,6 @@ struct FeedText {
         plainTexts.append((string as NSString).substring(with: afterRange).stringByDecodingHTMLEntities)
         self.plainTexts = plainTexts
         self.linkTexts = linkTexts
-//        print("原始字串：\(string)\n")
-//        print("count: \(plainTexts.count) \(linkTexts.count)")
-//        print(self)
-    }
-    
-    func parseToAttrString() -> NSAttributedString {
-        let text = NSMutableAttributedString()
-        for (index, linkText) in linkTexts.enumerated() {
-            let plainAttr = NSAttributedString(string: plainTexts[index])
-            text.append(plainAttr)
-            let linkAttr = NSMutableAttributedString(string: linkText.text)
-            let range = NSRange(location: 0, length: linkAttr.length)
-            let highlight = YYTextHighlight()
-            highlight.setColor(UIColor.red)
-            highlight.userInfo = ["urlString" : linkText.urlString]
-            linkAttr.yy_setTextHighlight(highlight, range: range)
-            linkAttr.yy_color = UIColor.blue
-            text.append(linkAttr)
-        }
-        text.append(NSAttributedString(string: plainTexts.last!))
-        text.yy_font = UIFont.systemFont(ofSize: 17)
-//        text.yy_lineSpacing = 2
-        return text
     }
     
 }

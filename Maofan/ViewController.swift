@@ -28,15 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: YYLabel!
     
     @IBAction func testButtonDidTouch(_ sender: AnyObject) {
-        let param = [
-            "id" : "CgQlwCFDq-Y", // "CgQlwCFDq-Y" "IhY_NBPnw-g"
-            "format" : "html"
-        ]
-        Service.sharedInstance.show(parameters: param, success: { (response) in
-            let json = JSON(data: response.data)
-            self.label.attributedText = FeedText(string: json["text"].stringValue).parseToAttrString()
-            self.label.frame.size = self.label.sizeThatFits(CGSize(width: 200, height: CGFloat.greatestFiniteMagnitude))
-        }, failure: nil)
+
     }
     
     @IBAction func deleteAllButtonDidTouch(_ sender: AnyObject) {
