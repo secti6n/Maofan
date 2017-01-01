@@ -144,8 +144,7 @@ extension UIView {
         guard let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else { return }
         findSubView({ (view) -> Bool in
             if view.isKind(of: _UIVisualEffectFilterView) {
-                print(view.backgroundColor)
-//                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
+                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
                 return true
             }
             return false

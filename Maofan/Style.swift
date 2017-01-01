@@ -94,13 +94,13 @@ class Style {
     
     static var backgroundColor: UIColor {
         get {
-            return UIColor(hue: 0, saturation: 0, brightness: 0.97, alpha: 1)
+            return UIColor(hex: "FFFFFF")
         }
     }
     
     static var backgroundColorTouch: UIColor {
         get {
-            return UIColor(hex: "F8F8FA")
+            return UIColor(hex: "F8F8F9")
         }
     }
     
@@ -108,6 +108,21 @@ class Style {
         get {
             return UIColor(hex: "334566").alpha(0.25)
         }
+    }
+    
+    static func image(_ tintColor: UIColor) -> UIImage {
+        let size = CGSize(width: 1, height: 1)
+        return image(tintColor: tintColor, size: size)
+    }
+    
+    static func image(tintColor: UIColor, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()!
+        tintColor.setFill()
+        context.fill(CGRect(origin: CGPoint.zero, size: size))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
     
 }

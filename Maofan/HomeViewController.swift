@@ -37,7 +37,6 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        navigationItem.backBarButtonItem?.title = ""
         refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()
