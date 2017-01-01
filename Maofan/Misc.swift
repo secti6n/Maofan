@@ -121,6 +121,51 @@ extension Array {
 
 extension UIView {
     
+    func cleanBlurBar() {
+        print("****************** clean bar for:\n\(self)")
+        findSubView({ (view) -> Bool in
+            if view is UIImageView, view.bounds.height <= 1, view.bounds.width == UIScreen.main.bounds.width {
+                print("****************** find shadow")
+                view.isHidden = true
+                return true
+            }
+            return false
+        })
+        // Hide original blur
+        findSubView({ (view) -> Bool in
+            if view is UIVisualEffectView {
+                print("****************** find original blur")
+                view.isHidden = true
+                return true
+            }
+            return false
+        })
+        // Add new blur view
+        guard let _UIBarBackground = NSClassFromString("_UIBarBackground") else { return }
+        findSubView({ (view) -> Bool in
+            if view.isKind(of: _UIBarBackground) {
+                print("****************** find _UIBarBackground")
+                let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+                blurView.frame = view.frame
+                blurView.pureBlur()
+                view.addSubview(blurView)
+                return true
+            }
+            return false
+        })
+    }
+    
+    func pureBlur(_ color: UIColor? = nil) {
+        guard let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else { return }
+        findSubView({ (view) -> Bool in
+            if view.isKind(of: _UIVisualEffectFilterView) {
+                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
+                return true
+            }
+            return false
+        })
+    }
+    
     @discardableResult
     func findSubView(_ handle: (UIView) -> Bool) -> UIView? {
         for view in subviews {
@@ -131,24 +176,6 @@ extension UIView {
             }
         }
         return nil
-    }
-    
-    func blurBarStylize(_ color: UIColor? = nil) {
-        findSubView({ (view) -> Bool in
-            if view is UIImageView {
-                view.isHidden = true
-                return true
-            }
-            return false
-        })
-        guard let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else { return }
-        findSubView({ (view) -> Bool in
-            if view.isKind(of: _UIVisualEffectFilterView) {
-                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
-                return true
-            }
-            return false
-        })
     }
     
 }

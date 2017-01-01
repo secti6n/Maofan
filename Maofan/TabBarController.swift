@@ -10,9 +10,14 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    var isCleanBlurBar = false
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBar.blurBarStylize()
+        if !isCleanBlurBar {
+            tabBar.cleanBlurBar()
+            isCleanBlurBar = true
+        }
     }
 
 }

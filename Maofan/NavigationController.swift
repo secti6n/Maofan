@@ -12,14 +12,7 @@ class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.shadowImage = UIImage()
-        navigationBar.setBackgroundImage(Style.image(Style.backgroundColor), for: UIBarMetrics.default)
-        navigationBar.isTranslucent = false
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        navigationBar.blurBarStylize()
+        navigationBar.cleanBlurBar()
     }
     
 }

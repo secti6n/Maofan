@@ -154,75 +154,30 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="efu-T9-lX5"/>
                     <connections>
-                        <segue destination="6Ht-W1-dfl" kind="show" identifier="Segue" id="CYa-BJ-F8P"/>
+                        <segue destination="sjd-pD-y4D" kind="show" identifier="Segue" id="mF9-4b-M5o"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7o-2A-Rxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4779.7101449275369" y="738.58695652173924"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="aIL-pC-64a">
+        <!--View Controller-->
+        <scene sceneID="dOf-Ni-6ij">
             <objects>
-                <tableViewController id="6Ht-W1-dfl" customClass="HomeViewController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UYA-4f-RLg" customClass="TableView" customModule="Maofan" customModuleProvider="target">
+                <viewController id="sjd-pD-y4D" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ua4-fz-zMr"/>
+                        <viewControllerLayoutGuide type="bottom" id="kPG-7T-Mae"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZjK-GC-fwO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" id="YXn-b4-ZGo" customClass="FeedCell" customModule="Maofan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YXn-b4-ZGo" id="2Z8-Ly-0t4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYn-sv-xHc" customClass="YYAnimatedImageView">
-                                            <rect key="frame" x="304" y="0.0" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jol-zN-EF9" customClass="YYLabel">
-                                            <rect key="frame" x="76" y="31" width="220" height="69"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3u-Sl-sjk" customClass="YYLabel">
-                                            <rect key="frame" x="86" y="41" width="220" height="69"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOu-LV-EWT">
-                                            <rect key="frame" x="20" y="0.0" width="48" height="48"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="NOu-LV-EWT" id="jjX-bO-nz2"/>
-                                    <outlet property="label" destination="jol-zN-EF9" id="o7r-8s-fhy"/>
-                                    <outlet property="photo" destination="nYn-sv-xHc" id="a1D-im-Zng"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="6Ht-W1-dfl" id="ynV-uv-BA9"/>
-                            <outlet property="delegate" destination="6Ht-W1-dfl" id="q2n-ce-70b"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JIS-FO-hiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3e-iZ-VyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5693" y="739"/>
+            <point key="canvasLocation" x="5541" y="739"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d1J-y8-bsW">
