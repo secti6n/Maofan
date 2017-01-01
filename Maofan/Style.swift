@@ -57,7 +57,7 @@ class Style {
         let range = NSRange(location: 0, length: attr.length)
         let highlight = YYTextHighlight()
         highlight.userInfo = ["urlString" : linkText.urlString]
-        highlight.setColor(highlightColorTouch)
+        highlight.setColor(highlightColor)
         attr.yy_setTextHighlight(highlight, range: range)
         return attr
     }
@@ -83,12 +83,6 @@ class Style {
     static var highlightColor: UIColor {
         get {
             return UIColor(hex: "007AFE")
-        }
-    }
-    
-    static var highlightColorTouch: UIColor {
-        get {
-            return UIColor(hex: "0066CC")
         }
     }
     
