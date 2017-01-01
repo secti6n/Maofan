@@ -122,60 +122,47 @@ extension Array {
 extension UIView {
     
     func cleanBlurBar() {
-        print("****************** clean bar for:\n\(self)")
-        findSubView({ (view) -> Bool in
+        guard let _UIBarBackground = NSClassFromString("_UIBarBackground"), let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else {
+            print("****************** class failed")
+            return
+        }
+        let allSubViews = self.allSubViews
+        for view in allSubViews {
             if view is UIImageView, view.bounds.height <= 1, view.bounds.width == UIScreen.main.bounds.width {
                 print("****************** find shadow")
                 view.isHidden = true
-                return true
+                break
             }
-            return false
-        })
-        // Hide original blur
-        findSubView({ (view) -> Bool in
+        }
+        for view in allSubViews {
             if view is UIVisualEffectView {
                 print("****************** find original blur")
                 view.isHidden = true
-                return true
+                break
             }
-            return false
-        })
-        // Add new blur view
-        guard let _UIBarBackground = NSClassFromString("_UIBarBackground") else { return }
-        findSubView({ (view) -> Bool in
+        }
+        for view in allSubViews {
             if view.isKind(of: _UIBarBackground) {
                 print("****************** find _UIBarBackground")
                 let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
                 blurView.frame = view.frame
-                blurView.pureBlur()
+                for view in blurView.allSubViews {
+                    if view.isKind(of: _UIVisualEffectFilterView) {
+                        print("****************** find _UIVisualEffectFilterView")
+                        view.backgroundColor = Style.backgroundColor.alpha(0.75)
+                        break
+                    }
+                }
                 view.addSubview(blurView)
-                return true
-            }
-            return false
-        })
-    }
-    
-    func pureBlur(_ color: UIColor? = nil) {
-        guard let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else { return }
-        findSubView({ (view) -> Bool in
-            if view.isKind(of: _UIVisualEffectFilterView) {
-                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
-                return true
-            }
-            return false
-        })
-    }
-    
-    @discardableResult
-    func findSubView(_ handle: (UIView) -> Bool) -> UIView? {
-        for view in subviews {
-            if handle(view) {
-                return view
-            } else if let view = view.findSubView(handle) {
-                return view
+                break
             }
         }
-        return nil
+    }
+    
+    var allSubViews : [UIView] {
+        var array = [self.subviews].flatMap {$0}
+        array.forEach { array.append(contentsOf: $0.allSubViews) }
+        return array
     }
     
 }
