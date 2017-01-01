@@ -18,7 +18,7 @@ class FeedCell: BaseCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        photo.contentMode = .scaleAspectFit
+        backgroundColor = Style.backgroundColor
         avatar.layer.cornerRadius = avatar.frame.width / 2
         label.displaysAsynchronously = true
         label.ignoreCommonProperties = true
@@ -32,8 +32,8 @@ class FeedCell: BaseCell {
         didSet {
             guard let feed = feed else { return }
             feed.exportLayoutTo(label: label)
-            photo.yy_imageURL = feed.photo
-            avatar.yy_imageURL = feed.user.avatar
+            photo.yy_setImage(with: feed.photo, options: [.setImageWithFadeAnimation])
+            avatar.yy_setImage(with: feed.user.avatar, options: [.setImageWithFadeAnimation])
             avatar.frame.origin.y = Style.whitespace
             label.frame.origin.y = Style.whitespace
             photo.frame.origin.y = Style.whitespace

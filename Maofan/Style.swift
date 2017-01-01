@@ -11,7 +11,7 @@ import YYText
 
 class Style {
     
-    static var whitespace: CGFloat = 20
+    static var whitespace: CGFloat = 40
     
     static func layout(_ feed: Feed) -> YYTextLayout {
         let text = render(feed: feed)
@@ -94,11 +94,11 @@ class Style {
     
     static var backgroundColor: UIColor {
         get {
-            return UIColor(hex: "FCFCFD")
+            return UIColor(hue: 0, saturation: 0, brightness: 0.97, alpha: 1)
         }
     }
     
-    static var backgroundTouchColor: UIColor {
+    static var backgroundColorTouch: UIColor {
         get {
             return UIColor(hex: "F8F8FA")
         }

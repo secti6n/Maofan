@@ -12,6 +12,7 @@ class TableView: UITableView {
 
     override func awakeFromNib() {
         separatorStyle = .none
+        backgroundColor = Style.backgroundColor
     }
 
 }

@@ -13,6 +13,7 @@ import YYText
 class HomeViewController: UITableViewController {
 
     func loadData() {
+        PlaySound.load(.start)
         var parameters = [
             "format" : "html",
             "count" : "\(loadCount)",
@@ -20,7 +21,6 @@ class HomeViewController: UITableViewController {
         if let id = feeds.last?.id {
             parameters.updateValue(id, forKey: "max_id")
         }
-        Misc.markTime()
         Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
             Misc.markTime()
             var new: [Feed] = []
@@ -28,6 +28,8 @@ class HomeViewController: UITableViewController {
                 new.append(Feed(json))
             }
             self.feeds += new
+            Misc.markTime()
+            PlaySound.load(.success)
         }, failure: { (error) in
             Misc.handleError(error)
             self.refreshControl?.endRefreshing()
@@ -35,6 +37,7 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        navigationItem.backBarButtonItem?.title = ""
         refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()
@@ -55,9 +58,10 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Sound.playsound()
+        PlaySound.touch()
         let cell = tableView.cellForRow(at: indexPath)
         cell?.setSelected(false, animated: true)
+        performSegue(withIdentifier: "Segue", sender: self)
     }
     
     var feeds: [Feed] = [] {
@@ -73,7 +77,6 @@ class HomeViewController: UITableViewController {
                 }
             }
             self.refreshControl?.endRefreshing()
-            Misc.markTime()
         }
     }
     

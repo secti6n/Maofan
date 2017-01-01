@@ -10,27 +10,50 @@ import OAuthSwift
 import YYWebImage
 import AudioToolbox
 
-class Sound {
+class PlaySound {
     
-    static var soundPaths: [String] = [
+    static var paths_bubble: [String] = [
         "bubble_1",
         "bubble_2",
         ]
     
-    static var soundIDs: [SystemSoundID] = []
+    static var paths_elastic: [String] = [
+        "Elastic_Note1",
+        "Elastic_Done11",
+        ]
     
-    static func configSound() {
-        soundIDs = []
+    static var soundIDs_bubble: [SystemSoundID] = {
+        return setupSoundIDs(paths: paths_bubble)
+    }()
+    
+    static var soundIDs_elastic: [SystemSoundID] = {
+        return setupSoundIDs(paths: paths_elastic)
+    }()
+    
+    static func setupSoundIDs(paths: [String]) -> [SystemSoundID] {
+        var soundIDs: [SystemSoundID] = []
         var soundID: SystemSoundID = 0
-        for path in soundPaths {
+        for path in paths {
             let fileURL = Bundle.main.url(forResource: path, withExtension: "wav")
             AudioServicesCreateSystemSoundID(fileURL as! CFURL, &soundID)
             soundIDs.append(soundID)
         }
+        return soundIDs
     }
     
-    static func playsound() {
-        AudioServicesPlaySystemSound(soundIDs.randomItem())
+    enum SoundLoadType: Int {
+        case start
+        case success
+        case fail
+        case none
+    }
+    
+    static func load(_ type: SoundLoadType) {
+        AudioServicesPlaySystemSound(soundIDs_bubble[type.rawValue])
+    }
+    
+    static func touch() {
+        AudioServicesPlaySystemSound(soundIDs_bubble.randomItem())
     }
 }
 
@@ -121,7 +144,8 @@ extension UIView {
         guard let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else { return }
         findSubView({ (view) -> Bool in
             if view.isKind(of: _UIVisualEffectFilterView) {
-                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
+                print(view.backgroundColor)
+//                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
                 return true
             }
             return false

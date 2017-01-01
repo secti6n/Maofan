@@ -12,12 +12,12 @@ class NavigationBar: UINavigationBar {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        tintColor = Style.plainColor
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 40
+        sizeThatFits.height = 60
         return sizeThatFits
     }
         

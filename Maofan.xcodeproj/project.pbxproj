@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */; };
+		C70615AB1E19639E0023F897 /* Elastic_Note1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C70615A91E19639E0023F897 /* Elastic_Note1.wav */; };
+		C70615AC1E19639E0023F897 /* Elastic_Done11.wav in Resources */ = {isa = PBXBuildFile; fileRef = C70615AA1E19639E0023F897 /* Elastic_Done11.wav */; };
 		C708B8EE1D990C81006B1C8A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8ED1D990C81006B1C8A /* Service.swift */; };
 		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
 		C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF131DDB2B5E006E2F28 /* Login.swift */; };
@@ -32,8 +34,8 @@
 		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
 		C7B3BBF31E17AD9000D4810D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBF21E17AD9000D4810D /* Style.swift */; };
 		C7B3BBF81E17DA4600D4810D /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBF71E17DA4600D4810D /* BaseCell.swift */; };
-		C7B3BBFB1E17DDF800D4810D /* bubble_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7B3BBF91E17DDF800D4810D /* bubble_1.wav */; };
-		C7B3BBFC1E17DDF800D4810D /* bubble_2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7B3BBFA1E17DDF800D4810D /* bubble_2.wav */; };
+		C7B3BBFB1E17DDF800D4810D /* bubble_2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7B3BBF91E17DDF800D4810D /* bubble_2.wav */; };
+		C7B3BBFC1E17DDF800D4810D /* bubble_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7B3BBFA1E17DDF800D4810D /* bubble_1.wav */; };
 		C7B3BBFE1E17E04000D4810D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBFD1E17E04000D4810D /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maofan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.release.xcconfig"; sourceTree = "<group>"; };
+		C70615A91E19639E0023F897 /* Elastic_Note1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Elastic_Note1.wav; sourceTree = "<group>"; };
+		C70615AA1E19639E0023F897 /* Elastic_Done11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Elastic_Done11.wav; sourceTree = "<group>"; };
 		C708B8ED1D990C81006B1C8A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
 		C708DF131DDB2B5E006E2F28 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -79,8 +83,8 @@
 		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
 		C7B3BBF21E17AD9000D4810D /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C7B3BBF71E17DA4600D4810D /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
-		C7B3BBF91E17DDF800D4810D /* bubble_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble_1.wav; sourceTree = "<group>"; };
-		C7B3BBFA1E17DDF800D4810D /* bubble_2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble_2.wav; sourceTree = "<group>"; };
+		C7B3BBF91E17DDF800D4810D /* bubble_2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble_2.wav; sourceTree = "<group>"; };
+		C7B3BBFA1E17DDF800D4810D /* bubble_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble_1.wav; sourceTree = "<group>"; };
 		C7B3BBFD1E17E04000D4810D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,8 +163,10 @@
 				C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */,
 				C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */,
 				C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */,
-				C7B3BBF91E17DDF800D4810D /* bubble_1.wav */,
-				C7B3BBFA1E17DDF800D4810D /* bubble_2.wav */,
+				C70615A91E19639E0023F897 /* Elastic_Note1.wav */,
+				C70615AA1E19639E0023F897 /* Elastic_Done11.wav */,
+				C7B3BBF91E17DDF800D4810D /* bubble_2.wav */,
+				C7B3BBFA1E17DDF800D4810D /* bubble_1.wav */,
 				C7700A5A1D81BBEE00908DB2 /* Info.plist */,
 				C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */,
 			);
@@ -235,12 +241,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7B3BBFB1E17DDF800D4810D /* bubble_1.wav in Resources */,
-				C7B3BBFC1E17DDF800D4810D /* bubble_2.wav in Resources */,
+				C7B3BBFB1E17DDF800D4810D /* bubble_2.wav in Resources */,
+				C7B3BBFC1E17DDF800D4810D /* bubble_1.wav in Resources */,
+				C70615AC1E19639E0023F897 /* Elastic_Done11.wav in Resources */,
 				C708DF511DDB5D65006E2F28 /* FanfouConsumer.swift.example in Resources */,
 				C7700A591D81BBEE00908DB2 /* LaunchScreen.storyboard in Resources */,
 				C7700A561D81BBEE00908DB2 /* Assets.xcassets in Resources */,
 				C7700A511D81BBEE00908DB2 /* Main.storyboard in Resources */,
+				C70615AB1E19639E0023F897 /* Elastic_Note1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

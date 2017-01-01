@@ -15,7 +15,7 @@ class BaseCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         let selectedBackgroundView = UIView(frame: frame)
-        selectedBackgroundView.backgroundColor = Style.backgroundTouchColor
+        selectedBackgroundView.backgroundColor = Style.backgroundColorTouch
         self.selectedBackgroundView = selectedBackgroundView
     }
     
