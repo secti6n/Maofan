@@ -14,7 +14,8 @@ struct FeedText {
     let plainTexts: [String]
     let linkTexts: [LinkText]
     
-    init(_ string: String) {
+    init(_ feed: Feed) {
+        let string = feed.text
         let pattern = "([@#]?)<a href=\"(.*?)\".*?>(.*?)</a>([#]?)"
         let regular = try! NSRegularExpression(pattern: pattern, options: [])
         let array = regular.matches(in: string, options: [], range: NSMakeRange(0, (string as NSString).length))

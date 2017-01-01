@@ -13,12 +13,14 @@ import YYWebImage
 class FeedCell: BaseCell {
     
     @IBOutlet weak var label: YYLabel!
+    @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var photo: YYAnimatedImageView!
-    static var whitespace: CGFloat = 20
+    static var whitespace: CGFloat = 30
     
     override func awakeFromNib() {
         super.awakeFromNib()
 //        photo.contentMode = .scaleAspectFit
+        avatar.layer.cornerRadius = avatar.frame.width / 2
         label.displaysAsynchronously = true
         label.ignoreCommonProperties = true
         label.highlightTapAction = { (view, attrString, range, rect) in
@@ -29,20 +31,13 @@ class FeedCell: BaseCell {
     
     weak var feed: Feed? {
         didSet {
-            if let feed = feed {
-                feed.exportLayoutTo(label: label)
-                photo.yy_imageURL = feed.photo
-                label.frame.origin.y = FeedCell.whitespace
-                photo.frame.origin.y = FeedCell.whitespace
-                if feed.hasPhoto {
-                    let diff = feed.feedTextHeight - 100
-                    if diff > 0 {
-                        photo.frame.origin.y += diff / 2
-                    } else {
-                        label.frame.origin.y -= diff / 2
-                    }
-                }
-            }
+            guard let feed = feed else { return }
+            feed.exportLayoutTo(label: label)
+            photo.yy_imageURL = feed.photo
+            avatar.yy_imageURL = feed.user.avatar
+            avatar.frame.origin.y = FeedCell.whitespace - 10
+            label.frame.origin.y = FeedCell.whitespace
+            photo.frame.origin.y = FeedCell.whitespace
         }
     }
 

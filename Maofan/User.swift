@@ -22,9 +22,21 @@ class User {
         }
     }
     
+    var unique_id: String {
+        get {
+            return json["unique_id"].stringValue
+        }
+    }
+    
     var name: String {
         get {
-            return json["user"]["name"].stringValue
+            return json["name"].stringValue
+        }
+    }
+    
+    var avatar: URL? {
+        get {
+            return json["profile_image_url_large"].URL
         }
     }
     

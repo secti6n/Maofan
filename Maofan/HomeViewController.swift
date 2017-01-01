@@ -12,15 +12,16 @@ import YYText
 
 class HomeViewController: UITableViewController {
 
-    func loadData(more: Bool = true) {
+    func loadData() {
         var parameters = [
             "format" : "html",
             "count" : "\(loadCount)",
             ]
-        if more, let id = feeds.last?.id {
+        if let id = feeds.last?.id {
             parameters.updateValue(id, forKey: "max_id")
         }
         Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
+            Misc.markTime()
             var new: [Feed] = []
             for json in JSON(data: response.data).array! {
                 new.append(Feed(json))
@@ -33,7 +34,6 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        tableView.backgroundColor = Style.backgroundColor
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()
     }
@@ -54,6 +54,8 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Sound.playsound()
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setSelected(false, animated: true)
     }
     
     var feeds: [Feed] = [] {
@@ -69,6 +71,7 @@ class HomeViewController: UITableViewController {
                 }
             }
             self.refreshControl?.endRefreshing()
+            Misc.markTime()
         }
     }
     

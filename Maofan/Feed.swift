@@ -13,51 +13,50 @@ import YYWebImage
 class Feed {
     
     let json: JSON
-    var feedText: FeedText!
-    private var layout: YYTextLayout!
+    let user: User
     
-    weak var label: YYLabel?
+    var layout: YYTextLayout {
+        get {
+            return _layout ?? Style.layout(self)
+        }
+    }
+    
+    var feedText: FeedText {
+        get {
+            return _feedText ?? FeedText(self)
+        }
+    }
+    
+    private var _feedText: FeedText?
+    private var _layout: YYTextLayout?
     
     init(_ json: JSON) {
         self.json = json
-        feedText = FeedText(text)
+        user = User(json["user"])
         DispatchQueue.global().async {
-            self.layout = Style.layout(feed: self)
-        }
-        if let photo = photo {
-            YYWebImageManager.shared().requestImage(with: photo, progress: nil, transform: nil)
+            self._feedText = FeedText(self)
+            self._layout = Style.layout(self)
+            YYWebImageManager.shared().preDownload(url: self.user.avatar)
+            YYWebImageManager.shared().preDownload(url: self.photo)
         }
     }
     
     func exportLayoutTo(label: YYLabel) {
-        self.label = label
-        var layout: YYTextLayout! = self.layout
-        if nil == layout {
-            print("Layout not ready. Calculate now.")
-            layout = Style.layout(feed: self)
-        } else {
-            print("Hit layout cache.")
+        DispatchQueue.main.async {
+            label.textLayout = self.layout
+            label.frame.size = self.layout.textBoundingSize
         }
-        label.textLayout = layout
-        label.frame.size = layout.textBoundingSize
     }
     
     var feedTextHeight: CGFloat {
         get {
-            if nil == self.layout {
-                self.layout = Style.layout(feed: self)
-            }
-            return self.layout.textBoundingSize.height
+            return layout.textBoundingSize.height
         }
     }
     
     var feedCellHeight: CGFloat {
         get {
-            if hasPhoto {
-                return max(feedTextHeight, 100) + FeedCell.whitespace * 2
-            } else {
-                return feedTextHeight + FeedCell.whitespace * 2
-            }
+            return hasPhoto ? max(feedTextHeight, 100) + FeedCell.whitespace * 2 : feedTextHeight + FeedCell.whitespace * 2
         }
     }
     
@@ -109,24 +108,6 @@ class Feed {
     var smallPhoto: URL? {
         get {
             return json["photo"]["imageurl"].URL
-        }
-    }
-    
-    var user: User {
-        get {
-            return User(json["user"])
-        }
-    }
-    
-    var name: String {
-        get {
-            return json["user"]["name"].stringValue
-        }
-    }
-    
-    var userId: String {
-        get {
-            return json["user"]["id"].stringValue
         }
     }
     

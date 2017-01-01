@@ -7,6 +7,7 @@
 //
 
 import OAuthSwift
+import YYWebImage
 import AudioToolbox
 
 class Sound {
@@ -47,6 +48,16 @@ class Misc {
     static func handleError(_ error: Error) {
         print(error)
     }
+    
+    static var timeMark = Date() {
+        didSet {
+            print(timeMark.timeIntervalSince1970 - oldValue.timeIntervalSince1970)
+        }
+    }
+    
+    static func markTime() {
+        timeMark = Date()
+    }
 
 }
 
@@ -70,11 +81,55 @@ extension UIColor {
         }
     }
     
+    func alpha(_ alpha: CGFloat) -> UIColor {
+        return self.withAlphaComponent(alpha)
+    }
+    
 }
 
 extension Array {
+    
     func randomItem() -> Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
+    
+}
+
+extension UIView {
+    
+    func allSubViews(_ handle: (_ view: UIView) -> Bool) -> UIView? {
+        for view in subviews {
+            if handle(view) {
+                return view
+            } else if let view = view.allSubViews(handle) {
+                return view
+            }
+        }
+        return nil
+    }
+    
+    func blurBar(_ color: UIColor? = nil) {
+        if let shadow = self.allSubViews({ (view) -> Bool in
+            return view is UIImageView
+        }) {
+            shadow.isHidden = true
+        }
+        if let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView"), let grey = self.allSubViews({ (view) -> Bool in
+            return view.isKind(of: _UIVisualEffectFilterView)
+        }) {
+            grey.backgroundColor = (color ?? Style.backgroundColor).alpha(0.8)
+        }
+    }
+    
+}
+
+extension YYWebImageManager {
+    
+    func preDownload(url: URL?) {
+        if let url = url {
+            YYWebImageManager.shared().requestImage(with: url, options: [.ignoreImageDecoding],progress: nil, transform: nil)
+        }
+    }
+    
 }
