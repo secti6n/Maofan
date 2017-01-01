@@ -23,30 +23,53 @@ struct FeedText {
         var linkTexts: [LinkText] = []
         var index = 0
         for e in array {
+            // Plain
             let range = e.rangeAt(0)
             let beforeRange = NSRange(location: index, length: range.location - index)
             index = range.location + range.length
             plainTexts.append((string as NSString).substring(with: beforeRange).stringByDecodingHTMLEntities)
-            let text = (string as NSString).substring(with: e.rangeAt(1)) + (string as NSString).substring(with: e.rangeAt(3)).stringByDecodingHTMLEntities + (string as NSString).substring(with: e.rangeAt(4))
+            // Link
+            let firstChar = (string as NSString).substring(with: e.rangeAt(1))
+            let text = firstChar + (string as NSString).substring(with: e.rangeAt(3)).stringByDecodingHTMLEntities + (string as NSString).substring(with: e.rangeAt(4))
             let urlString = (string as NSString).substring(with: e.rangeAt(2))
-            linkTexts.append(LinkText(text: text, urlString: urlString))
+            let type: LinkTextType
+            switch firstChar {
+            case "@":
+                type = .mention
+            case "#":
+                type = .tag
+            default:
+                type = .link
+            }
+            linkTexts.append(LinkText(text: text, urlString: urlString, type: type))
         }
         let afterRange = NSRange(location: index, length: (string as NSString).length - index)
         plainTexts.append((string as NSString).substring(with: afterRange).stringByDecodingHTMLEntities)
+        if plainTexts[0] == "" && plainTexts.count == 1 {
+            plainTexts[0] = "上传了新照片"
+        }
         self.plainTexts = plainTexts
         self.linkTexts = linkTexts
     }
     
 }
 
+enum LinkTextType {
+    case mention
+    case tag
+    case link
+}
+
 struct LinkText {
     
     let text: String
     let urlString: String
+    let type: LinkTextType
     
-    init(text: String, urlString: String) {
+    init(text: String, urlString: String, type: LinkTextType = .link) {
         self.text = text
         self.urlString = urlString
+        self.type = type
     }
     
 }

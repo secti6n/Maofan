@@ -16,7 +16,9 @@ class NavigationBar: UINavigationBar {
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 40)
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 40
+        return sizeThatFits
     }
-    
+        
 }

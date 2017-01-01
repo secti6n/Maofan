@@ -12,7 +12,7 @@ class TabBarController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBar.blurBar()
+        tabBar.blurBarStylize()
     }
 
 }

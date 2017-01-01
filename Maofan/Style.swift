@@ -6,28 +6,20 @@
 //  Copyright © 2016年 Catt Liu. All rights reserved.
 //
 
-//        let name = NSMutableAttributedString(string: feed.user.name + " ")
-//        name.yy_font = nameFont
-//        name.yy_color = linkColor
-//        let range = NSRange(location: 0, length: name.length)
-//        let highlight = YYTextHighlight()
-//        highlight.userInfo = ["urlString" : "http://fanfou.com/user/" + feed.user.id]
-//        highlight.setColor(UIColor.red)
-//        name.yy_setTextHighlight(highlight, range: range)
-//        text.insert(name, at: 0)
-
 import UIKit
 import YYText
 
 class Style {
     
+    static var whitespace: CGFloat = 20
+    
     static func layout(_ feed: Feed) -> YYTextLayout {
         let text = render(feed: feed)
         let container = YYTextContainer()
         if feed.hasPhoto {
-            container.size = CGSize(width: 226, height: CGFloat.greatestFiniteMagnitude)
+            container.size = CGSize(width: 220, height: CGFloat.greatestFiniteMagnitude)
         } else {
-            container.size = CGSize(width: 340, height: CGFloat.greatestFiniteMagnitude)
+            container.size = CGSize(width: 322, height: CGFloat.greatestFiniteMagnitude)
         }
         container.maximumNumberOfRows = 0
         return YYTextLayout(container: container, text: text)!
@@ -40,7 +32,6 @@ class Style {
             text.append(render(linkText))
         }
         text.append(render(feed.feedText.plainTexts.last ?? ""))
-        text.yy_font = textFont
         text.yy_lineSpacing = 4
         return text
     }
@@ -48,31 +39,38 @@ class Style {
     static func render(_ plainText: String) -> NSMutableAttributedString {
         let attr = NSMutableAttributedString(string: plainText)
         attr.yy_color = plainColor
-        attr.yy_font = textFont
+        attr.yy_font = plainFont
         return attr
     }
     
     static func render(_ linkText: LinkText) -> NSMutableAttributedString {
         let attr = NSMutableAttributedString(string: linkText.text)
-        attr.yy_color = linkColor
-        attr.yy_font = textFont
+        switch linkText.type {
+        case .mention:
+            attr.yy_color = plainColor
+        case .tag:
+            attr.yy_color = metaColor
+        default:
+            attr.yy_color = metaColor
+        }
+        attr.yy_font = linkFont
         let range = NSRange(location: 0, length: attr.length)
         let highlight = YYTextHighlight()
         highlight.userInfo = ["urlString" : linkText.urlString]
-        highlight.setColor(UIColor.red)
+        highlight.setColor(highlightColorTouch)
         attr.yy_setTextHighlight(highlight, range: range)
         return attr
     }
     
-    static var nameFont: UIFont {
+    static var linkFont: UIFont {
         get {
-            return UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)
+            return UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         }
     }
     
-    static var textFont: UIFont {
+    static var plainFont: UIFont {
         get {
-            return UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)
+            return UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         }
     }
     
@@ -82,15 +80,21 @@ class Style {
         }
     }
     
-    static var linkColor: UIColor {
+    static var highlightColor: UIColor {
         get {
-            return UIColor(hex: "18B6F2")
+            return UIColor(hex: "007AFE")
+        }
+    }
+    
+    static var highlightColorTouch: UIColor {
+        get {
+            return UIColor(hex: "0066CC")
         }
     }
     
     static var metaColor: UIColor {
         get {
-            return UIColor(hex: "CCCDCF")
+            return UIColor(hex: "CCD0D9")
         }
     }
     
@@ -105,5 +109,11 @@ class Style {
             return UIColor(hex: "F8F8FA")
         }
     }
-        
+    
+    static var unSelect: UIColor {
+        get {
+            return UIColor(hex: "334566").alpha(0.25)
+        }
+    }
+    
 }

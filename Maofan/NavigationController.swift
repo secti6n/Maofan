@@ -12,7 +12,7 @@ class NavigationController: UINavigationController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationBar.blurBar()
+        navigationBar.blurBarStylize()
     }
     
 }

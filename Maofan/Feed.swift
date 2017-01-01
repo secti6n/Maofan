@@ -56,7 +56,7 @@ class Feed {
     
     var feedCellHeight: CGFloat {
         get {
-            return hasPhoto ? max(feedTextHeight, 100) + FeedCell.whitespace * 2 : feedTextHeight + FeedCell.whitespace * 2
+            return max((hasPhoto ? max(feedTextHeight, 90) : feedTextHeight), 48) + Style.whitespace * 2
         }
     }
     

@@ -20,6 +20,7 @@ class HomeViewController: UITableViewController {
         if let id = feeds.last?.id {
             parameters.updateValue(id, forKey: "max_id")
         }
+        Misc.markTime()
         Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
             Misc.markTime()
             var new: [Feed] = []
@@ -34,6 +35,7 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()
     }

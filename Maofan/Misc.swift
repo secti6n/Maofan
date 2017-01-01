@@ -98,28 +98,52 @@ extension Array {
 
 extension UIView {
     
-    func allSubViews(_ handle: (_ view: UIView) -> Bool) -> UIView? {
+    @discardableResult
+    func findSubView(_ handle: (UIView) -> Bool) -> UIView? {
         for view in subviews {
             if handle(view) {
                 return view
-            } else if let view = view.allSubViews(handle) {
+            } else if let view = view.findSubView(handle) {
                 return view
             }
         }
         return nil
     }
     
-    func blurBar(_ color: UIColor? = nil) {
-        if let shadow = self.allSubViews({ (view) -> Bool in
-            return view is UIImageView
-        }) {
-            shadow.isHidden = true
-        }
-        if let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView"), let grey = self.allSubViews({ (view) -> Bool in
-            return view.isKind(of: _UIVisualEffectFilterView)
-        }) {
-            grey.backgroundColor = (color ?? Style.backgroundColor).alpha(0.8)
-        }
+    func blurBarStylize(_ color: UIColor? = nil) {
+        findSubView({ (view) -> Bool in
+            if view is UIImageView {
+                view.isHidden = true
+                return true
+            }
+            return false
+        })
+        guard let _UIVisualEffectFilterView = NSClassFromString("_UIVisualEffectFilterView") else { return }
+        findSubView({ (view) -> Bool in
+            if view.isKind(of: _UIVisualEffectFilterView) {
+                view.backgroundColor = (color ?? Style.backgroundColor).alpha(0.75)
+                return true
+            }
+            return false
+        })
+    }
+    
+}
+
+extension UIImage {
+    
+    func imageWithColor(_ color: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
+        color.setFill()
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: 0, y: size.height)
+        context.scaleBy(x: 1, y: -1)
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        context.clip(to: rect, mask: self.cgImage!)
+        context.fill(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
 }

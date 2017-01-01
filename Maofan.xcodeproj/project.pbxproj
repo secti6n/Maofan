@@ -28,6 +28,7 @@
 		C7ADDC9F1E182EC500AFEA10 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */; };
 		C7ADDCA21E182F7200AFEA10 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */; };
 		C7ADDCA31E182F7200AFEA10 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */; };
+		C7ADDCAB1E18E06400AFEA10 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDCAA1E18E06400AFEA10 /* TableView.swift */; };
 		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
 		C7B3BBF31E17AD9000D4810D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBF21E17AD9000D4810D /* Style.swift */; };
 		C7B3BBF81E17DA4600D4810D /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBF71E17DA4600D4810D /* BaseCell.swift */; };
@@ -74,6 +75,7 @@
 		C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C7ADDCAA1E18E06400AFEA10 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
 		C7B3BBF21E17AD9000D4810D /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C7B3BBF71E17DA4600D4810D /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -135,20 +137,21 @@
 		C7700A4A1D81BBEE00908DB2 /* Maofan */ = {
 			isa = PBXGroup;
 			children = (
+				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
+				C7B3BBF21E17AD9000D4810D /* Style.swift */,
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
 				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
-				C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */,
 				C7ADDC9C1E182E9B00AFEA10 /* TabBar.swift */,
-				C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */,
 				C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */,
+				C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */,
+				C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */,
 				C743C1891E095C500009A457 /* FeedCell.swift */,
+				C7ADDCAA1E18E06400AFEA10 /* TableView.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
 				C7B3BBF71E17DA4600D4810D /* BaseCell.swift */,
 				C77DDCBE1E09778000E1D02D /* Feed.swift */,
 				C7B3BBFD1E17E04000D4810D /* User.swift */,
-				C7B3BBF21E17AD9000D4810D /* Style.swift */,
 				C78561E91DEF2C4E00956277 /* FeedText.swift */,
-				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */,
 				C708B8ED1D990C81006B1C8A /* Service.swift */,
 				C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */,
@@ -351,6 +354,7 @@
 				C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */,
 				C743C18A1E095C500009A457 /* FeedCell.swift in Sources */,
 				C708B8EE1D990C81006B1C8A /* Service.swift in Sources */,
+				C7ADDCAB1E18E06400AFEA10 /* TableView.swift in Sources */,
 				C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */,
 				C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */,
 				C7ADDCA21E182F7200AFEA10 /* NavigationController.swift in Sources */,

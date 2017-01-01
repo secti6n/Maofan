@@ -12,11 +12,18 @@ class TabBar: UITabBar {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        tintColor = Style.plainColor
+        items?.forEach({ (item) -> () in
+            let f = 6 - 1 / UIScreen.main.scale
+            item.imageInsets = UIEdgeInsets(top: f, left: 0, bottom: -f, right: 0)
+            item.image = item.selectedImage?.imageWithColor(Style.unSelect).withRenderingMode(.alwaysOriginal)
+        })
     }
-    
+
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 50)
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 60
+        return sizeThatFits
     }
 
 }

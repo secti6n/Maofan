@@ -15,7 +15,6 @@ class FeedCell: BaseCell {
     @IBOutlet weak var label: YYLabel!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var photo: YYAnimatedImageView!
-    static var whitespace: CGFloat = 30
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,9 +34,9 @@ class FeedCell: BaseCell {
             feed.exportLayoutTo(label: label)
             photo.yy_imageURL = feed.photo
             avatar.yy_imageURL = feed.user.avatar
-            avatar.frame.origin.y = FeedCell.whitespace - 10
-            label.frame.origin.y = FeedCell.whitespace
-            photo.frame.origin.y = FeedCell.whitespace
+            avatar.frame.origin.y = Style.whitespace
+            label.frame.origin.y = Style.whitespace
+            photo.frame.origin.y = Style.whitespace
         }
     }
 
