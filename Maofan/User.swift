@@ -17,27 +17,19 @@ class User {
     }
     
     var id: String {
-        get {
-            return json["id"].stringValue
-        }
+        return json["id"].stringValue
     }
     
     var unique_id: String {
-        get {
-            return json["unique_id"].stringValue
-        }
+        return json["unique_id"].stringValue
     }
     
     var name: String {
-        get {
-            return json["name"].stringValue
-        }
+        return json["name"].stringValue
     }
     
     var avatar: URL? {
-        get {
-            return json["profile_image_url_large"].URL
-        }
+        return json["profile_image_url_large"].URL
     }
     
 }

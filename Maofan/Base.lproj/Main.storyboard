@@ -98,24 +98,20 @@
         <scene sceneID="hY6-ui-ZSq">
             <objects>
                 <tableViewController id="UHO-98-qfa" customClass="HomeViewController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rii-Lq-wMh" customClass="TableView" customModule="Maofan" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rii-Lq-wMh" customClass="TableView" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" id="AHI-gf-sRm" customClass="FeedCell" customModule="Maofan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AHI-gf-sRm" id="kkA-y0-uPr">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNZ-Qg-qgP" customClass="YYAnimatedImageView">
-                                            <rect key="frame" x="304" y="0.0" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WW-MF-8YQ" customClass="YYLabel">
-                                            <rect key="frame" x="76" y="31" width="220" height="69"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wkP-eK-dgJ" customClass="YYLabel">
+                                            <rect key="frame" x="76" y="0.0" width="318" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -125,7 +121,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-rJ-9Wl" customClass="YYLabel">
-                                            <rect key="frame" x="86" y="41" width="220" height="69"/>
+                                            <rect key="frame" x="76" y="0.0" width="318" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -134,16 +130,32 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqT-2l-7Ld">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqT-2l-7Ld" customClass="YYAnimatedImageView">
                                             <rect key="frame" x="20" y="0.0" width="48" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNZ-Qg-qgP" customClass="YYAnimatedImageView">
+                                            <rect key="frame" x="76" y="146" width="318" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WW-MF-8YQ" customClass="YYLabel">
+                                            <rect key="frame" x="76" y="38" width="318" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatar" destination="yqT-2l-7Ld" id="nw0-Wv-3kJ"/>
-                                    <outlet property="label" destination="6WW-MF-8YQ" id="NNb-mn-lOT"/>
+                                    <outlet property="meta" destination="wkP-eK-dgJ" id="gd5-fj-mAV"/>
+                                    <outlet property="name" destination="4gF-rJ-9Wl" id="8vg-tU-2MM"/>
                                     <outlet property="photo" destination="RNZ-Qg-qgP" id="dqg-pA-blY"/>
+                                    <outlet property="status" destination="6WW-MF-8YQ" id="guR-Dv-dcR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -160,6 +172,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7o-2A-Rxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4779.7101449275369" y="738.58695652173924"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="05H-vs-O6b">
+            <objects>
+                <viewController id="jhh-0f-Rbo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mQN-pB-N5U"/>
+                        <viewControllerLayoutGuide type="bottom" id="sKz-iT-1qV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iiU-ET-JTF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fT6-Fk-jSJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ibz-b8-CWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4780" y="3607"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dOf-Ni-6ij">
@@ -183,7 +214,7 @@
         <scene sceneID="d1J-y8-bsW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WNl-kA-iXC" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="ltU-ng-q0f"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home_selected" id="ltU-ng-q0f"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FM2-N7-dCC" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -211,11 +242,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="post" id="5BK-61-dsW"/>
+                    <navigationItem key="navigationItem" id="NqE-4O-awV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcz-Fg-2fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="2139"/>
+            <point key="canvasLocation" x="4780" y="2138"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tXO-ww-4nu">
@@ -230,7 +261,7 @@
                     <connections>
                         <segue destination="WNl-kA-iXC" kind="relationship" relationship="viewControllers" id="8Iw-kW-b49"/>
                         <segue destination="yyB-ea-Lur" kind="relationship" relationship="viewControllers" id="dfk-lY-eVS"/>
-                        <segue destination="u7W-Pt-WE5" kind="relationship" relationship="viewControllers" id="SGN-cW-fKn"/>
+                        <segue destination="e0U-OP-0vv" kind="relationship" relationship="viewControllers" id="SGN-cW-fKn"/>
                         <segue destination="kF6-Zm-xLf" kind="relationship" relationship="viewControllers" id="1Pv-7h-jRR"/>
                         <segue destination="B7i-Jo-Dta" kind="relationship" relationship="viewControllers" id="ffQ-Oo-NPQ"/>
                     </connections>
@@ -243,13 +274,16 @@
         <scene sceneID="qNZ-kP-OJL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kF6-Zm-xLf" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="message" id="ruF-y9-qCn"/>
+                    <tabBarItem key="tabBarItem" title="" image="message" selectedImage="message_selected" id="ruF-y9-qCn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="40m-UE-mLx" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Y4-OG-LoB" kind="relationship" relationship="rootViewController" id="63B-Jf-UZD"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEI-ch-712" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,13 +293,16 @@
         <scene sceneID="PPW-lf-Zud">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7i-Jo-Dta" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="profile" id="bGf-uC-QTc"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile_selected" id="bGf-uC-QTc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wN1-A6-7Fe" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jhh-0f-Rbo" kind="relationship" relationship="rootViewController" id="rwF-EB-hgY"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXT-xl-5FS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,24 +312,89 @@
         <scene sceneID="BC6-6r-74T">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yyB-ea-Lur" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="mention" id="79v-kk-XHQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="mention" selectedImage="mention_selected" id="79v-kk-XHQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WXt-uQ-AZS" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C3B-eT-NXt" kind="relationship" relationship="rootViewController" id="4BG-ZM-3pO"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wC-Mx-ugB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3929" y="1476"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KdO-sn-RJB">
+            <objects>
+                <viewController id="3Y4-OG-LoB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zCi-If-tkN"/>
+                        <viewControllerLayoutGuide type="bottom" id="79R-lM-fdd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E6l-aA-20z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uhe-zN-eFB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vdy-nf-Yet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4780" y="2905"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dok-hi-Z85">
+            <objects>
+                <viewController id="C3B-eT-NXt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8kF-6E-67d"/>
+                        <viewControllerLayoutGuide type="bottom" id="HMR-LA-Ona"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5wd-AT-FJA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vto-st-XdE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VKi-cC-zz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4780" y="1476"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HJ3-1C-IIT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e0U-OP-0vv" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="post" selectedImage="post_selected" id="5BK-61-dsW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lfe-ZP-Aah" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u7W-Pt-WE5" kind="relationship" relationship="rootViewController" id="K5w-q0-TCG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rXM-NL-Hzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3928.985507246377" y="2138.3152173913045"/>
+        </scene>
     </scenes>
     <resources>
         <image name="home" width="32" height="32"/>
+        <image name="home_selected" width="32" height="32"/>
         <image name="mention" width="32" height="32"/>
+        <image name="mention_selected" width="32" height="32"/>
         <image name="message" width="32" height="32"/>
+        <image name="message_selected" width="32" height="32"/>
         <image name="post" width="32" height="32"/>
+        <image name="post_selected" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
+        <image name="profile_selected" width="32" height="32"/>
     </resources>
 </document>

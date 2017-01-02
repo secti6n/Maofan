@@ -121,8 +121,8 @@
 		C7700A3F1D81BBEE00908DB2 = {
 			isa = PBXGroup;
 			children = (
-				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
 				C7700A551D81BBEE00908DB2 /* Assets.xcassets */,
+				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
 				C7700A4A1D81BBEE00908DB2 /* Maofan */,
 				C7700A491D81BBEE00908DB2 /* Products */,
 				556652EB90D553078A265754 /* Pods */,
@@ -143,17 +143,17 @@
 			children = (
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7B3BBF21E17AD9000D4810D /* Style.swift */,
+				C743C1891E095C500009A457 /* FeedCell.swift */,
+				C77DDCBE1E09778000E1D02D /* Feed.swift */,
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
 				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
 				C7ADDC9C1E182E9B00AFEA10 /* TabBar.swift */,
 				C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */,
 				C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */,
 				C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */,
-				C743C1891E095C500009A457 /* FeedCell.swift */,
 				C7ADDCAA1E18E06400AFEA10 /* TableView.swift */,
 				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
 				C7B3BBF71E17DA4600D4810D /* BaseCell.swift */,
-				C77DDCBE1E09778000E1D02D /* Feed.swift */,
 				C7B3BBFD1E17E04000D4810D /* User.swift */,
 				C78561E91DEF2C4E00956277 /* FeedText.swift */,
 				C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */,

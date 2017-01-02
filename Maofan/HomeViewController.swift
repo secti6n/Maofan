@@ -10,6 +10,8 @@ import UIKit
 import SwiftyJSON
 import YYText
 
+
+
 class HomeViewController: UITableViewController {
 
     func loadData() {
@@ -40,6 +42,11 @@ class HomeViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()
+//        let debugOptions = YYTextDebugOption()
+//        debugOptions.baselineColor = .red
+//        debugOptions.ctFrameBorderColor = .red
+//        debugOptions.cgGlyphBorderColor = .cyan
+//        YYTextDebugOption.setShared(debugOptions)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,12 +74,12 @@ class HomeViewController: UITableViewController {
         didSet {
             let cells = tableView.visibleCells as! [FeedCell]
             for cell in cells {
-                cell.label.displaysAsynchronously = false
+                cell.isLabelAsync = false
             }
             self.tableView.reloadData()
             DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
                 for cell in cells {
-                    cell.label.displaysAsynchronously = true
+                    cell.isLabelAsync = true
                 }
             }
             self.refreshControl?.endRefreshing()
