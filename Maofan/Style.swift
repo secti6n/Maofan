@@ -31,7 +31,7 @@ class Style {
     }
     
     static func layout(meta feed: Feed) -> YYTextLayout {
-        let text = render(meta: feed.time[0..<12])
+        let text = render(meta: feed.time[11..<19])
         let container = YYTextContainer()
         container.size = CGSize(width: statusWidth, height: CGFloat.greatestFiniteMagnitude)
         container.maximumNumberOfRows = 1
