@@ -12,14 +12,14 @@ import YYText
 class Style {
     
     static var whitespace: CGFloat = 40
-    static var avatarSideLength: CGFloat = 32
+    static var avatarSideLength: CGFloat = 24
     static var photoHeight: CGFloat = 414
     static var nameWidth: CGFloat = 414 - avatarSideLength - avatarRightSpace - leftSpace * 2
     static var avatarRightSpace: CGFloat = whitespace / 4
-    static var leftSpace: CGFloat = 36
-    static var rightSpace: CGFloat = 24
+    static var leftSpace: CGFloat = 40
+    static var rightSpace: CGFloat = 32
     static var statusWidth: CGFloat = 414 - leftSpace - rightSpace
-    static var lineHeight: CGFloat = 22
+    static var lineHeight: CGFloat = 24
     
     static func layout(name feed: Feed) -> YYTextLayout {
         let text = render(name: feed.user.name)
@@ -79,6 +79,7 @@ class Style {
         let attr = NSMutableAttributedString(string: plainText)
         attr.yy_color = plainColor
         attr.yy_font = plainFont
+        attr.yy_lineBreakMode = .byCharWrapping
         return attr
     }
     
@@ -93,6 +94,7 @@ class Style {
             attr.yy_color = metaColor
         }
         attr.yy_font = linkFont
+        attr.yy_lineBreakMode = .byCharWrapping
         let range = NSRange(location: 0, length: attr.length)
         let highlight = YYTextHighlight()
         highlight.userInfo = ["urlString" : linkText.urlString]
@@ -106,7 +108,7 @@ class Style {
     }
     
     static var nameFont: UIFont {
-        return UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
+        return UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium)
     }
     
     static var plainFont: UIFont {

@@ -21,6 +21,9 @@ class FeedCell: BaseCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = Style.backgroundColor
+//        status.backgroundColor = Style.unSelect
+//        name.backgroundColor = Style.unSelect
+//        meta.backgroundColor = Style.unSelect
         
         avatar.frame.origin.x = Style.leftSpace
         avatar.frame.origin.y = Style.whitespace
