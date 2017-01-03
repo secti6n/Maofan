@@ -13,9 +13,12 @@ class Style {
     
     static var whitespace: CGFloat = 40
     static var avatarSideLength: CGFloat = 32
-    static var photoHeight: CGFloat = 240
-    static var nameWidth: CGFloat = statusWidth - avatarSideLength - 8
-    static var statusWidth: CGFloat = 414 - 32 - 24
+    static var photoHeight: CGFloat = 414
+    static var nameWidth: CGFloat = 414 - avatarSideLength - avatarRightSpace - leftSpace * 2
+    static var avatarRightSpace: CGFloat = whitespace / 4
+    static var leftSpace: CGFloat = 36
+    static var rightSpace: CGFloat = 24
+    static var statusWidth: CGFloat = 414 - leftSpace - rightSpace
     static var lineHeight: CGFloat = 22
     
     static func layout(name feed: Feed) -> YYTextLayout {
