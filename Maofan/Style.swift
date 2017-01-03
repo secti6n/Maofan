@@ -12,13 +12,16 @@ import YYText
 class Style {
     
     static var whitespace: CGFloat = 40
-    static var statusWidth: CGFloat = 318
+    static var avatarSideLength: CGFloat = 32
+    static var photoHeight: CGFloat = 240
+    static var nameWidth: CGFloat = statusWidth - avatarSideLength - 8
+    static var statusWidth: CGFloat = 414 - 32 - 24
     static var lineHeight: CGFloat = 22
     
     static func layout(name feed: Feed) -> YYTextLayout {
         let text = render(name: feed.user.name)
         let container = YYTextContainer()
-        container.size = CGSize(width: statusWidth, height: CGFloat.greatestFiniteMagnitude)
+        container.size = CGSize(width: nameWidth, height: CGFloat.greatestFiniteMagnitude)
         container.maximumNumberOfRows = 1
         return YYTextLayout(container: container, text: text)!
     }
@@ -33,7 +36,7 @@ class Style {
     static func layout(meta feed: Feed) -> YYTextLayout {
         let text = render(meta: feed.time[11..<19])
         let container = YYTextContainer()
-        container.size = CGSize(width: statusWidth, height: CGFloat.greatestFiniteMagnitude)
+        container.size = CGSize(width: nameWidth, height: CGFloat.greatestFiniteMagnitude)
         container.maximumNumberOfRows = 1
         return YYTextLayout(container: container, text: text)!
     }
@@ -100,7 +103,7 @@ class Style {
     }
     
     static var nameFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+        return UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
     }
     
     static var plainFont: UIFont {

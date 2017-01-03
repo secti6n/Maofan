@@ -143,8 +143,8 @@
 			children = (
 				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
 				C7B3BBF21E17AD9000D4810D /* Style.swift */,
-				C743C1891E095C500009A457 /* FeedCell.swift */,
 				C77DDCBE1E09778000E1D02D /* Feed.swift */,
+				C743C1891E095C500009A457 /* FeedCell.swift */,
 				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
 				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
 				C7ADDC9C1E182E9B00AFEA10 /* TabBar.swift */,
@@ -502,7 +502,7 @@
 				DEVELOPMENT_TEAM = LK4XTSG397;
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -520,7 +520,7 @@
 				DEVELOPMENT_TEAM = LK4XTSG397;
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

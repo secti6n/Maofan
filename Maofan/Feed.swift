@@ -50,30 +50,28 @@ class Feed {
     func export(status: YYLabel) {
         DispatchQueue.main.async {
             status.textLayout = self.layout_status
-            status.frame.size = self.layout_status.textBoundingSize
+//            status.backgroundColor = Style.unSelect
         }
     }
     
     func export(name: YYLabel) {
         DispatchQueue.main.async {
             name.textLayout = self.layout_name
-            name.frame.size.height = self.nameSize.height
+//            name.backgroundColor = Style.unSelect
         }
     }
     
     func export(meta: YYLabel) {
         DispatchQueue.main.async {
             meta.textLayout = self.layout_meta
-            meta.frame.size.height = self.metaSize.height
-            meta.frame.origin.y = Style.whitespace + self.nameSize.height - self.metaSize.height
             meta.textAlignment = .right
+//            meta.backgroundColor = Style.unSelect
         }
     }
     
     func export(photo: YYAnimatedImageView) {
         DispatchQueue.main.async {
             photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
-            photo.frame.origin.y = Style.whitespace * 2 + self.statusSize.height
         }
     }
     
@@ -96,8 +94,8 @@ class Feed {
     }
     
     var feedCellHeight: CGFloat {
-        let contentHeight = statusSize.height + Style.whitespace * (1 - 1 / 3)
-        let contentHeightWithPhoto = statusSize.height + Style.whitespace + 200
+        let contentHeight = statusSize.height + Style.avatarSideLength + Style.whitespace / 4
+        let contentHeightWithPhoto = statusSize.height + Style.avatarSideLength + Style.whitespace * 3 / 4 + Style.photoHeight
         return max(48, hasPhoto ? contentHeightWithPhoto : contentHeight) + Style.whitespace * 2
     }
     
