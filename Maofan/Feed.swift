@@ -24,7 +24,7 @@ class Feed {
     }
     
     var layout_meta: YYTextLayout {
-        return Style.layout(meta: self)
+        return _layout_meta ?? Style.layout(name: self)
     }
     
     var feedText: FeedText {
@@ -34,6 +34,7 @@ class Feed {
     private var _feedText: FeedText?
     private var _layout_status: YYTextLayout?
     private var _layout_name: YYTextLayout?
+    private var _layout_meta: YYTextLayout?
     
     init(_ json: JSON) {
         self.json = json
@@ -42,36 +43,33 @@ class Feed {
             self._feedText = FeedText(self)
             self._layout_name = Style.layout(name: self)
             self._layout_status = Style.layout(status: self)
+            self._layout_meta = Style.layout(meta: self)
+            self._feedCellHeight = self.caculateFeedCellHeight()
             YYWebImageManager.shared().preDownload(url: self.user.avatar)
             YYWebImageManager.shared().preDownload(url: self.photo)
         }
     }
     
-    func export(status: YYLabel) {
-        DispatchQueue.main.async {
-            status.textLayout = self.layout_status
-//            status.backgroundColor = Style.unSelect
-        }
-    }
-    
-    func export(name: YYLabel) {
+    func export(cell: FeedCell) {
+        let avatar = cell.avatar!
+        let name = cell.name!
+        let status = cell.status!
+        let photo = cell.photo!
+        let meta = cell.meta!
+        avatar.yy_setImage(with: self.user.avatar, options: [.setImageWithFadeAnimation])
+        photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
         DispatchQueue.main.async {
             name.textLayout = self.layout_name
-//            name.backgroundColor = Style.unSelect
-        }
-    }
-    
-    func export(meta: YYLabel) {
-        DispatchQueue.main.async {
+            status.textLayout = self.layout_status
+            status.frame.size.height = self.layout_status.textBoundingSize.height
+            photo.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace
             meta.textLayout = self.layout_meta
-            meta.textAlignment = .right
-//            meta.backgroundColor = Style.unSelect
-        }
-    }
-    
-    func export(photo: YYAnimatedImageView) {
-        DispatchQueue.main.async {
-            photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
+            if self.hasPhoto {
+                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace + Style.photoSideLength + Style.photoTopBottomSpace
+            } else {
+                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.metaTopSpace
+            }
+            meta.frame.size.height = self.layout_meta.textBoundingSize.height
         }
     }
     
@@ -81,6 +79,38 @@ class Feed {
         }
     }
     
+    func export(name: YYLabel) {
+        DispatchQueue.main.async {
+            name.textLayout = self.layout_name
+        }
+    }
+    
+    func export(status: YYLabel) {
+        DispatchQueue.main.async {
+            status.textLayout = self.layout_status
+            status.frame.size.height = self.layout_status.textBoundingSize.height
+        }
+    }
+    
+    func export(photo: YYAnimatedImageView) {
+        DispatchQueue.main.async {
+            photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
+            photo.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace
+        }
+    }
+    
+    func export(meta: YYLabel) {
+        DispatchQueue.main.async {
+            meta.textLayout = self.layout_meta
+            meta.frame.size.height = self.layout_meta.textBoundingSize.height
+            if !self.hasPhoto {
+                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.metaTopSpace
+            } else {
+                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace + Style.photoSideLength + Style.metaTopSpace
+            }
+        }
+    }
+
     var statusSize: CGSize {
         return layout_status.textBoundingSize
     }
@@ -94,9 +124,16 @@ class Feed {
     }
     
     var feedCellHeight: CGFloat {
-        let contentHeight = statusSize.height + Style.avatarSideLength + Style.whitespace / 4
-        let contentHeightWithPhoto = statusSize.height + Style.avatarSideLength + Style.whitespace * 3 / 4 + Style.photoHeight
-        return max(48, hasPhoto ? contentHeightWithPhoto : contentHeight) + Style.whitespace * 2
+        return _feedCellHeight ?? caculateFeedCellHeight()
+    }
+    
+    private var _feedCellHeight: CGFloat?
+    
+    func caculateFeedCellHeight() -> CGFloat {
+        let contentHeight = statusSize.height + Style.avatarSideLength + Style.statusTopSpace + Style.metaTopSpace + metaSize.height
+        let contentHeightWithPhoto = statusSize.height + Style.avatarSideLength + Style.statusTopSpace + Style.photoTopBottomSpace + Style.photoSideLength + Style.metaTopSpace + metaSize.height
+        _feedCellHeight = (hasPhoto ? contentHeightWithPhoto : contentHeight) + Style.whitespace * 2
+        return _feedCellHeight!
     }
     
     var text: String {

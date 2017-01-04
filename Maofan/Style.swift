@@ -10,15 +10,19 @@ import UIKit
 import YYText
 
 class Style {
-    
-    static var whitespace: CGFloat = 40
-    static var avatarSideLength: CGFloat = 24
-    static var photoHeight: CGFloat = 414
-    static var nameWidth: CGFloat = 414 - avatarSideLength - avatarRightSpace - leftSpace * 2
+    static var fullWidth: CGFloat = UIScreen.main.bounds.width
+    static var whitespace: CGFloat = 36
+    static var photoTopBottomSpace: CGFloat = 15
+    static var metaTopSpace: CGFloat = 12
+    static var statusTopSpace: CGFloat = 6
+    static var avatarSideLength: CGFloat = 36
+    static var nameWidth: CGFloat = fullWidth - avatarSideLength - avatarRightSpace - leftSpace * 2
     static var avatarRightSpace: CGFloat = whitespace / 4
-    static var leftSpace: CGFloat = 40
-    static var rightSpace: CGFloat = 32
-    static var statusWidth: CGFloat = 414 - leftSpace - rightSpace
+    static var leftSpace: CGFloat = 36
+    static var rightSpace: CGFloat = leftSpace - 8
+    static var photoSideSpace: CGFloat = 0//leftSpace
+    static var photoSideLength: CGFloat = fullWidth - 2 * photoSideSpace
+    static var statusWidth: CGFloat = fullWidth - leftSpace - rightSpace
     static var lineHeight: CGFloat = 24
     
     static func layout(name feed: Feed) -> YYTextLayout {
@@ -91,7 +95,7 @@ class Style {
         case .tag:
             attr.yy_color = metaColor
         default:
-            attr.yy_color = metaColor
+            attr.yy_color = highlightColor
         }
         attr.yy_font = linkFont
         attr.yy_lineBreakMode = .byCharWrapping
@@ -108,7 +112,7 @@ class Style {
     }
     
     static var nameFont: UIFont {
-        return UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium)
+        return UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
     }
     
     static var plainFont: UIFont {

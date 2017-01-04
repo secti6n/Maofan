@@ -35,16 +35,17 @@ class FeedCell: BaseCell {
         name.frame.size.width = Style.nameWidth
         name.frame.size.height = Style.avatarSideLength
         
-        meta.frame.origin.x = Style.leftSpace + Style.avatarSideLength + Style.avatarRightSpace
-        meta.frame.origin.y = Style.whitespace
-        meta.frame.size.width = Style.nameWidth
-        meta.frame.size.height = Style.avatarSideLength
-        
         status.frame.origin.x = Style.leftSpace
-        status.frame.origin.y = Style.avatarSideLength + Style.whitespace * (1 + 1 / 4)
+        status.frame.origin.y = avatar.frame.maxY + Style.statusTopSpace
         status.frame.size.width = Style.statusWidth
         
-        photo.frame.size.height = Style.photoHeight
+        photo.frame.origin.x = Style.photoSideSpace
+        photo.frame.size.width = Style.photoSideLength
+        photo.frame.size.height = Style.photoSideLength
+        
+        meta.frame.origin.x = Style.leftSpace
+        meta.frame.size.width = Style.nameWidth
+        meta.frame.size.height = Style.avatarSideLength
         
         avatar.layer.cornerRadius = Style.avatarSideLength / 2
         status.highlightTapAction = { (view, attrString, range, rect) in
@@ -57,19 +58,14 @@ class FeedCell: BaseCell {
     weak var feed: Feed? {
         didSet {
             guard let feed = feed else { return }
-            feed.export(avatar: avatar)
-            feed.export(name: name)
-            feed.export(meta: meta)
-            feed.export(status: status)
-            feed.export(photo: photo)
-            status.frame.size.height = feed.layout_status.textBoundingSize.height
-            photo.frame.origin.y = status.frame.maxY + Style.whitespace / 2
+            feed.export(cell: self)
         }
     }
     
     var isLabelAsync = true {
         didSet {
             meta.displaysAsynchronously = isLabelAsync
+            meta.ignoreCommonProperties = isLabelAsync
             name.displaysAsynchronously = isLabelAsync
             name.ignoreCommonProperties = isLabelAsync
             status.displaysAsynchronously = isLabelAsync
