@@ -93,7 +93,7 @@ class Style {
         case .mention:
             attr.yy_color = plainColor
         case .tag:
-            attr.yy_color = metaColor
+            attr.yy_color = highlightColor
         default:
             attr.yy_color = highlightColor
         }
