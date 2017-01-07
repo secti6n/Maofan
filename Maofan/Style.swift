@@ -15,19 +15,23 @@ class Style {
     static var photoTopBottomSpace: CGFloat = 15
     static var metaTopSpace: CGFloat = 12
     static var statusTopSpace: CGFloat = 6
-    static var avatarSideLength: CGFloat = 36
+    static var avatarSideLength: CGFloat = 48
     static var nameWidth: CGFloat = fullWidth - avatarSideLength - avatarRightSpace - leftSpace * 2
-    static var avatarRightSpace: CGFloat = whitespace / 4
-    static var leftSpace: CGFloat = 36
-    static var rightSpace: CGFloat = leftSpace - 8
-    static var photoSideSpace: CGFloat = 0//leftSpace
-    static var photoSideLength: CGFloat = fullWidth - 2 * photoSideSpace
-    static var statusWidth: CGFloat = fullWidth - leftSpace - rightSpace
+    static var avatarRightSpace: CGFloat = avatarSideLength / 4
+    static var leftSpace: CGFloat = 24
+    static var rightSpace: CGFloat = leftSpace * 2 / 3
+    static var photoLeftSpace: CGFloat = leftSpace + avatarSideLength + avatarRightSpace
+    static var photoRightSpace: CGFloat = leftSpace
+    static var photoSideLength: CGFloat = fullWidth - photoLeftSpace - photoRightSpace
+    static var statusWidth: CGFloat = fullWidth - avatarSideLength - avatarRightSpace - leftSpace - rightSpace
     static var lineHeight: CGFloat = 24
     
     static func layout(name feed: Feed) -> YYTextLayout {
         let text = render(name: feed.user.name)
         let container = YYTextContainer()
+        let modifier = YYTextLinePositionSimpleModifier()
+        modifier.fixedLineHeight = lineHeight
+        container.linePositionModifier = modifier
         container.size = CGSize(width: nameWidth, height: CGFloat.greatestFiniteMagnitude)
         container.maximumNumberOfRows = 1
         return YYTextLayout(container: container, text: text)!
@@ -93,9 +97,9 @@ class Style {
         case .mention:
             attr.yy_color = plainColor
         case .tag:
-            attr.yy_color = highlightColor
+            attr.yy_color = metaColor
         default:
-            attr.yy_color = highlightColor
+            attr.yy_color = metaColor
         }
         attr.yy_font = linkFont
         attr.yy_lineBreakMode = .byCharWrapping
@@ -112,7 +116,7 @@ class Style {
     }
     
     static var nameFont: UIFont {
-        return UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
+        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
     }
     
     static var plainFont: UIFont {

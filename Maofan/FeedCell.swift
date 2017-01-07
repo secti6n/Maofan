@@ -30,22 +30,19 @@ class FeedCell: BaseCell {
         avatar.frame.size.width = Style.avatarSideLength
         avatar.frame.size.height = Style.avatarSideLength
         
-        name.frame.origin.x = Style.leftSpace + Style.avatarSideLength + Style.avatarRightSpace
+        name.frame.origin.x = Style.photoLeftSpace
         name.frame.origin.y = Style.whitespace
         name.frame.size.width = Style.nameWidth
-        name.frame.size.height = Style.avatarSideLength
         
-        status.frame.origin.x = Style.leftSpace
-        status.frame.origin.y = avatar.frame.maxY + Style.statusTopSpace
+        meta.frame.origin.x = Style.photoLeftSpace
+        meta.frame.size.width = Style.nameWidth
+        
+        status.frame.origin.x = Style.photoLeftSpace
         status.frame.size.width = Style.statusWidth
         
-        photo.frame.origin.x = Style.photoSideSpace
-        photo.frame.size.width = Style.photoSideLength
-        photo.frame.size.height = Style.photoSideLength
-        
-        meta.frame.origin.x = Style.leftSpace
-        meta.frame.size.width = Style.nameWidth
-        meta.frame.size.height = Style.avatarSideLength
+        photo.frame.origin.x = Style.photoLeftSpace
+        photo.frame.size.width = 0
+        photo.frame.size.height = 0
         
         avatar.layer.cornerRadius = Style.avatarSideLength / 2
         status.highlightTapAction = { (view, attrString, range, rect) in

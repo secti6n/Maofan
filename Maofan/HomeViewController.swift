@@ -9,8 +9,7 @@
 import UIKit
 import SwiftyJSON
 import YYText
-
-
+import YYWebImage
 
 class HomeViewController: UITableViewController {
 
@@ -19,11 +18,12 @@ class HomeViewController: UITableViewController {
         var parameters = [
             "format" : "html",
             "count" : "\(loadCount)",
+            "id" : "tisafu",
             ]
         if let id = feeds.last?.id {
             parameters.updateValue(id, forKey: "max_id")
         }
-        Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
+        Service.sharedInstance.user_timeline(parameters: parameters, success: { (response) in
             Misc.markTime()
             var new: [Feed] = []
             for json in JSON(data: response.data).array! {
@@ -39,6 +39,21 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
+        if let account = CoreDataTool.sharedInstance.fetch().first {
+            let photo = User(JSON(data: account.jsonData as! Data)).avatar!
+            print(photo)
+            YYWebImageManager.shared().requestImage(with: photo, progress: nil, transform: nil, completion: { (image, url, type, stage, error) in
+                let button = UIButton()
+                button.frame.size = image!.size
+                button.imageView?.image = image?.withRenderingMode(.alwaysOriginal)
+                button.layer.cornerRadius = button.frame.width / 2
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+            })
+        }
+        let home = UIImage(named: "home")
+        let post = UIImage(named: "post")
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: home, style: .plain, target: nil, action: nil),  UIBarButtonItem(image: post, style: .plain, target: nil, action: nil)]
         refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()

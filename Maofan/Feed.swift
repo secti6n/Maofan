@@ -44,7 +44,6 @@ class Feed {
             self._layout_name = Style.layout(name: self)
             self._layout_status = Style.layout(status: self)
             self._layout_meta = Style.layout(meta: self)
-            self._feedCellHeight = self.caculateFeedCellHeight()
             YYWebImageManager.shared().preDownload(url: self.user.avatar)
             YYWebImageManager.shared().preDownload(url: self.photo)
         }
@@ -58,55 +57,31 @@ class Feed {
         let meta = cell.meta!
         avatar.yy_setImage(with: self.user.avatar, options: [.setImageWithFadeAnimation])
         photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
+        let y_name = Style.whitespace
+        let h_name = self.layout_name.textBoundingSize.height
+        let h_meta = self.layout_meta.textBoundingSize.height
+        let y_meta = y_name + h_name - h_meta
+        let y_status = Style.whitespace + h_name + Style.statusTopSpace
+        let h_status = self.layout_status.textBoundingSize.height
+        let y_photo = y_status + h_status + Style.photoTopBottomSpace
         DispatchQueue.main.async {
+            name.frame.size.height = h_name
+            meta.frame.size.height = h_meta
+            meta.frame.origin.y = y_meta
+            status.frame.origin.y = y_status
+            status.frame.size.height = h_status
             name.textLayout = self.layout_name
             status.textLayout = self.layout_status
-            status.frame.size.height = self.layout_status.textBoundingSize.height
-            photo.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace
             meta.textLayout = self.layout_meta
+            meta.textAlignment = NSTextAlignment.right
             if self.hasPhoto {
-                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace + Style.photoSideLength + Style.photoTopBottomSpace
-            } else {
-                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.metaTopSpace
-            }
-            meta.frame.size.height = self.layout_meta.textBoundingSize.height
-        }
-    }
-    
-    func export(avatar: YYAnimatedImageView) {
-        DispatchQueue.main.async {
-            avatar.yy_setImage(with: self.user.avatar, options: [.setImageWithFadeAnimation])
-        }
-    }
-    
-    func export(name: YYLabel) {
-        DispatchQueue.main.async {
-            name.textLayout = self.layout_name
-        }
-    }
-    
-    func export(status: YYLabel) {
-        DispatchQueue.main.async {
-            status.textLayout = self.layout_status
-            status.frame.size.height = self.layout_status.textBoundingSize.height
-        }
-    }
-    
-    func export(photo: YYAnimatedImageView) {
-        DispatchQueue.main.async {
-            photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
-            photo.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace
-        }
-    }
-    
-    func export(meta: YYLabel) {
-        DispatchQueue.main.async {
-            meta.textLayout = self.layout_meta
-            meta.frame.size.height = self.layout_meta.textBoundingSize.height
-            if !self.hasPhoto {
-                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.metaTopSpace
-            } else {
-                meta.frame.origin.y = Style.whitespace + Style.avatarSideLength + Style.statusTopSpace + self.layout_status.textBoundingSize.height + Style.photoTopBottomSpace + Style.photoSideLength + Style.metaTopSpace
+                photo.frame.origin.y = y_photo
+                if let photoSize = self.photoSize {
+                    photo.frame.size = photoSize
+                } else {
+                    photo.frame.size.width = Style.photoSideLength
+                    photo.frame.size.height = Style.photoSideLength
+                }
             }
         }
     }
@@ -130,10 +105,19 @@ class Feed {
     private var _feedCellHeight: CGFloat?
     
     func caculateFeedCellHeight() -> CGFloat {
-        let contentHeight = statusSize.height + Style.avatarSideLength + Style.statusTopSpace + Style.metaTopSpace + metaSize.height
-        let contentHeightWithPhoto = statusSize.height + Style.avatarSideLength + Style.statusTopSpace + Style.photoTopBottomSpace + Style.photoSideLength + Style.metaTopSpace + metaSize.height
-        _feedCellHeight = (hasPhoto ? contentHeightWithPhoto : contentHeight) + Style.whitespace * 2
-        return _feedCellHeight!
+        let contentHeight: CGFloat
+        if hasPhoto {
+            if let photoHeight = photoSize?.height {
+                contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height + Style.photoTopBottomSpace + photoHeight + Style.photoTopBottomSpace
+                _feedCellHeight = contentHeight + Style.whitespace * 2
+            } else {
+                contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height + Style.photoTopBottomSpace + Style.photoSideLength + Style.photoTopBottomSpace
+            }
+        } else {
+            contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height
+            _feedCellHeight = contentHeight + Style.whitespace * 2
+        }
+        return contentHeight + Style.whitespace * 2
     }
     
     var text: String {
