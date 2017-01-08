@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="test" id="BYZ-38-t0r" customClass="ViewController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -214,7 +214,7 @@
         <scene sceneID="d1J-y8-bsW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WNl-kA-iXC" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home_selected" id="ltU-ng-q0f"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home-selected" id="ltU-ng-q0f"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FM2-N7-dCC" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -274,7 +274,7 @@
         <scene sceneID="qNZ-kP-OJL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kF6-Zm-xLf" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="message" selectedImage="message_selected" id="ruF-y9-qCn"/>
+                    <tabBarItem key="tabBarItem" title="" image="message" selectedImage="message-selected" id="ruF-y9-qCn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="40m-UE-mLx" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -293,7 +293,7 @@
         <scene sceneID="PPW-lf-Zud">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7i-Jo-Dta" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile_selected" id="bGf-uC-QTc"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile-selected" id="bGf-uC-QTc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wN1-A6-7Fe" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -312,7 +312,7 @@
         <scene sceneID="BC6-6r-74T">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yyB-ea-Lur" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="mention" selectedImage="mention_selected" id="79v-kk-XHQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="mention" selectedImage="mention-selected" id="79v-kk-XHQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WXt-uQ-AZS" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -369,7 +369,7 @@
         <scene sceneID="HJ3-1C-IIT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e0U-OP-0vv" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="post" selectedImage="post_selected" id="5BK-61-dsW"/>
+                    <tabBarItem key="tabBarItem" title="" image="post" selectedImage="post-selected" id="5BK-61-dsW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lfe-ZP-Aah" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -387,14 +387,14 @@
     </scenes>
     <resources>
         <image name="home" width="32" height="32"/>
-        <image name="home_selected" width="32" height="32"/>
+        <image name="home-selected" width="32" height="32"/>
         <image name="mention" width="32" height="32"/>
-        <image name="mention_selected" width="32" height="32"/>
+        <image name="mention-selected" width="32" height="32"/>
         <image name="message" width="32" height="32"/>
-        <image name="message_selected" width="32" height="32"/>
+        <image name="message-selected" width="32" height="32"/>
         <image name="post" width="32" height="32"/>
-        <image name="post_selected" width="32" height="32"/>
+        <image name="post-selected" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
-        <image name="profile_selected" width="32" height="32"/>
+        <image name="profile-selected" width="32" height="32"/>
     </resources>
 </document>

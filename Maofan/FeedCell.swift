@@ -35,6 +35,7 @@ class FeedCell: BaseCell {
         name.frame.size.width = Style.nameWidth
         
         meta.frame.origin.x = Style.photoLeftSpace
+        meta.frame.origin.y = Style.whitespace
         meta.frame.size.width = Style.nameWidth
         
         status.frame.origin.x = Style.photoLeftSpace

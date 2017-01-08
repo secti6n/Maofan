@@ -57,27 +57,27 @@ class Feed {
         let meta = cell.meta!
         avatar.yy_setImage(with: self.user.avatar, options: [.setImageWithFadeAnimation])
         photo.yy_setImage(with: self.photo, options: [.setImageWithFadeAnimation])
-        let y_name = Style.whitespace
         let h_name = self.layout_name.textBoundingSize.height
         let h_meta = self.layout_meta.textBoundingSize.height
-        let y_meta = y_name + h_name - h_meta
+        let w_meta = self.layout_meta.textBoundingSize.width
+        let x_meta = Style.fullWidth - Style.rightSpace - w_meta
         let y_status = Style.whitespace + h_name + Style.statusTopSpace
         let h_status = self.layout_status.textBoundingSize.height
         let y_photo = y_status + h_status + Style.photoTopBottomSpace
         DispatchQueue.main.async {
             name.frame.size.height = h_name
             meta.frame.size.height = h_meta
-            meta.frame.origin.y = y_meta
+            meta.frame.size.width = w_meta
+            meta.frame.origin.x = x_meta
             status.frame.origin.y = y_status
             status.frame.size.height = h_status
             name.textLayout = self.layout_name
             status.textLayout = self.layout_status
             meta.textLayout = self.layout_meta
-            meta.textAlignment = NSTextAlignment.right
             if self.hasPhoto {
                 photo.frame.origin.y = y_photo
                 if let photoSize = self.photoSize {
-                    photo.frame.size = photoSize
+                    photo.frame.size = photoSize.feedPhotoSize()
                 } else {
                     photo.frame.size.width = Style.photoSideLength
                     photo.frame.size.height = Style.photoSideLength
@@ -107,11 +107,11 @@ class Feed {
     func caculateFeedCellHeight() -> CGFloat {
         let contentHeight: CGFloat
         if hasPhoto {
-            if let photoHeight = photoSize?.height {
-                contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height + Style.photoTopBottomSpace + photoHeight + Style.photoTopBottomSpace
+            if let photoSize = photoSize {
+                contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height + Style.photoTopBottomSpace + photoSize.feedPhotoSize().height
                 _feedCellHeight = contentHeight + Style.whitespace * 2
             } else {
-                contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height + Style.photoTopBottomSpace + Style.photoSideLength + Style.photoTopBottomSpace
+                contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height + Style.photoTopBottomSpace + Style.photoSideLength
             }
         } else {
             contentHeight = nameSize.height + Style.statusTopSpace + statusSize.height

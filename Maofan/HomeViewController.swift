@@ -18,18 +18,17 @@ class HomeViewController: UITableViewController {
         var parameters = [
             "format" : "html",
             "count" : "\(loadCount)",
-            "id" : "tisafu",
             ]
-        if let id = feeds.last?.id {
-            parameters.updateValue(id, forKey: "max_id")
-        }
-        Service.sharedInstance.user_timeline(parameters: parameters, success: { (response) in
+//        if let id = feeds.last?.id {
+//            parameters.updateValue(id, forKey: "max_id")
+//        }
+        Service.sharedInstance.home_timeline(parameters: parameters, success: { (response) in
             Misc.markTime()
             var new: [Feed] = []
             for json in JSON(data: response.data).array! {
                 new.append(Feed(json))
             }
-            self.feeds += new
+            self.feeds = new
             Misc.markTime()
             PlaySound.load(.success)
         }, failure: { (error) in
@@ -44,16 +43,23 @@ class HomeViewController: UITableViewController {
             let photo = User(JSON(data: account.jsonData as! Data)).avatar!
             print(photo)
             YYWebImageManager.shared().requestImage(with: photo, progress: nil, transform: nil, completion: { (image, url, type, stage, error) in
-                let button = UIButton()
-                button.frame.size = image!.size
-                button.imageView?.image = image?.withRenderingMode(.alwaysOriginal)
-                button.layer.cornerRadius = button.frame.width / 2
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+                DispatchQueue.main.async {
+                    let button = UIButton()
+                    button.setImage(image?.withRenderingMode(.alwaysOriginal), for: UIControlState.normal)
+                    button.frame.size.width = 32
+                    button.frame.size.height = 32
+                    button.layer.cornerRadius = button.frame.width / 2
+                    button.clipsToBounds = true
+                    let item = UIBarButtonItem(customView: button)
+                    self.navigationItem.leftBarButtonItem = item
+                }
             })
         }
         let home = UIImage(named: "home")
-        let post = UIImage(named: "post")
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: home, style: .plain, target: nil, action: nil),  UIBarButtonItem(image: post, style: .plain, target: nil, action: nil)]
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: home, style: .plain, target: nil, action: nil),
+//            UIBarButtonItem(image: post, style: .plain, target: nil, action: nil),
+        ]
         refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         loadData()

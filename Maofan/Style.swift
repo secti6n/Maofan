@@ -11,18 +11,18 @@ import YYText
 
 class Style {
     static var fullWidth: CGFloat = UIScreen.main.bounds.width
-    static var whitespace: CGFloat = 36
+    static var whitespace: CGFloat = 30
     static var photoTopBottomSpace: CGFloat = 15
     static var metaTopSpace: CGFloat = 12
     static var statusTopSpace: CGFloat = 6
     static var avatarSideLength: CGFloat = 48
     static var nameWidth: CGFloat = fullWidth - avatarSideLength - avatarRightSpace - leftSpace * 2
     static var avatarRightSpace: CGFloat = avatarSideLength / 4
-    static var leftSpace: CGFloat = 24
-    static var rightSpace: CGFloat = leftSpace * 2 / 3
+    static var leftSpace: CGFloat = 20
+    static var rightSpace: CGFloat = leftSpace //* 3 / 4
     static var photoLeftSpace: CGFloat = leftSpace + avatarSideLength + avatarRightSpace
     static var photoRightSpace: CGFloat = leftSpace
-    static var photoSideLength: CGFloat = fullWidth - photoLeftSpace - photoRightSpace
+    static var photoSideLength: CGFloat = 72
     static var statusWidth: CGFloat = fullWidth - avatarSideLength - avatarRightSpace - leftSpace - rightSpace
     static var lineHeight: CGFloat = 24
     
@@ -47,6 +47,9 @@ class Style {
     static func layout(meta feed: Feed) -> YYTextLayout {
         let text = render(meta: feed.time[11..<19])
         let container = YYTextContainer()
+        let modifier = YYTextLinePositionSimpleModifier()
+        modifier.fixedLineHeight = lineHeight
+        container.linePositionModifier = modifier
         container.size = CGSize(width: nameWidth, height: CGFloat.greatestFiniteMagnitude)
         container.maximumNumberOfRows = 1
         return YYTextLayout(container: container, text: text)!
@@ -131,8 +134,12 @@ class Style {
         return UIColor(hex: "33363F")
     }
     
+    static var tintColor: UIColor {
+        return plainColor
+    }
+    
     static var highlightColor: UIColor {
-        return UIColor(hex: "007AFE")
+        return UIColor(hex: "18B6F2")
     }
     
     static var metaColor: UIColor {
@@ -148,7 +155,7 @@ class Style {
     }
     
     static var unSelect: UIColor {
-        return UIColor(hex: "334566").alpha(0.25)
+        return plainColor.alpha(0.2)
     }
     
     static func image(_ tintColor: UIColor) -> UIImage {
