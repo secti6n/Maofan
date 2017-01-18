@@ -20,10 +20,10 @@ class TabBar: UITabBar {
         })
     }
 
-//    override func sizeThatFits(_ size: CGSize) -> CGSize {
-//        var sizeThatFits = super.sizeThatFits(size)
-//        sizeThatFits.height = 60
-//        return sizeThatFits
-//    }
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 60
+        return sizeThatFits
+    }
 
 }

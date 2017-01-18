@@ -55,7 +55,7 @@ class HomeViewController: UITableViewController {
                 }
             })
         }
-        let home = UIImage(named: "home")
+        let home = UIImage(named: "profile")
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: home, style: .plain, target: nil, action: nil),
 //            UIBarButtonItem(image: post, style: .plain, target: nil, action: nil),

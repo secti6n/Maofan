@@ -11,10 +11,11 @@ import YYText
 
 class Style {
     static var fullWidth: CGFloat = UIScreen.main.bounds.width
-    static var whitespace: CGFloat = 30
+    static var whitespace: CGFloat = 15
     static var photoTopBottomSpace: CGFloat = 15
     static var metaTopSpace: CGFloat = 12
-    static var statusTopSpace: CGFloat = 6
+    static var statusTopSpace: CGFloat = 3
+    static var photoCorner: CGFloat = 6
     static var avatarSideLength: CGFloat = 48
     static var nameWidth: CGFloat = fullWidth - avatarSideLength - avatarRightSpace - leftSpace * 2
     static var avatarRightSpace: CGFloat = avatarSideLength / 4
@@ -98,13 +99,15 @@ class Style {
         let attr = NSMutableAttributedString(string: linkText.text)
         switch linkText.type {
         case .mention:
-            attr.yy_color = plainColor
+            attr.yy_color = highlightColor
+            attr.yy_font = linkFont
         case .tag:
-            attr.yy_color = metaColor
+            attr.yy_color = highlightColor
+            attr.yy_font = linkFont
         default:
-            attr.yy_color = metaColor
+            attr.yy_color = highlightColor
+            attr.yy_font = linkFont
         }
-        attr.yy_font = linkFont
         attr.yy_lineBreakMode = .byCharWrapping
         let range = NSRange(location: 0, length: attr.length)
         let highlight = YYTextHighlight()
@@ -119,7 +122,7 @@ class Style {
     }
     
     static var nameFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
     }
     
     static var plainFont: UIFont {
@@ -139,7 +142,7 @@ class Style {
     }
     
     static var highlightColor: UIColor {
-        return UIColor(hex: "18B6F2")
+        return UIColor(hex: "0098E5")
     }
     
     static var metaColor: UIColor {
@@ -150,12 +153,20 @@ class Style {
         return UIColor(hex: "FFFFFF")
     }
     
+    static var blurBarColor: UIColor {
+        return backgroundColor.alpha(0.9)
+    }
+    
     static var backgroundColorTouch: UIColor {
         return UIColor(hex: "F8F8F9")
     }
     
+    static var border: UIColor {
+        return plainColor.alpha(0.1)
+    }
+    
     static var unSelect: UIColor {
-        return plainColor.alpha(0.2)
+        return plainColor.alpha(0.05)
     }
     
     static func image(_ tintColor: UIColor) -> UIImage {

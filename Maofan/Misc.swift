@@ -161,7 +161,7 @@ extension UIView {
                 for view in blurView.allSubViews {
                     if view.isKind(of: _UIVisualEffectFilterView) {
                         print("****************** find _UIVisualEffectFilterView")
-                        view.backgroundColor = Style.backgroundColor.alpha(0.8)
+                        view.backgroundColor = Style.blurBarColor
                         break
                     }
                 }

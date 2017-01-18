@@ -42,9 +42,11 @@ class FeedCell: BaseCell {
         status.frame.size.width = Style.statusWidth
         
         photo.frame.origin.x = Style.photoLeftSpace
-        photo.frame.size.width = 0
-        photo.frame.size.height = 0
-        
+        photo.layer.cornerRadius = Style.photoCorner
+        let borderWidth: CGFloat = 1 / UIScreen.main.scale
+        photo.frame = UIEdgeInsetsInsetRect(photo.frame, UIEdgeInsets(top: -borderWidth, left: -borderWidth, bottom: -borderWidth, right: -borderWidth))
+        photo.layer.borderColor = Style.border.cgColor
+        photo.layer.borderWidth = borderWidth
         avatar.layer.cornerRadius = Style.avatarSideLength / 2
         status.highlightTapAction = { (view, attrString, range, rect) in
             print("---------------get")

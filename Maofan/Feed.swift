@@ -82,6 +82,9 @@ class Feed {
                     photo.frame.size.width = Style.photoSideLength
                     photo.frame.size.height = Style.photoSideLength
                 }
+            } else {
+                photo.frame.size.width = 0
+                photo.frame.size.height = 0
             }
         }
     }
