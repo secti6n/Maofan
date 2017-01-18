@@ -161,7 +161,7 @@ extension UIView {
                 for view in blurView.allSubViews {
                     if view.isKind(of: _UIVisualEffectFilterView) {
                         print("****************** find _UIVisualEffectFilterView")
-                        view.backgroundColor = Style.backgroundColor.alpha(0.75)
+                        view.backgroundColor = Style.backgroundColor.alpha(0.8)
                         break
                     }
                 }
@@ -222,8 +222,8 @@ extension CGSize {
             heightResult = maxWidth / ratio
         }
         if heightResult > maxHeight { // 经过变换后仍然太长的照片，采用不完整填充
-            widthResult = maxHeight / 2
-            heightResult = max(maxHeight / 2 * ratio, minWidth)
+            heightResult = maxHeight / 2
+            widthResult = max(maxHeight / 2 * ratio, minWidth)
         }
         return CGSize(width: widthResult, height: heightResult)
     }

@@ -15,8 +15,8 @@ class TabBar: UITabBar {
         items?.forEach({ (item) -> () in
             let f = 6 - 1 / UIScreen.main.scale
             item.imageInsets = UIEdgeInsets(top: f, left: 0, bottom: -f, right: 0)
-            item.selectedImage = item.selectedImage?.imageWithColor(Style.tintColor).withRenderingMode(.alwaysOriginal)
-            item.image = item.image?.imageWithColor(Style.tintColor).withRenderingMode(.alwaysOriginal)
+            item.selectedImage = item.image?.imageWithColor(Style.tintColor).withRenderingMode(.alwaysOriginal)
+            item.image = item.image?.imageWithColor(Style.unSelect).withRenderingMode(.alwaysOriginal)
         })
     }
 
