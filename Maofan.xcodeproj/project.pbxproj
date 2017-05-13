@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		173E7ABD1E46894BF33A5C31 /* Pods_Maofan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108B234C0CD30824E0A2692 /* Pods_Maofan.framework */; };
+		C7016F371EC79FE60044B0A4 /* FanfouConsumer.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C7016F361EC79FE60044B0A4 /* FanfouConsumer.swift.example */; };
 		C7DB86321EC60DD4000F8A9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB862F1EC60DD4000F8A9C /* ViewController.swift */; };
 		C7DB86331EC60DD4000F8A9C /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */; };
 		C7DE6FDE1EC4D14000EAAEEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		30CC914AA86591A819AFF037 /* Pods-Maofan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.release.xcconfig"; sourceTree = "<group>"; };
 		5108B234C0CD30824E0A2692 /* Pods_Maofan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maofan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9563B160E76149460AEFADEE /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
+		C7016F361EC79FE60044B0A4 /* FanfouConsumer.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FanfouConsumer.swift.example; sourceTree = "<group>"; };
 		C7DB862F1EC60DD4000F8A9C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
 		C7DE6FDA1EC4D14000EAAEEA /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */,
 				C7DB862F1EC60DD4000F8A9C /* ViewController.swift */,
 				C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */,
+				C7016F361EC79FE60044B0A4 /* FanfouConsumer.swift.example */,
 				C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */,
 				C7DE6FFA1EC4D32B00EAAEEA /* Feed.swift */,
 				C7DE6FFB1EC4D32B00EAAEEA /* FeedText.swift */,
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7016F371EC79FE60044B0A4 /* FanfouConsumer.swift.example in Resources */,
 				C7DE6FEB1EC4D14000EAAEEA /* LaunchScreen.storyboard in Resources */,
 				C7DE6FE81EC4D14000EAAEEA /* Assets.xcassets in Resources */,
 			);
