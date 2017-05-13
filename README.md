@@ -6,12 +6,10 @@
 
 - 网络请求，使用 OAuthSwift、SwiftyJSON
 - 数据储存，使用 Core Data
-- 文字渲染，使用 YYText
-- 图片缓存，使用 YYWebImage
+- 文字渲染和图片缓存，使用 Texture
 
 ## Plan
 
-- 检查刷新是否导致图片闪烁
 - Product Design
 
 ## Use
