@@ -2,79 +2,72 @@
 //  ViewController.swift
 //  Maofan
 //
-//  Created by Catt Liu on 16/9/8.
-//  Copyright © 2016年 Catt Liu. All rights reserved.
+//  Created by Catt Liu on 2017/5/12.
+//  Copyright © 2017年 Catt Liu. All rights reserved.
 //
+
 import UIKit
-import CoreData
-import YYText
+import AsyncDisplayKit
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: ASViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate, ASTextNodeDelegate {
+    
+    let collectionNode: ASCollectionNode
+    var data: [Feed] = []
+    
+    func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, value: Any, at point: CGPoint, textRange: NSRange) {
+        print(Date())
+    }
+    
+    init() {
+        let flowLayout = UICollectionViewFlowLayout()
+        collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
+        super.init(node: collectionNode)
+        collectionNode.dataSource = self
+        collectionNode.delegate = self
+        collectionNode.backgroundColor = UIColor.white
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = "press test button to parse a fanfou feed"
-        label.numberOfLines = 0
-        label.highlightTapAction = { (view, attrString, range, rect) in
-            let hightlight = attrString.attributedSubstring(from: range).attribute(YYTextHighlightAttributeName, at: 0, effectiveRange: nil)
-            print((hightlight as! YYTextHighlight).userInfo!["urlString"] as! String)
-        }
-        label.highlightLongPressAction = { (view, attrString, range, rect) in
-            print("long press")
-        }
-    }
-    
-    @IBOutlet weak var label: YYLabel!
-    
-    @IBAction func testButtonDidTouch(_ sender: AnyObject) {
-
-    }
-    
-    @IBAction func deleteAllButtonDidTouch(_ sender: AnyObject) {
-        CoreDataTool.sharedInstance.delete(forEntityName: "Account")
-    }
-    
-    @IBAction func fetchButtonDidTouch(_ sender: AnyObject) {
-        let arr = CoreDataTool.sharedInstance.fetch()
-        for account in arr {
-            let json = JSON(data: account.jsonData as! Data)
-            print(json)
-            print(account.unique_id as Any)
-        }
-    }
-    
-    @IBAction func login1ButtonDidTouch(_ sender: AnyObject) {
         Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
+        if let account = CoreDataTool.sharedInstance.fetch().first {
+            let user = User(JSON(data: account.jsonData! as Data))
+            print(user.name)
+        }
+        Service.sharedInstance.home_timeline(parameters: ["count" : 60, "format" : "html_"], success: { (res) in
+            for json in JSON(data: res.data).arrayValue {
+                let feed = Feed(json)
+                self.data.append(feed)
+            }
+            self.collectionNode.reloadData()
+        }) { (e) in
+            //
+        }
     }
     
-    @IBAction func login2ButtonDidTouch(_ sender: AnyObject) {
-        Login.xauth(username: FanfouConsumer.username2, password: FanfouConsumer.password2)
+    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+        // this may be executed on a background thread - it is important to make sure it is thread safe
+        let cellNodeBlock = { () -> ASCellNode in
+            let cellNode = FeedCellNode(with: self.data[indexPath.row])
+            cellNode.textNode.delegate = self
+            return cellNode
+        }
+        return cellNodeBlock
     }
     
-    @IBAction func textButtonDidTouch(_ sender: AnyObject) {
-        let param = [
-            "format": "html",
-            "status": "Hello, world! \(arc4random())"
-        ]
-        Service.sharedInstance.postText(parameters: param, success: { (response) in
-            print(JSON(data: response.data))
-        }, failure: { (error) in
-            Misc.handleError(error)
-        })
+    func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
+        return data.count
     }
     
-    @IBAction func imageButtonDidTouch(_ sender: AnyObject) {
-        let param = [
-            "format": "html",
-            "status": "Hello, world! \(arc4random())"
-        ]
-        let image = UIImageJPEGRepresentation(UIImage(named: "test")!, 0.1)!
-        Service.sharedInstance.postImage(parameters: param, image: image, success: { (response) in
-            print(JSON(data: response.data))
-        }, failure: { (error) in
-            Misc.handleError(error)
-        })
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
+    deinit {
+        print("deinit")
+        collectionNode.dataSource = nil
+        collectionNode.delegate = nil
+    }
+    
 }

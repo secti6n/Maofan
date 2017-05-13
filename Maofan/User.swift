@@ -29,7 +29,7 @@ class User {
     }
     
     var avatar: URL? {
-        return json["profile_image_url_large"].URL
+        return json["profile_image_url_large"].url
     }
     
 }

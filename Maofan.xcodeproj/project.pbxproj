@@ -7,189 +7,136 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */; };
-		C70615AB1E19639E0023F897 /* Elastic_Note1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C70615A91E19639E0023F897 /* Elastic_Note1.wav */; };
-		C70615AC1E19639E0023F897 /* Elastic_Done11.wav in Resources */ = {isa = PBXBuildFile; fileRef = C70615AA1E19639E0023F897 /* Elastic_Done11.wav */; };
-		C708B8EE1D990C81006B1C8A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B8ED1D990C81006B1C8A /* Service.swift */; };
-		C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */; };
-		C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708DF131DDB2B5E006E2F28 /* Login.swift */; };
-		C708DF511DDB5D65006E2F28 /* FanfouConsumer.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */; };
-		C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72362DC1DD72AEB00C0FB62 /* Misc.swift */; };
-		C743C18A1E095C500009A457 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743C1891E095C500009A457 /* FeedCell.swift */; };
-		C743C18C1E095DBA0009A457 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743C18B1E095DBA0009A457 /* HomeViewController.swift */; };
-		C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */; };
-		C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7700A4D1D81BBEE00908DB2 /* ViewController.swift */; };
-		C7700A511D81BBEE00908DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7700A4F1D81BBEE00908DB2 /* Main.storyboard */; };
-		C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */; };
-		C7700A561D81BBEE00908DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7700A551D81BBEE00908DB2 /* Assets.xcassets */; };
-		C7700A591D81BBEE00908DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */; };
-		C77DDCBF1E09778000E1D02D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DDCBE1E09778000E1D02D /* Feed.swift */; };
-		C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78561E91DEF2C4E00956277 /* FeedText.swift */; };
-		C7A63B3B1E0457560077A7F7 /* OAuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */; };
-		C7ADDC9D1E182E9B00AFEA10 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDC9C1E182E9B00AFEA10 /* TabBar.swift */; };
-		C7ADDC9F1E182EC500AFEA10 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */; };
-		C7ADDCA21E182F7200AFEA10 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */; };
-		C7ADDCA31E182F7200AFEA10 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */; };
-		C7ADDCAB1E18E06400AFEA10 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ADDCAA1E18E06400AFEA10 /* TableView.swift */; };
-		C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */; };
-		C7B3BBF31E17AD9000D4810D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBF21E17AD9000D4810D /* Style.swift */; };
-		C7B3BBF81E17DA4600D4810D /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBF71E17DA4600D4810D /* BaseCell.swift */; };
-		C7B3BBFB1E17DDF800D4810D /* bubble_2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7B3BBF91E17DDF800D4810D /* bubble_2.wav */; };
-		C7B3BBFC1E17DDF800D4810D /* bubble_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7B3BBFA1E17DDF800D4810D /* bubble_1.wav */; };
-		C7B3BBFE1E17E04000D4810D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3BBFD1E17E04000D4810D /* User.swift */; };
+		173E7ABD1E46894BF33A5C31 /* Pods_Maofan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108B234C0CD30824E0A2692 /* Pods_Maofan.framework */; };
+		C7DB86321EC60DD4000F8A9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB862F1EC60DD4000F8A9C /* ViewController.swift */; };
+		C7DB86331EC60DD4000F8A9C /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */; };
+		C7DE6FDE1EC4D14000EAAEEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */; };
+		C7DE6FE01EC4D14000EAAEEA /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */; };
+		C7DE6FE61EC4D14000EAAEEA /* Maofan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FE41EC4D14000EAAEEA /* Maofan.xcdatamodeld */; };
+		C7DE6FE81EC4D14000EAAEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE6FE71EC4D14000EAAEEA /* Assets.xcassets */; };
+		C7DE6FEB1EC4D14000EAAEEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE6FE91EC4D14000EAAEEA /* LaunchScreen.storyboard */; };
+		C7DE6FF31EC4D28400EAAEEA /* OAuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FF21EC4D28400EAAEEA /* OAuthExtension.swift */; };
+		C7DE6FF51EC4D2AC00EAAEEA /* FanfouConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FF41EC4D2AC00EAAEEA /* FanfouConsumer.swift */; };
+		C7DE6FF71EC4D2EE00EAAEEA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FF61EC4D2EE00EAAEEA /* Service.swift */; };
+		C7DE6FF91EC4D2FB00EAAEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FF81EC4D2FB00EAAEEA /* Login.swift */; };
+		C7DE6FFD1EC4D32B00EAAEEA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FFA1EC4D32B00EAAEEA /* Feed.swift */; };
+		C7DE6FFE1EC4D32B00EAAEEA /* FeedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FFB1EC4D32B00EAAEEA /* FeedText.swift */; };
+		C7DE6FFF1EC4D32B00EAAEEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FFC1EC4D32B00EAAEEA /* User.swift */; };
+		C7DE70011EC4D3B000EAAEEA /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE70001EC4D3B000EAAEEA /* Misc.swift */; };
+		C7DE70031EC4D3D400EAAEEA /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE70021EC4D3D400EAAEEA /* Style.swift */; };
+		C7DE70051EC4D5FE00EAAEEA /* CoreDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE70041EC4D5FE00EAAEEA /* CoreDataTool.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C708B8F51D99175A006B1C8A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maofan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.release.xcconfig"; sourceTree = "<group>"; };
-		C70615A91E19639E0023F897 /* Elastic_Note1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Elastic_Note1.wav; sourceTree = "<group>"; };
-		C70615AA1E19639E0023F897 /* Elastic_Done11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Elastic_Done11.wav; sourceTree = "<group>"; };
-		C708B8ED1D990C81006B1C8A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
-		C708DF131DDB2B5E006E2F28 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FanfouConsumer.swift.example; sourceTree = "<group>"; };
-		C72362DC1DD72AEB00C0FB62 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
-		C743C1891E095C500009A457 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
-		C743C18B1E095DBA0009A457 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C7700A481D81BBEE00908DB2 /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7700A4D1D81BBEE00908DB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C7700A501D81BBEE00908DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C7700A531D81BBEE00908DB2 /* Maofan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maofan.xcdatamodel; sourceTree = "<group>"; };
-		C7700A551D81BBEE00908DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Maofan/Assets.xcassets; sourceTree = "<group>"; };
-		C7700A581D81BBEE00908DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C7700A5A1D81BBEE00908DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C77DDCBE1E09778000E1D02D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		C78561E91DEF2C4E00956277 /* FeedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedText.swift; sourceTree = "<group>"; };
-		C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthExtension.swift; sourceTree = "<group>"; };
-		C7ADDC9C1E182E9B00AFEA10 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		C7ADDCAA1E18E06400AFEA10 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
-		C7B3BBF21E17AD9000D4810D /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		C7B3BBF71E17DA4600D4810D /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
-		C7B3BBF91E17DDF800D4810D /* bubble_2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble_2.wav; sourceTree = "<group>"; };
-		C7B3BBFA1E17DDF800D4810D /* bubble_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble_1.wav; sourceTree = "<group>"; };
-		C7B3BBFD1E17E04000D4810D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
+		30CC914AA86591A819AFF037 /* Pods-Maofan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.release.xcconfig"; sourceTree = "<group>"; };
+		5108B234C0CD30824E0A2692 /* Pods_Maofan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maofan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9563B160E76149460AEFADEE /* Pods-Maofan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maofan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maofan/Pods-Maofan.debug.xcconfig"; sourceTree = "<group>"; };
+		C7DB862F1EC60DD4000F8A9C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
+		C7DE6FDA1EC4D14000EAAEEA /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
+		C7DE6FE51EC4D14000EAAEEA /* Maofan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maofan.xcdatamodel; sourceTree = "<group>"; };
+		C7DE6FE71EC4D14000EAAEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7DE6FEA1EC4D14000EAAEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7DE6FEC1EC4D14000EAAEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7DE6FF21EC4D28400EAAEEA /* OAuthExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthExtension.swift; sourceTree = "<group>"; };
+		C7DE6FF41EC4D2AC00EAAEEA /* FanfouConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanfouConsumer.swift; sourceTree = "<group>"; };
+		C7DE6FF61EC4D2EE00EAAEEA /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		C7DE6FF81EC4D2FB00EAAEEA /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		C7DE6FFA1EC4D32B00EAAEEA /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		C7DE6FFB1EC4D32B00EAAEEA /* FeedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedText.swift; sourceTree = "<group>"; };
+		C7DE6FFC1EC4D32B00EAAEEA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C7DE70001EC4D3B000EAAEEA /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		C7DE70021EC4D3D400EAAEEA /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		C7DE70041EC4D5FE00EAAEEA /* CoreDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C7700A451D81BBEE00908DB2 /* Frameworks */ = {
+		C7DE6FD71EC4D14000EAAEEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB48902EC5CE1459A55931F /* Pods_Maofan.framework in Frameworks */,
+				173E7ABD1E46894BF33A5C31 /* Pods_Maofan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4AADC5378274757ED199CC43 /* Frameworks */ = {
+		C6DE052710A82BDB29427E8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B0E71C5CDBDEAF5D88F220E /* Pods_Maofan.framework */,
+				5108B234C0CD30824E0A2692 /* Pods_Maofan.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		556652EB90D553078A265754 /* Pods */ = {
+		C7DE6FD11EC4D14000EAAEEA = {
 			isa = PBXGroup;
 			children = (
-				FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */,
-				9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C7700A3F1D81BBEE00908DB2 = {
-			isa = PBXGroup;
-			children = (
-				C7700A551D81BBEE00908DB2 /* Assets.xcassets */,
-				C7700A4F1D81BBEE00908DB2 /* Main.storyboard */,
-				C7700A4A1D81BBEE00908DB2 /* Maofan */,
-				C7700A491D81BBEE00908DB2 /* Products */,
-				556652EB90D553078A265754 /* Pods */,
-				4AADC5378274757ED199CC43 /* Frameworks */,
+				C7DE6FDC1EC4D14000EAAEEA /* Maofan */,
+				C7DE6FDB1EC4D14000EAAEEA /* Products */,
+				EA8DFEE146C9506B89D0EBF8 /* Pods */,
+				C6DE052710A82BDB29427E8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		C7700A491D81BBEE00908DB2 /* Products */ = {
+		C7DE6FDB1EC4D14000EAAEEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7700A481D81BBEE00908DB2 /* Maofan.app */,
+				C7DE6FDA1EC4D14000EAAEEA /* Maofan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C7700A4A1D81BBEE00908DB2 /* Maofan */ = {
+		C7DE6FDC1EC4D14000EAAEEA /* Maofan */ = {
 			isa = PBXGroup;
 			children = (
-				C72362DC1DD72AEB00C0FB62 /* Misc.swift */,
-				C7B3BBF21E17AD9000D4810D /* Style.swift */,
-				C77DDCBE1E09778000E1D02D /* Feed.swift */,
-				C743C1891E095C500009A457 /* FeedCell.swift */,
-				C7700A4B1D81BBEE00908DB2 /* AppDelegate.swift */,
-				C743C18B1E095DBA0009A457 /* HomeViewController.swift */,
-				C7ADDC9C1E182E9B00AFEA10 /* TabBar.swift */,
-				C7ADDC9E1E182EC500AFEA10 /* NavigationBar.swift */,
-				C7ADDCA11E182F7200AFEA10 /* TabBarController.swift */,
-				C7ADDCA01E182F7200AFEA10 /* NavigationController.swift */,
-				C7ADDCAA1E18E06400AFEA10 /* TableView.swift */,
-				C7700A4D1D81BBEE00908DB2 /* ViewController.swift */,
-				C7B3BBF71E17DA4600D4810D /* BaseCell.swift */,
-				C7B3BBFD1E17E04000D4810D /* User.swift */,
-				C78561E91DEF2C4E00956277 /* FeedText.swift */,
-				C7AFA2B81DDB919300AAB3FF /* CoreDataTool.swift */,
-				C708B8ED1D990C81006B1C8A /* Service.swift */,
-				C7A63B3A1E0457560077A7F7 /* OAuthExtension.swift */,
-				C708DF131DDB2B5E006E2F28 /* Login.swift */,
-				C708DF501DDB5D65006E2F28 /* FanfouConsumer.swift.example */,
-				C708B90D1D993A05006B1C8A /* FanfouConsumer.swift */,
-				C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */,
-				C70615A91E19639E0023F897 /* Elastic_Note1.wav */,
-				C70615AA1E19639E0023F897 /* Elastic_Done11.wav */,
-				C7B3BBF91E17DDF800D4810D /* bubble_2.wav */,
-				C7B3BBFA1E17DDF800D4810D /* bubble_1.wav */,
-				C7700A5A1D81BBEE00908DB2 /* Info.plist */,
-				C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */,
+				C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */,
+				C7DB862F1EC60DD4000F8A9C /* ViewController.swift */,
+				C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */,
+				C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */,
+				C7DE6FFA1EC4D32B00EAAEEA /* Feed.swift */,
+				C7DE6FFB1EC4D32B00EAAEEA /* FeedText.swift */,
+				C7DE70021EC4D3D400EAAEEA /* Style.swift */,
+				C7DE70041EC4D5FE00EAAEEA /* CoreDataTool.swift */,
+				C7DE70001EC4D3B000EAAEEA /* Misc.swift */,
+				C7DE6FFC1EC4D32B00EAAEEA /* User.swift */,
+				C7DE6FF61EC4D2EE00EAAEEA /* Service.swift */,
+				C7DE6FF81EC4D2FB00EAAEEA /* Login.swift */,
+				C7DE6FF21EC4D28400EAAEEA /* OAuthExtension.swift */,
+				C7DE6FF41EC4D2AC00EAAEEA /* FanfouConsumer.swift */,
+				C7DE6FE71EC4D14000EAAEEA /* Assets.xcassets */,
+				C7DE6FE91EC4D14000EAAEEA /* LaunchScreen.storyboard */,
+				C7DE6FEC1EC4D14000EAAEEA /* Info.plist */,
+				C7DE6FE41EC4D14000EAAEEA /* Maofan.xcdatamodeld */,
 			);
 			path = Maofan;
+			sourceTree = "<group>";
+		};
+		EA8DFEE146C9506B89D0EBF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9563B160E76149460AEFADEE /* Pods-Maofan.debug.xcconfig */,
+				30CC914AA86591A819AFF037 /* Pods-Maofan.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7700A471D81BBEE00908DB2 /* Maofan */ = {
+		C7DE6FD91EC4D14000EAAEEA /* Maofan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7700A5D1D81BBEE00908DB2 /* Build configuration list for PBXNativeTarget "Maofan" */;
+			buildConfigurationList = C7DE6FEF1EC4D14000EAAEEA /* Build configuration list for PBXNativeTarget "Maofan" */;
 			buildPhases = (
-				88A71DD7BEA8B2E5B0332833 /* [CP] Check Pods Manifest.lock */,
-				09767873107F7AE63EB97318 /* [CP] Check Pods Manifest.lock */,
-				C7700A441D81BBEE00908DB2 /* Sources */,
-				C7700A451D81BBEE00908DB2 /* Frameworks */,
-				C7700A461D81BBEE00908DB2 /* Resources */,
-				C708B8F51D99175A006B1C8A /* Embed Frameworks */,
-				443BD11518E682B1254DD8A8 /* [CP] Embed Pods Frameworks */,
-				D9E7BB34490685A0FAF03381 /* [CP] Copy Pods Resources */,
-				469E182FA81628BD33F3D744 /* 📦 Embed Pods Frameworks */,
-				3D0292BE58FA82B41DC3F6E7 /* 📦 Copy Pods Resources */,
+				2E2320EA529AD866B15D70A1 /* [CP] Check Pods Manifest.lock */,
+				C7DE6FD61EC4D14000EAAEEA /* Sources */,
+				C7DE6FD71EC4D14000EAAEEA /* Frameworks */,
+				C7DE6FD81EC4D14000EAAEEA /* Resources */,
+				825EF5C66529EF2C69060441 /* [CP] Embed Pods Frameworks */,
+				0CEDDC6CB92399D636B44F27 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,28 +144,27 @@
 			);
 			name = Maofan;
 			productName = Maofan;
-			productReference = C7700A481D81BBEE00908DB2 /* Maofan.app */;
+			productReference = C7DE6FDA1EC4D14000EAAEEA /* Maofan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C7700A401D81BBEE00908DB2 /* Project object */ = {
+		C7DE6FD21EC4D14000EAAEEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Catt Liu";
 				TargetAttributes = {
-					C7700A471D81BBEE00908DB2 = {
-						CreatedOnToolsVersion = 8.0;
+					C7DE6FD91EC4D14000EAAEEA = {
+						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = LK4XTSG397;
-						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = C7700A431D81BBEE00908DB2 /* Build configuration list for PBXProject "Maofan" */;
+			buildConfigurationList = C7DE6FD51EC4D14000EAAEEA /* Build configuration list for PBXProject "Maofan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -226,111 +172,30 @@
 				en,
 				Base,
 			);
-			mainGroup = C7700A3F1D81BBEE00908DB2;
-			productRefGroup = C7700A491D81BBEE00908DB2 /* Products */;
+			mainGroup = C7DE6FD11EC4D14000EAAEEA;
+			productRefGroup = C7DE6FDB1EC4D14000EAAEEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7700A471D81BBEE00908DB2 /* Maofan */,
+				C7DE6FD91EC4D14000EAAEEA /* Maofan */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C7700A461D81BBEE00908DB2 /* Resources */ = {
+		C7DE6FD81EC4D14000EAAEEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7B3BBFB1E17DDF800D4810D /* bubble_2.wav in Resources */,
-				C7B3BBFC1E17DDF800D4810D /* bubble_1.wav in Resources */,
-				C70615AC1E19639E0023F897 /* Elastic_Done11.wav in Resources */,
-				C708DF511DDB5D65006E2F28 /* FanfouConsumer.swift.example in Resources */,
-				C7700A591D81BBEE00908DB2 /* LaunchScreen.storyboard in Resources */,
-				C7700A561D81BBEE00908DB2 /* Assets.xcassets in Resources */,
-				C7700A511D81BBEE00908DB2 /* Main.storyboard in Resources */,
-				C70615AB1E19639E0023F897 /* Elastic_Note1.wav in Resources */,
+				C7DE6FEB1EC4D14000EAAEEA /* LaunchScreen.storyboard in Resources */,
+				C7DE6FE81EC4D14000EAAEEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09767873107F7AE63EB97318 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3D0292BE58FA82B41DC3F6E7 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		443BD11518E682B1254DD8A8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		469E182FA81628BD33F3D744 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		88A71DD7BEA8B2E5B0332833 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D9E7BB34490685A0FAF03381 /* [CP] Copy Pods Resources */ = {
+		0CEDDC6CB92399D636B44F27 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -345,53 +210,68 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2E2320EA529AD866B15D70A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		825EF5C66529EF2C69060441 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maofan/Pods-Maofan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C7700A441D81BBEE00908DB2 /* Sources */ = {
+		C7DE6FD61EC4D14000EAAEEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C708B90E1D993A05006B1C8A /* FanfouConsumer.swift in Sources */,
-				C77DDCBF1E09778000E1D02D /* Feed.swift in Sources */,
-				C7ADDC9D1E182E9B00AFEA10 /* TabBar.swift in Sources */,
-				C78561EA1DEF2C4E00956277 /* FeedText.swift in Sources */,
-				C7ADDC9F1E182EC500AFEA10 /* NavigationBar.swift in Sources */,
-				C7700A4E1D81BBEE00908DB2 /* ViewController.swift in Sources */,
-				C7B3BBFE1E17E04000D4810D /* User.swift in Sources */,
-				C7700A541D81BBEE00908DB2 /* Maofan.xcdatamodeld in Sources */,
-				C743C18A1E095C500009A457 /* FeedCell.swift in Sources */,
-				C708B8EE1D990C81006B1C8A /* Service.swift in Sources */,
-				C7ADDCAB1E18E06400AFEA10 /* TableView.swift in Sources */,
-				C72362DD1DD72AEB00C0FB62 /* Misc.swift in Sources */,
-				C708DF141DDB2B5E006E2F28 /* Login.swift in Sources */,
-				C7ADDCA21E182F7200AFEA10 /* NavigationController.swift in Sources */,
-				C7ADDCA31E182F7200AFEA10 /* TabBarController.swift in Sources */,
-				C7A63B3B1E0457560077A7F7 /* OAuthExtension.swift in Sources */,
-				C7AFA2B91DDB919300AAB3FF /* CoreDataTool.swift in Sources */,
-				C7B3BBF31E17AD9000D4810D /* Style.swift in Sources */,
-				C7700A4C1D81BBEE00908DB2 /* AppDelegate.swift in Sources */,
-				C7B3BBF81E17DA4600D4810D /* BaseCell.swift in Sources */,
-				C743C18C1E095DBA0009A457 /* HomeViewController.swift in Sources */,
+				C7DE6FF91EC4D2FB00EAAEEA /* Login.swift in Sources */,
+				C7DE70051EC4D5FE00EAAEEA /* CoreDataTool.swift in Sources */,
+				C7DE6FFD1EC4D32B00EAAEEA /* Feed.swift in Sources */,
+				C7DE6FFE1EC4D32B00EAAEEA /* FeedText.swift in Sources */,
+				C7DB86321EC60DD4000F8A9C /* ViewController.swift in Sources */,
+				C7DE6FE01EC4D14000EAAEEA /* ViewController1.swift in Sources */,
+				C7DE6FF31EC4D28400EAAEEA /* OAuthExtension.swift in Sources */,
+				C7DE70011EC4D3B000EAAEEA /* Misc.swift in Sources */,
+				C7DB86331EC60DD4000F8A9C /* FeedCellNode.swift in Sources */,
+				C7DE6FE61EC4D14000EAAEEA /* Maofan.xcdatamodeld in Sources */,
+				C7DE70031EC4D3D400EAAEEA /* Style.swift in Sources */,
+				C7DE6FF51EC4D2AC00EAAEEA /* FanfouConsumer.swift in Sources */,
+				C7DE6FDE1EC4D14000EAAEEA /* AppDelegate.swift in Sources */,
+				C7DE6FFF1EC4D32B00EAAEEA /* User.swift in Sources */,
+				C7DE6FF71EC4D2EE00EAAEEA /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7700A4F1D81BBEE00908DB2 /* Main.storyboard */ = {
+		C7DE6FE91EC4D14000EAAEEA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C7700A501D81BBEE00908DB2 /* Base */,
-			);
-			name = Main.storyboard;
-			path = Maofan;
-			sourceTree = "<group>";
-		};
-		C7700A571D81BBEE00908DB2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7700A581D81BBEE00908DB2 /* Base */,
+				C7DE6FEA1EC4D14000EAAEEA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -399,11 +279,12 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C7700A5B1D81BBEE00908DB2 /* Debug */ = {
+		C7DE6FED1EC4D14000EAAEEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -418,7 +299,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -440,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -449,11 +329,12 @@
 			};
 			name = Debug;
 		};
-		C7700A5C1D81BBEE00908DB2 /* Release */ = {
+		C7DE6FEE1EC4D14000EAAEEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -468,7 +349,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -484,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -492,37 +372,30 @@
 			};
 			name = Release;
 		};
-		C7700A5E1D81BBEE00908DB2 /* Debug */ = {
+		C7DE6FF01EC4D14000EAAEEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBA6501F893AA8F4B63B758D /* Pods-Maofan.debug.xcconfig */;
+			baseConfigurationReference = 9563B160E76149460AEFADEE /* Pods-Maofan.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LK4XTSG397;
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.Maofan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		C7700A5F1D81BBEE00908DB2 /* Release */ = {
+		C7DE6FF11EC4D14000EAAEEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CF8267ED2DD5A353480EABC /* Pods-Maofan.release.xcconfig */;
+			baseConfigurationReference = 30CC914AA86591A819AFF037 /* Pods-Maofan.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LK4XTSG397;
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.maofan.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maochang.Maofan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -530,20 +403,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7700A431D81BBEE00908DB2 /* Build configuration list for PBXProject "Maofan" */ = {
+		C7DE6FD51EC4D14000EAAEEA /* Build configuration list for PBXProject "Maofan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7700A5B1D81BBEE00908DB2 /* Debug */,
-				C7700A5C1D81BBEE00908DB2 /* Release */,
+				C7DE6FED1EC4D14000EAAEEA /* Debug */,
+				C7DE6FEE1EC4D14000EAAEEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7700A5D1D81BBEE00908DB2 /* Build configuration list for PBXNativeTarget "Maofan" */ = {
+		C7DE6FEF1EC4D14000EAAEEA /* Build configuration list for PBXNativeTarget "Maofan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7700A5E1D81BBEE00908DB2 /* Debug */,
-				C7700A5F1D81BBEE00908DB2 /* Release */,
+				C7DE6FF01EC4D14000EAAEEA /* Debug */,
+				C7DE6FF11EC4D14000EAAEEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -551,17 +424,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C7700A521D81BBEE00908DB2 /* Maofan.xcdatamodeld */ = {
+		C7DE6FE41EC4D14000EAAEEA /* Maofan.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C7700A531D81BBEE00908DB2 /* Maofan.xcdatamodel */,
+				C7DE6FE51EC4D14000EAAEEA /* Maofan.xcdatamodel */,
 			);
-			currentVersion = C7700A531D81BBEE00908DB2 /* Maofan.xcdatamodel */;
+			currentVersion = C7DE6FE51EC4D14000EAAEEA /* Maofan.xcdatamodel */;
 			path = Maofan.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = C7700A401D81BBEE00908DB2 /* Project object */;
+	rootObject = C7DE6FD21EC4D14000EAAEEA /* Project object */;
 }

@@ -2,21 +2,28 @@
 //  AppDelegate.swift
 //  Maofan
 //
-//  Created by Catt Liu on 16/9/8.
-//  Copyright © 2016年 Catt Liu. All rights reserved.
+//  Created by Catt Liu on 2017/5/12.
+//  Copyright © 2017年 Catt Liu. All rights reserved.
 //
 
 import UIKit
 import CoreData
-import YYWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        YYWebImageManager.shared().queue?.maxConcurrentOperationCount = 12
+        // Override point for customization after application launch.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = .white
+        window.rootViewController = ViewController()
+        window.makeKeyAndVisible()
+        
+        self.window = window
+        
         return true
     }
 

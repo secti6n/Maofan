@@ -7,7 +7,6 @@
 //
 
 import OAuthSwift
-import YYWebImage
 import AudioToolbox
 
 class PlaySound {
@@ -35,7 +34,7 @@ class PlaySound {
         var soundID: SystemSoundID = 0
         for path in paths {
             let fileURL = Bundle.main.url(forResource: path, withExtension: "wav")
-            AudioServicesCreateSystemSoundID(fileURL as! CFURL, &soundID)
+            AudioServicesCreateSystemSoundID(fileURL! as CFURL, &soundID)
             soundIDs.append(soundID)
         }
         return soundIDs
@@ -60,7 +59,7 @@ class PlaySound {
 class Misc {
     
     static func handleError(_ error: OAuthSwiftError) {
-        let error = error.underlyingError as! NSError
+        let error = error.underlyingError! as NSError
         print(error)
     }
     
@@ -193,75 +192,6 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return newImage
-    }
-    
-}
-
-extension CGSize {
-    
-    func feedPhotoSize() -> CGSize {
-        let screenScale = Misc.screenSizeScale()
-        let scale = UIScreen.main.scale
-        let maxWidth: CGFloat = 256 * screenScale
-        let maxHeight: CGFloat = 512 * screenScale
-        let minWidth: CGFloat = 128
-        let width = self.width / 2 * scale // 使用 2 不用 3 是为了让 @2x 能按照像素显示，而 @3x 本来就应该放大一些
-        let height = self.height / 2 * scale
-        let ratio = width / height
-        var widthResult: CGFloat
-        var heightResult: CGFloat
-        if width < maxWidth { // 宽度适中的照片
-            widthResult = width
-            heightResult = height
-            if width < minWidth { // 太窄的照片
-                widthResult = minWidth
-                heightResult = minWidth / ratio
-            }
-        } else { // 太宽的照片
-            widthResult = maxWidth
-            heightResult = maxWidth / ratio
-        }
-        if heightResult > maxHeight { // 经过变换后仍然太长的照片，采用不完整填充
-            heightResult = maxHeight / 2
-            widthResult = max(maxHeight / 2 * ratio, minWidth)
-        }
-        return CGSize(width: widthResult, height: heightResult)
-    }
-    
-//    func feedPhotoSize() -> CGSize {
-//        let screenScale = Misc.screenSizeScale()
-//        let maxWidth: CGFloat = 192 * screenScale
-//        let maxHeight: CGFloat = 384 * screenScale
-//        let minWidth: CGFloat
-//        let width = self.width / 2 // 使用 2 不用 3 是为了让 @2x 能按照像素显示，而 @3x 本来就应该放大一些
-//        let height = self.height / 2
-//        let ratio = width / height
-//        if url.hasSuffix(".gif") {
-//            minWidth = 144
-//            if ratio >= 1 && width < minWidth { // 横的 gif
-//                photoWidth.constant = minWidth
-//                photoHeight.constant = minWidth / ratio
-//            } else if ratio < 1 && height < minWidth { // 竖的 gif
-//                photoHeight.constant = minWidth
-//                photoWidth.constant = minWidth * ratio
-//            } else if width > maxWidth {
-//                photoWidth.constant = maxWidth
-//                photoHeight.constant = maxWidth / ratio
-//            } else {
-//                photoWidth.constant = width
-//                photoHeight.constant = height
-//            }
-//        }
-//    }
-    
-}
-
-extension YYWebImageManager {
-    
-    func preDownload(url: URL?) {
-        if let url = url {
-            YYWebImageManager.shared().requestImage(with: url, options: [.ignoreImageDecoding],progress: nil, transform: nil)
-        }
     }
     
 }

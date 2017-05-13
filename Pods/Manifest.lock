@@ -1,29 +1,45 @@
 PODS:
-  - OAuthSwift (1.1.0)
-  - SwiftyJSON (3.1.3)
-  - YYCache (1.0.4)
-  - YYImage (1.0.4):
-    - YYImage/Core (= 1.0.4)
-  - YYImage/Core (1.0.4)
-  - YYText (1.0.7)
-  - YYWebImage (1.0.5):
-    - YYCache
-    - YYImage
+  - OAuthSwift (1.1.1)
+  - PINCache (3.0.1-beta.4):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
+    - PINCache/Core (= 3.0.1-beta.4)
+  - PINCache/Arc-exception-safe (3.0.1-beta.4):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.4):
+    - PINOperation (= 1.0.3)
+  - PINOperation (1.0.3)
+  - PINRemoteImage/Core (3.0.0-beta.9):
+    - PINOperation
+  - PINRemoteImage/iOS (3.0.0-beta.9):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.9):
+    - PINCache (= 3.0.1-beta.4)
+    - PINRemoteImage/Core
+  - SwiftyJSON (3.1.4)
+  - Texture (2.3.2):
+    - Texture/PINRemoteImage (= 2.3.2)
+  - Texture/Core (2.3.2)
+  - Texture/PINRemoteImage (2.3.2):
+    - PINRemoteImage/iOS (= 3.0.0-beta.9)
+    - PINRemoteImage/PINCache
+    - Texture/Core
+  - Transition (1.0.1)
 
 DEPENDENCIES:
   - OAuthSwift
   - SwiftyJSON
-  - YYText
-  - YYWebImage
+  - Texture
+  - Transition
 
 SPEC CHECKSUMS:
-  OAuthSwift: 7ec2c62274f6bdc30b1ba3b799c39a6fdcaea0e5
-  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
-  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
-  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
-  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
-  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+  OAuthSwift: 6e3a103b3e5639411769cc7e199ec7e14bd1547f
+  PINCache: a89c8f609232afac77128557bd12c861844423d7
+  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
+  PINRemoteImage: e4e02e15a6f96cedbcef2abf1c9c1228dc9897d7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Texture: 18664254419f35de27af76399b3b265cbad5740a
+  Transition: c5106dddcb76b8070e9a226cdc513efb94a90de4
 
-PODFILE CHECKSUM: e63846ca8000557893d51b556fccdf6d7035ad0a
+PODFILE CHECKSUM: 56dccbd2571f11f405deb8f154ec9e358096c974
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

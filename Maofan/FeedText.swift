@@ -7,66 +7,21 @@
 //
 
 import Foundation
-import YYText
 
-struct FeedText {
-    
-    let plainTexts: [String]
-    let linkTexts: [LinkText]
-    
-    init(_ feed: Feed) {
-        let string = feed.text
-        let pattern = "([@#]?)<a href=\"(.*?)\".*?>(.*?)</a>([#]?)"
-        let regular = try! NSRegularExpression(pattern: pattern, options: [])
-        let array = regular.matches(in: string, options: [], range: NSMakeRange(0, (string as NSString).length))
-        var plainTexts: [String] = []
-        var linkTexts: [LinkText] = []
-        var index = 0
-        for e in array {
-            // Plain
-            let range = e.rangeAt(0)
-            let beforeRange = NSRange(location: index, length: range.location - index)
-            index = range.location + range.length
-            plainTexts.append((string as NSString).substring(with: beforeRange).stringByDecodingHTMLEntities)
-            // Link
-            let firstChar = (string as NSString).substring(with: e.rangeAt(1))
-            let text = firstChar + (string as NSString).substring(with: e.rangeAt(3)).stringByDecodingHTMLEntities + (string as NSString).substring(with: e.rangeAt(4))
-            let urlString = (string as NSString).substring(with: e.rangeAt(2))
-            let type: LinkTextType
-            switch firstChar {
-            case "@":
-                type = .mention
-            case "#":
-                type = .tag
-            default:
-                type = .link
-            }
-            linkTexts.append(LinkText(text: text, urlString: urlString, type: type))
-        }
-        let afterRange = NSRange(location: index, length: (string as NSString).length - index)
-        plainTexts.append((string as NSString).substring(with: afterRange).stringByDecodingHTMLEntities)
-        if plainTexts[0] == "" && plainTexts.count == 1 {
-            plainTexts[0] = "上传了新照片"
-        }
-        self.plainTexts = plainTexts
-        self.linkTexts = linkTexts
-    }
-    
-}
-
-enum LinkTextType {
+enum FeedTextType {
     case mention
     case tag
     case link
+    case text
 }
 
-struct LinkText {
+struct FeedText {
     
     let text: String
     let urlString: String
-    let type: LinkTextType
+    let type: FeedTextType
     
-    init(text: String, urlString: String, type: LinkTextType = .link) {
+    init(_ text: String, urlString: String = "", type: FeedTextType = .text) {
         self.text = text
         self.urlString = urlString
         self.type = type
