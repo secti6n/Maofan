@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import PINRemoteImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,19 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //
-        let viewController = ViewController()
-        let viewControllerNav = UINavigationController(rootViewController: viewController)
-        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
-        //
-        let tab = UITabBarController()
-        tab.viewControllers = [viewControllerNav]
-        //
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.backgroundColor = .white
-        window.rootViewController = tab
-        window.makeKeyAndVisible()
-        self.window = window
+        UIApplication.shared.statusBarStyle = .lightContent
+        PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20) { 
+            print(1)
+        }
+
+//        let viewController = HomeViewController()
+//        let viewControllerNav = NavigationController(nibName: "NavigationController", bundle: Bundle.main)
+//        viewControllerNav.viewControllers = [viewController]
+//        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
+//
+//        let tab = TabBarController(nibName: "TabBarController", bundle: Bundle.main)
+//        tab.viewControllers = [viewControllerNav]
+//
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        window.backgroundColor = .white
+//        window.rootViewController = tab
+//        window.makeKeyAndVisible()
+//        self.window = window
         return true
     }
 

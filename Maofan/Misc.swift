@@ -131,7 +131,7 @@ extension Array {
 
 extension UIView {
     
-    func cleanBlurBar() {
+    func cleanBlurBar(color: UIColor = Style.blurBarColor) {
         let allSubViews = self.allSubViews
         for view in allSubViews {
             if view is UIImageView, view.bounds.height <= 1, view.bounds.width == UIScreen.main.bounds.width {
@@ -160,7 +160,7 @@ extension UIView {
                 for view in blurView.allSubViews {
                     if view.isKind(of: _UIVisualEffectFilterView) {
                         print("****************** find _UIVisualEffectFilterView")
-                        view.backgroundColor = Style.blurBarColor
+                        view.backgroundColor = color.alpha(0.9)
                         break
                     }
                 }

@@ -39,25 +39,24 @@ class FeedCellNode: ASCellNode {
         nameNode.attributedText = NSAttributedString(string: feed.user.name, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)])
         addSubnode(nameNode)
         //
-        metaNode.attributedText = NSAttributedString(string: feed.time, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 10)])
+        metaNode.attributedText = NSAttributedString(string: feed.time, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 10), NSForegroundColorAttributeName: Style.metaColor])
         addSubnode(metaNode)
         //
         textNode.linkAttributeNames = [kLinkAttributeName]
-        textNode.attributedText = NSAttributedString(string: feed.text, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)])
+        textNode.attributedText = feed.feedAttr
         textNode.isUserInteractionEnabled = true
         addSubnode(textNode)
         //
         photoNode.url = feed.photo
         photoNode.cornerRadius = kCorner
         photoNode.clipsToBounds = true
-        photoNode.shouldRenderProgressImages = true
         addSubnode(photoNode)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let nameMeta = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .baselineLast, children: [nameNode, metaNode])
         nameMeta.style.width = ASDimensionMake("100%")
-        let photo = ASRatioLayoutSpec(ratio: 3/4, child: photoNode)
+        let photo = ASRatioLayoutSpec(ratio: 0.6, child: photoNode)
         let text = ASStackLayoutSpec(direction: .vertical, spacing: kSpacing, justifyContent: .start, alignItems: .start, children: [nameMeta, textNode])
         text.style.width = ASDimensionMake("100%")
         let afterAvatar = ASStackLayoutSpec(direction: .vertical, spacing: kSpacingL, justifyContent: .start, alignItems: .start, children: hasPhoto ? [text, photo] : [text])

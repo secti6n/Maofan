@@ -30,7 +30,7 @@ class Style {
         return UIColor(hex: "000000")
     }
     
-    static var highlightColor: UIColor {
+    static var tintColor: UIColor {
         return UIColor(hex: "0FB7FF")
     }
     
@@ -43,7 +43,7 @@ class Style {
     }
     
     static var blurBarColor: UIColor {
-        return backgroundColor.alpha(0.9)
+        return backgroundColor
     }
     
     static var border: UIColor {
@@ -51,7 +51,7 @@ class Style {
     }
     
     static var unSelect: UIColor {
-        return plainColor.alpha(0.05)
+        return UIColor(hex: "C1C9D1")
     }
     
     static func image(_ tintColor: UIColor) -> UIImage {

@@ -7,17 +7,23 @@
 //
 
 import SwiftyJSON
+import PINRemoteImage
 
 class Feed {
     
     let json: JSON
     let user: User
-    var feedTexts: [FeedText] = []
+    var feedTexts: [FeedText]!
+    var feedAttr: NSAttributedString!
 
     init(_ json: JSON) {
         self.json = json
         user = User(json["user"])
-        feedTexts = makeFeedTexts()
+        feedTexts = makeFeedTexts(string: text)
+        feedAttr = makeFeedAttr(feedTexts: feedTexts)
+        if let url1 = user.avatar, let url2 = photo {
+            PINRemoteImageManager.shared().prefetchImages(with: [url1, url2])
+        }
     }
     
     var text: String {
@@ -53,9 +59,12 @@ class Feed {
         return json["created_at"].stringValue
     }
     
-    func makeFeedTexts() -> [FeedText] {
+}
+
+extension Feed {
+    
+    func makeFeedTexts(string: String) -> [FeedText] {
         var value: [FeedText] = []
-        let string = text
         let pattern = "([@#]?)<a href=\"(.*?)\".*?>(.*?)</a>([#]?)"
         let regular = try! NSRegularExpression(pattern: pattern, options: [])
         let array = regular.matches(in: string, options: [], range: NSMakeRange(0, (string as NSString).length))
@@ -92,6 +101,28 @@ class Feed {
         return value
     }
     
+    func makeFeedAttr(feedTexts: [FeedText]) -> NSAttributedString {
+        let mas = NSMutableAttributedString()
+        for feedText in feedTexts {
+            let attr = NSMutableAttributedString(string: feedText.text)
+            switch feedText.type {
+            case .mention:
+                attr.addAttributes([NSForegroundColorAttributeName : Style.tintColor, kLinkAttributeName : feedText.urlString])
+            case .tag:
+                attr.addAttributes([NSForegroundColorAttributeName : Style.metaColor, kLinkAttributeName : feedText.urlString])
+            case .link:
+                attr.addAttributes([NSForegroundColorAttributeName : Style.tintColor, kLinkAttributeName : feedText.urlString])
+            default:
+                attr.addAttributes([NSForegroundColorAttributeName : Style.plainColor])
+            }
+            mas.append(attr)
+        }
+        let parag = NSMutableParagraphStyle()
+        parag.lineHeightMultiple = 1.1
+        mas.addAttributes([NSFontAttributeName : Style.plainFont, NSParagraphStyleAttributeName : parag])
+        return mas
+    }
+    
 }
 
 extension Feed: Hashable {
@@ -126,4 +157,12 @@ func >(lhs: Feed, rhs: Feed?) -> Bool {
 
 func <(lhs: Feed, rhs: Feed?) -> Bool {
     return false
+}
+
+extension NSMutableAttributedString {
+    
+    func addAttributes(_ attrs: [String : Any]) {
+        self.addAttributes(attrs, range: NSRange(location: 0, length: length))
+    }
+    
 }
