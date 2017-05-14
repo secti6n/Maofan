@@ -12,7 +12,6 @@
 		C7DB86321EC60DD4000F8A9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB862F1EC60DD4000F8A9C /* ViewController.swift */; };
 		C7DB86331EC60DD4000F8A9C /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */; };
 		C7DE6FDE1EC4D14000EAAEEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */; };
-		C7DE6FE01EC4D14000EAAEEA /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */; };
 		C7DE6FE61EC4D14000EAAEEA /* Maofan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6FE41EC4D14000EAAEEA /* Maofan.xcdatamodeld */; };
 		C7DE6FE81EC4D14000EAAEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE6FE71EC4D14000EAAEEA /* Assets.xcassets */; };
 		C7DE6FEB1EC4D14000EAAEEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE6FE91EC4D14000EAAEEA /* LaunchScreen.storyboard */; };
@@ -37,7 +36,6 @@
 		C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
 		C7DE6FDA1EC4D14000EAAEEA /* Maofan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maofan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		C7DE6FE51EC4D14000EAAEEA /* Maofan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maofan.xcdatamodel; sourceTree = "<group>"; };
 		C7DE6FE71EC4D14000EAAEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DE6FEA1EC4D14000EAAEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,14 +96,12 @@
 				C7DE6FDD1EC4D14000EAAEEA /* AppDelegate.swift */,
 				C7DB862F1EC60DD4000F8A9C /* ViewController.swift */,
 				C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */,
-				C7016F361EC79FE60044B0A4 /* FanfouConsumer.swift.example */,
-				C7DE6FDF1EC4D14000EAAEEA /* ViewController1.swift */,
 				C7DE6FFA1EC4D32B00EAAEEA /* Feed.swift */,
 				C7DE6FFB1EC4D32B00EAAEEA /* FeedText.swift */,
+				C7DE6FFC1EC4D32B00EAAEEA /* User.swift */,
 				C7DE70021EC4D3D400EAAEEA /* Style.swift */,
 				C7DE70041EC4D5FE00EAAEEA /* CoreDataTool.swift */,
 				C7DE70001EC4D3B000EAAEEA /* Misc.swift */,
-				C7DE6FFC1EC4D32B00EAAEEA /* User.swift */,
 				C7DE6FF61EC4D2EE00EAAEEA /* Service.swift */,
 				C7DE6FF81EC4D2FB00EAAEEA /* Login.swift */,
 				C7DE6FF21EC4D28400EAAEEA /* OAuthExtension.swift */,
@@ -114,6 +110,7 @@
 				C7DE6FE91EC4D14000EAAEEA /* LaunchScreen.storyboard */,
 				C7DE6FEC1EC4D14000EAAEEA /* Info.plist */,
 				C7DE6FE41EC4D14000EAAEEA /* Maofan.xcdatamodeld */,
+				C7016F361EC79FE60044B0A4 /* FanfouConsumer.swift.example */,
 			);
 			path = Maofan;
 			sourceTree = "<group>";
@@ -256,7 +253,6 @@
 				C7DE6FFD1EC4D32B00EAAEEA /* Feed.swift in Sources */,
 				C7DE6FFE1EC4D32B00EAAEEA /* FeedText.swift in Sources */,
 				C7DB86321EC60DD4000F8A9C /* ViewController.swift in Sources */,
-				C7DE6FE01EC4D14000EAAEEA /* ViewController1.swift in Sources */,
 				C7DE6FF31EC4D28400EAAEEA /* OAuthExtension.swift in Sources */,
 				C7DE70011EC4D3B000EAAEEA /* Misc.swift in Sources */,
 				C7DB86331EC60DD4000F8A9C /* FeedCellNode.swift in Sources */,

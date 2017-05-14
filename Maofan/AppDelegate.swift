@@ -14,16 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //
+        let viewController = ViewController()
+        let viewControllerNav = UINavigationController(rootViewController: viewController)
+        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
+        //
+        let tab = UITabBarController()
+        tab.viewControllers = [viewControllerNav]
+        //
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.backgroundColor = .white
-        window.rootViewController = ViewController()
+        window.rootViewController = tab
         window.makeKeyAndVisible()
-        
         self.window = window
-        
         return true
     }
 

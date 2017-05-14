@@ -64,10 +64,4 @@ class ViewController: ASViewController<ASCollectionNode>, ASCollectionDataSource
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("deinit")
-        collectionNode.dataSource = nil
-        collectionNode.delegate = nil
-    }
-    
 }
