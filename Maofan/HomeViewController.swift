@@ -25,7 +25,6 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
                 break
             }
         }
-        
     }
     
     func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, value: Any, at point: CGPoint, textRange: NSRange) {
@@ -69,13 +68,6 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
         }
         loadData()
     }
-    
-//    func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-//        let cellNode = FeedCellNode(with: self.data[indexPath.row])
-//        cellNode.textNode.delegate = self
-//        cellNode.delegate = self
-//        return cellNode
-//    }
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         let cellNodeBlock = { () -> ASCellNode in
