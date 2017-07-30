@@ -10,9 +10,9 @@ import UIKit
 import AsyncDisplayKit
 import SwiftyJSON
 
-class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSource, ASCollectionDelegate, ASTextNodeDelegate, UIScrollViewDelegate, FeedCellNodeDelegate {
+class HomeViewController: ASViewController<ASDisplayNode>, ASTableDataSource, ASTableDelegate, ASTextNodeDelegate, UIScrollViewDelegate, FeedCellNodeDelegate {
     
-    let collectionNode: ASCollectionNode
+    let tableNode: ASTableNode
     var data: [Feed] = []
     private let refreshControl = UIRefreshControl()
     
@@ -20,7 +20,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
         for (index, item) in data.enumerated() {
             if feed == item {
                 DispatchQueue.main.async {
-                    self.collectionNode.reloadItems(at: [IndexPath(item: index, section: 0)])
+                    self.tableNode.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
                 }
                 break
             }
@@ -32,15 +32,8 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
     }
     
     init() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
-        super.init(node: collectionNode)
-        collectionNode.dataSource = self
-        collectionNode.delegate = self
-        collectionNode.backgroundColor = UIColor.white
-        refreshControl.addTarget(nil, action: #selector(loadData), for: .valueChanged)
+        tableNode = ASTableNode()
+        super.init(node: tableNode)
     }
     
     @objc func loadData() {
@@ -51,7 +44,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
                 feeds.append(feed)
             }
             self.data = feeds
-            self.collectionNode.reloadData()
+            self.tableNode.reloadData()
             self.refreshControl.endRefreshing()
         }) { (e) in
             self.refreshControl.endRefreshing()
@@ -60,7 +53,11 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionNode.view.addSubview(refreshControl)
+        tableNode.dataSource = self
+        tableNode.delegate = self
+        tableNode.view.separatorColor = Style.borderColor
+        tableNode.view.refreshControl = refreshControl
+        refreshControl.addTarget(nil, action: #selector(loadData), for: .valueChanged)
         Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
         if let account = CoreDataTool.sharedInstance.fetch().first {
             let user = User(JSON(data: account.jsonData! as Data))
@@ -69,7 +66,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
         loadData()
     }
     
-    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+    func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
         let cellNodeBlock = { () -> ASCellNode in
             let cellNode = FeedCellNode(with: self.data[indexPath.row])
             cellNode.textNode.delegate = self
@@ -79,7 +76,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
         return cellNodeBlock
     }
     
-    func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
+    func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     

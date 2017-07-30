@@ -28,8 +28,7 @@ class FeedCellNode: ASCellNode {
     let textNode = ASTextNode()
     let metaNode = ASTextNode()
     let photoNode = ASNetworkImageNode()
-    private var photoSize: CGSize!
-    let lineNode = ASDisplayNode()
+    private var photoSize: CGSize?
     
     required init(with feed : Feed) {
         super.init()
@@ -39,6 +38,7 @@ class FeedCellNode: ASCellNode {
         avatarNode.cornerRadius = 4
         avatarNode.clipsToBounds = true
         addSubnode(avatarNode)
+        separatorInset.left = CGFloat(75)
         //
         nameNode.attributedText = NSAttributedString(string: feed.user.name, attributes: [.font: UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium), .foregroundColor: Style.plainColor])
         addSubnode(nameNode)
@@ -51,6 +51,8 @@ class FeedCellNode: ASCellNode {
         textNode.isUserInteractionEnabled = true
         addSubnode(textNode)
         //
+        photoNode.clipsToBounds = true
+        addSubnode(photoNode)
         if let url = feed.photo {
             if let image = PINRemoteImageManager.shared().synchronousImageFromCache(with: url, processorKey: nil).image {
                 if image.size.width / 2 > nicePhotoWidth {
@@ -62,24 +64,13 @@ class FeedCellNode: ASCellNode {
                 }
                 photoNode.url = url
             } else {
-                photoSize = CGSize(width: 72, height: 72)
                 PINRemoteImageManager.shared().downloadImage(with: url, processorKey: nil, processor: nil, progressDownload: nil, completion: { (result) in
-                    if let image = result.image {
-                        self.photoNode.image = image
+                    if let _ = result.image {
                         self.delegate?.reload(feed: self.feed)
                     }
                 })
             }
-            photoNode.style.preferredSize = CGSize(width: 0, height: 0)
-            photoNode.backgroundColor = Style.borderColor
-            photoNode.clipsToBounds = true
-            addSubnode(photoNode)
         }
-        //
-        lineNode.backgroundColor = Style.borderColor
-        lineNode.style.width = ASDimensionMake("100%")
-        lineNode.style.height = ASDimensionMake(1 / UIScreen.main.scale)
-        addSubnode(lineNode)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -87,18 +78,16 @@ class FeedCellNode: ASCellNode {
         let content = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [nameMeta, textNode])
         textNode.style.spacingBefore = 3
         if self.feed.hasPhoto {
-            photoNode.style.preferredSize = photoSize
+            photoNode.style.preferredSize = photoSize ?? CGSize(width: 72, height: 72)
             content.children?.append(photoNode)
             photoNode.style.spacingBefore = 9
         }
-        let afterAvatar = ASStackLayoutSpec(direction: .vertical, spacing: 18 - 1 / UIScreen.main.scale, justifyContent: .start, alignItems: .start, children: [ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 18), child: content), lineNode])
-        let body = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .start, alignItems: .start, children: [avatarNode, afterAvatar])
+        let body = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .start, alignItems: .start, children: [avatarNode, content])
         nameMeta.style.width = ASDimensionMake("100%")
         content.style.width = ASDimensionMake("100%")
-        afterAvatar.style.width = ASDimensionMake("100%")
-        afterAvatar.style.flexShrink = 1
+        content.style.flexShrink = 1
         body.style.width = ASDimensionMake("100%")
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 18, left: 18, bottom: 0, right: 0), child: body)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18), child: body)
     }
     
 }
