@@ -11,7 +11,7 @@ import UIKit
 import AsyncDisplayKit
 import PINRemoteImage
 
-let kLinkAttributeName = "mf_NodeLinkAttributeName"
+let kLinkAttributeName = NSAttributedStringKey(rawValue: "mf_NodeLinkAttributeName")
 
 protocol FeedCellNodeDelegate: class {
     func reload(feed: Feed)
@@ -45,7 +45,7 @@ class FeedCellNode: ASCellNode {
         metaNode.attributedText = NSAttributedString(string: feed.feedTime, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular), NSAttributedStringKey.foregroundColor: Style.metaColor])
         addSubnode(metaNode)
         //
-        textNode.linkAttributeNames = [kLinkAttributeName]
+        textNode.linkAttributeNames = [kLinkAttributeName.rawValue]
         textNode.attributedText = feed.feedAttr
         textNode.isUserInteractionEnabled = true
         addSubnode(textNode)
