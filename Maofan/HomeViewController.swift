@@ -45,7 +45,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
     }
     
     @objc func loadData() {
-        Service.sharedInstance.home_timeline(parameters: ["count" : 20, "format" : "html"], success: { (res) in
+        Service.sharedInstance.home_timeline(parameters: ["count" : 60, "format" : "html"], success: { (res) in
             var feeds = [Feed]()
             for json in JSON(data: res.data).arrayValue {
                 let feed = Feed(json)

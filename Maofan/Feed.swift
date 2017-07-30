@@ -123,7 +123,7 @@ extension Feed {
         }
         let parag = NSMutableParagraphStyle()
         parag.lineHeightMultiple = 1.2
-        mas.addAttributes([NSAttributedStringKey.font : Style.plainFont, NSAttributedStringKey.paragraphStyle : parag])
+        mas.addAttributes([.font : Style.plainFont, .paragraphStyle : parag])
         return mas
     }
     

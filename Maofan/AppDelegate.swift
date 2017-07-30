@@ -21,19 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(1)
         }
 
-        let viewController = HomeViewController()
-        let viewControllerNav = NavigationController(nibName: "NavigationController", bundle: Bundle.main)
-        viewControllerNav.viewControllers = [viewController]
-        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
+//        let viewController = HomeViewController()
+//        let viewControllerNav = TabNavigationController(nibName: "TabNavigationController", bundle: Bundle.main)
+//        viewControllerNav.viewControllers = [viewController]
+//        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
 
-        let tab = TabBarController(nibName: "TabBarController", bundle: Bundle.main)
-        tab.viewControllers = [viewControllerNav]
+//        let tab = TabBarController(nibName: "TabBarController", bundle: Bundle.main)
+//        tab.viewControllers = [viewControllerNav]
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.backgroundColor = .white
-        window.rootViewController = tab
-        window.makeKeyAndVisible()
-        self.window = window
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        window.backgroundColor = .white
+//        window.rootViewController = tab
+//        window.makeKeyAndVisible()
+//        self.window = window
         return true
     }
 

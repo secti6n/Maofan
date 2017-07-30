@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationController: UINavigationController {
+class TabNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ class NavigationController: UINavigationController {
         case 1:
             viewControllers = [HomeViewController()]
         default:
-            viewControllers = [HomeViewController()]
+            viewControllers = [TestViewController()]
         }
     }
 

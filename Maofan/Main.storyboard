@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YkI-9f-Mhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YkI-9f-Mhi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +33,7 @@
         <!--3-->
         <scene sceneID="syX-Ib-Obj">
             <objects>
-                <navigationController id="Gi5-ea-Ze4" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Gi5-ea-Ze4" customClass="TabNavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="3" title="3" image="tab_post" id="Tfv-iA-HZR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3TG-aD-7jl" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -47,7 +47,7 @@
         <!--5-->
         <scene sceneID="5Ho-H4-83n">
             <objects>
-                <navigationController id="1gD-mQ-ReG" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="1gD-mQ-ReG" customClass="TabNavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="5" title="5" image="tab_profile" id="xua-VC-21C"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ame-LR-96F" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -61,7 +61,7 @@
         <!--4-->
         <scene sceneID="ttf-vG-RTr">
             <objects>
-                <navigationController id="evz-tY-g9o" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="evz-tY-g9o" customClass="TabNavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="4" image="tab_search" id="ap9-8I-1mK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ye2-BK-RiY" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -75,7 +75,7 @@
         <!--2-->
         <scene sceneID="IZJ-AP-EFp">
             <objects>
-                <navigationController id="4M5-CF-2CN" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="4M5-CF-2CN" customClass="TabNavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="2" image="tab_mention" id="cSN-CP-Ceq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aWP-dc-V2i" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -89,7 +89,7 @@
         <!--1-->
         <scene sceneID="OxI-W6-jK3">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="v0s-GP-Ntc" customClass="NavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="v0s-GP-Ntc" customClass="TabNavigationController" customModule="Maofan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="1" image="tab_home" id="hRl-vB-4UO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zjf-fA-a45" customClass="NavigationBar" customModule="Maofan" customModuleProvider="target">
