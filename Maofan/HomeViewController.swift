@@ -17,10 +17,10 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
     private let refreshControl = UIRefreshControl()
     
     func reload(feed: Feed) {
-        for (_, item) in data.enumerated() {
+        for (index, item) in data.enumerated() {
             if feed == item {
                 DispatchQueue.main.async {
-//                    self.collectionNode.reloadItems(at: [IndexPath(item: index, section: 0)])
+                    self.collectionNode.reloadItems(at: [IndexPath(item: index, section: 0)])
                 }
                 break
             }
@@ -34,6 +34,8 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
         collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
         super.init(node: collectionNode)
         collectionNode.dataSource = self
@@ -60,30 +62,30 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionNode.view.addSubview(refreshControl)
-//        Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
-//        if let account = CoreDataTool.sharedInstance.fetch().first {
-//            let user = User(JSON(data: account.jsonData! as Data))
-//            print(user.name)
-//        }
+        Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
+        if let account = CoreDataTool.sharedInstance.fetch().first {
+            let user = User(JSON(data: account.jsonData! as Data))
+            print(user.name)
+        }
         loadData()
     }
     
-    func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        let cellNode = FeedCellNode(with: self.data[indexPath.row])
-        cellNode.textNode.delegate = self
-        cellNode.delegate = self
-        return cellNode
-    }
-    
-//    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
-//        let cellNodeBlock = { () -> ASCellNode in
-//            let cellNode = FeedCellNode(with: self.data[indexPath.row])
-//            cellNode.textNode.delegate = self
-//            cellNode.delegate = self
-//            return cellNode
-//        }
-//        return cellNodeBlock
+//    func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
+//        let cellNode = FeedCellNode(with: self.data[indexPath.row])
+//        cellNode.textNode.delegate = self
+//        cellNode.delegate = self
+//        return cellNode
 //    }
+    
+    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+        let cellNodeBlock = { () -> ASCellNode in
+            let cellNode = FeedCellNode(with: self.data[indexPath.row])
+            cellNode.textNode.delegate = self
+            cellNode.delegate = self
+            return cellNode
+        }
+        return cellNodeBlock
+    }
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return data.count

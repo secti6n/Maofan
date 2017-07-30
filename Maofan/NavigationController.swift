@@ -12,12 +12,11 @@ class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.stylizeBar()
         switch tabBarItem.tag {
         case 1:
             viewControllers = [HomeViewController()]
         default:
-            viewControllers = [TestViewController()]
+            viewControllers = [HomeViewController()]
         }
     }
 

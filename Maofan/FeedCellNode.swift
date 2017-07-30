@@ -12,13 +12,9 @@ import AsyncDisplayKit
 import PINRemoteImage
 
 let kLinkAttributeName = "mf_NodeLinkAttributeName"
-let kAvatar: CGFloat = 48
-let kCorner: CGFloat = 4
 
 protocol FeedCellNodeDelegate: class {
-    
     func reload(feed: Feed)
-    
 }
 
 class FeedCellNode: ASCellNode {
@@ -31,22 +27,22 @@ class FeedCellNode: ASCellNode {
     let textNode = ASTextNode()
     let metaNode = ASTextNode()
     let photoNode = ASNetworkImageNode()
-    var hasPhotoCache = false
+    var photoSize: CGSize?
     let lineNode = ASDisplayNode()
     
     required init(with feed : Feed) {
         super.init()
         self.feed = feed
         avatarNode.url = feed.user.avatar
-        avatarNode.style.preferredSize = CGSize(width: kAvatar, height: kAvatar)
-        avatarNode.cornerRadius = kCorner
+        avatarNode.style.preferredSize = CGSize(width: 48, height: 48)
+        avatarNode.cornerRadius = 4
         avatarNode.clipsToBounds = true
         addSubnode(avatarNode)
         //
         nameNode.attributedText = NSAttributedString(string: feed.user.name, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)])
         addSubnode(nameNode)
         //
-        metaNode.attributedText = NSAttributedString(string: feed.feedTime, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light), NSAttributedStringKey.foregroundColor: Style.metaColor])
+        metaNode.attributedText = NSAttributedString(string: feed.feedTime, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular), NSAttributedStringKey.foregroundColor: Style.metaColor])
         addSubnode(metaNode)
         //
         textNode.linkAttributeNames = [kLinkAttributeName]
@@ -56,9 +52,8 @@ class FeedCellNode: ASCellNode {
         //
         if let url = feed.photo {
             if let image = PINRemoteImageManager.shared().synchronousImageFromCache(with: url, processorKey: nil).image {
-                self.hasPhotoCache = true
+                photoSize = CGSize(width: image.size.width / 2.5, height: image.size.height / 2.5)
                 photoNode.url = url
-                photoNode.style.preferredSize = CGSize(width: image.size.width / 3, height: image.size.height / 3)
             } else {
                 PINRemoteImageManager.shared().downloadImage(with: url, processorKey: nil, processor: nil, progressDownload: nil, completion: { (result) in
                     if nil != result.image {
@@ -79,24 +74,21 @@ class FeedCellNode: ASCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let nameMeta = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .baselineFirst, children: [nameNode, metaNode])
-        nameMeta.style.width = ASDimensionMake("100%")
-        let text = ASStackLayoutSpec(direction: .vertical, spacing: 3, justifyContent: .start, alignItems: .start, children: [nameMeta, textNode])
-        text.style.width = ASDimensionMake("100%")
-        let afterAvatar = ASStackLayoutSpec()
-        afterAvatar.direction = .vertical
-        afterAvatar.spacing = 12
-        if hasPhotoCache {
-            afterAvatar.children = [text, photoNode]
-        } else {
-            afterAvatar.children = [text]
+        let content = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [nameMeta, textNode])
+        textNode.style.spacingBefore = 3
+        if let photoSize = photoSize {
+            photoNode.style.preferredSize = photoSize
+            content.children?.append(photoNode)
+            photoNode.style.spacingBefore = 9
         }
+        let afterAvatar = ASStackLayoutSpec(direction: .vertical, spacing: 18 - 1 / UIScreen.main.scale, justifyContent: .start, alignItems: .start, children: [ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 18), child: content), lineNode])
+        let feed = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .start, alignItems: .start, children: [avatarNode, afterAvatar])
+        nameMeta.style.width = ASDimensionMake("100%")
+        content.style.width = ASDimensionMake("100%")
         afterAvatar.style.width = ASDimensionMake("100%")
         afterAvatar.style.flexShrink = 1
-        let feed = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .center, alignItems: .start, children: [avatarNode, afterAvatar])
         feed.style.width = ASDimensionMake("100%")
-        let content = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12), child: feed)
-        content.style.width = ASDimensionMake("100%")
-        return content
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 18, left: 18, bottom: 0, right: 0), child: feed)
     }
     
 }

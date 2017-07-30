@@ -23,7 +23,7 @@ class Login {
     
     static func save(credential: OAuthSwiftCredential) {
         Service.sharedInstance.verify_credentials(parameters: [:], success: { (response) in
-            CoreDataTool.sharedInstance.save(jsonData: response.data as NSData, token: credential.oauthToken, secret: credential.oauthTokenSecret)
+            CoreDataTool.sharedInstance.save(jsonData: response.data, token: credential.oauthToken, secret: credential.oauthTokenSecret)
             print("account saved, token: \(credential.oauthToken) secret: \(credential.oauthTokenSecret)")
         }, failure: { (error) in
             Misc.handleError(error)

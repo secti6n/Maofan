@@ -10,9 +10,7 @@ import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("TabBarController viewDidAppear should only call 1 time.")
-        tabBar.stylizeBar()
+    override func viewDidLoad() {
         delegate = self
     }
     

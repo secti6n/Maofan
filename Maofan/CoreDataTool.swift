@@ -17,7 +17,7 @@ class CoreDataTool {
     
     private init() {}
     
-    func save(jsonData: NSData, token: String, secret: String) {
+    func save(jsonData: Data, token: String, secret: String) {
         let done = update(jsonData: jsonData)
         if !done {
             insert(jsonData: jsonData, token: token, secret: secret)
@@ -48,18 +48,18 @@ class CoreDataTool {
         }
     }
     
-    private func insert(jsonData: NSData, token: String, secret: String) {
+    private func insert(jsonData: Data, token: String, secret: String) {
         let entity = NSEntityDescription.insertNewObject(forEntityName: "Account", into: context) as! Account
         entity.jsonData = jsonData
         entity.token = token
         entity.secret = secret
-        entity.unique_id = JSON(data: jsonData as Data)["unique_id"].stringValue
+        entity.unique_id = JSON(data: jsonData)["unique_id"].stringValue
         try! context.save()
     }
     
-    private func update(jsonData: NSData) -> Bool {
+    private func update(jsonData: Data) -> Bool {
         let array = fetch()
-        let unique_id = JSON(data: jsonData as Data)["unique_id"].stringValue
+        let unique_id = JSON(data: jsonData)["unique_id"].stringValue
         for account in array {
             if unique_id == account.unique_id {
                 account.jsonData = jsonData

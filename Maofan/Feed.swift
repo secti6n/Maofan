@@ -111,7 +111,6 @@ extension Feed {
             let attr = NSMutableAttributedString(string: feedText.text)
             switch feedText.type {
             case .mention:
-                
                 attr.addAttributes([NSAttributedStringKey.foregroundColor : Style.tintColor, NSAttributedStringKey.link : feedText.urlString])
             case .tag:
                 attr.addAttributes([NSAttributedStringKey.foregroundColor : Style.metaColor, NSAttributedStringKey.link : feedText.urlString])
