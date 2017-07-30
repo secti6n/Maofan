@@ -28,7 +28,7 @@ class FeedCellNode: ASCellNode {
     let textNode = ASTextNode()
     let metaNode = ASTextNode()
     let photoNode = ASNetworkImageNode()
-    var photoSize: CGSize?
+    private var photoSize: CGSize!
     let lineNode = ASDisplayNode()
     
     required init(with feed : Feed) {
@@ -62,6 +62,7 @@ class FeedCellNode: ASCellNode {
                 }
                 photoNode.url = url
             } else {
+                photoSize = CGSize(width: 72, height: 72)
                 PINRemoteImageManager.shared().downloadImage(with: url, processorKey: nil, processor: nil, progressDownload: nil, completion: { (result) in
                     if let image = result.image {
                         self.photoNode.image = image
@@ -86,7 +87,7 @@ class FeedCellNode: ASCellNode {
         let content = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [nameMeta, textNode])
         textNode.style.spacingBefore = 3
         if self.feed.hasPhoto {
-            photoNode.style.preferredSize = photoSize ?? CGSize(width: nicePhotoWidth / 6, height: nicePhotoWidth / 6)
+            photoNode.style.preferredSize = photoSize
             content.children?.append(photoNode)
             photoNode.style.spacingBefore = 9
         }
