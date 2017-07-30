@@ -12,8 +12,8 @@ class TabBar: UITabBar {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        tintColor = Style.tintColor
         unselectedItemTintColor = Style.unSelect
+        tintColor = Style.tintColor
         items?.forEach({ (item) -> () in
             item.title = nil
             let f = 6 - 1 / UIScreen.main.scale

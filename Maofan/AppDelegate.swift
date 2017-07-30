@@ -17,23 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
-        PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20) { 
+        PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20) {
             print(1)
         }
 
-//        let viewController = HomeViewController()
-//        let viewControllerNav = NavigationController(nibName: "NavigationController", bundle: Bundle.main)
-//        viewControllerNav.viewControllers = [viewController]
-//        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
-//
-//        let tab = TabBarController(nibName: "TabBarController", bundle: Bundle.main)
-//        tab.viewControllers = [viewControllerNav]
-//
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.backgroundColor = .white
-//        window.rootViewController = tab
-//        window.makeKeyAndVisible()
-//        self.window = window
+        let viewController = HomeViewController()
+        let viewControllerNav = NavigationController(nibName: "NavigationController", bundle: Bundle.main)
+        viewControllerNav.viewControllers = [viewController]
+        viewControllerNav.tabBarItem = UITabBarItem(title: "1", image: nil, selectedImage: nil)
+
+        let tab = TabBarController(nibName: "TabBarController", bundle: Bundle.main)
+        tab.viewControllers = [viewControllerNav]
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = .white
+        window.rootViewController = tab
+        window.makeKeyAndVisible()
+        self.window = window
         return true
     }
 

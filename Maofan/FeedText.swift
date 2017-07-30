@@ -65,21 +65,21 @@ extension String {
         var position = startIndex
         
         while let ampRange = self.range(of: "&", range: position ..< endIndex) {
-            result.append(self[position ..< ampRange.lowerBound])
+            result.append(String(self[position ..< ampRange.lowerBound]))
             position = ampRange.lowerBound
             if let semiRange = self.range(of: ";", range: position ..< endIndex) {
                 let entity = self[position ..< semiRange.upperBound]
                 position = semiRange.upperBound
-                if let decoded = decode(entity) {
+                if let decoded = decode(String(entity)) {
                     result.append(decoded)
                 } else {
-                    result.append(entity)
+                    result += entity
                 }
             } else {
                 break
             }
         }
-        result.append(self[position ..< endIndex])
+        result.append(String(self[position ..< endIndex]))
         return result
         
     }

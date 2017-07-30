@@ -12,7 +12,7 @@ class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.cleanBlurBar(color: Style.tintColor)
+        navigationBar.stylizeBar()
         switch tabBarItem.tag {
         case 1:
             viewControllers = [HomeViewController()]

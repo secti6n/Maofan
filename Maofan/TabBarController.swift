@@ -12,13 +12,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         print("TabBarController viewDidAppear should only call 1 time.")
-        tabBar.cleanBlurBar()
+        tabBar.stylizeBar()
         delegate = self
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 3 {
-            return false
+            return true
         }
         return true
     }

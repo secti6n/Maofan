@@ -94,6 +94,94 @@ class Misc {
 
 }
 
+extension String {
+    
+    func date() -> Date? {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "US_en")
+        f.dateFormat = "E MMM dd HH:mm:ss Z yyyy"
+        return f.date(from: self)
+    }
+    
+    func feedTime() -> String {
+        return date()?.timeAgo() ?? ""
+    }
+    
+}
+
+extension Date {
+    
+    func dateString() -> String {
+        let n = Date()
+        let y = NSCalendar.current.component(.year, from: self)
+        let yn = NSCalendar.current.component(.year, from: n)
+        let m = NSCalendar.current.component(.month, from: self)
+        let mn = NSCalendar.current.component(.month, from: n)
+        let d = NSCalendar.current.component(.day, from: self)
+        let dn = NSCalendar.current.component(.day, from: n)
+        let f = DateFormatter()
+        if y == yn {
+            if m == mn && d == dn{
+                f.date
+                f.dateFormat = "HH:mm"
+            } else {
+                f.dateFormat = "MM/dd HH:mm"
+            }
+        } else {
+            f.dateFormat = "yyyy/MM/dd HH:mm"
+        }
+        return f.string(from: self)
+    }
+    
+    func timeAgo() -> String {
+        let calendar = Calendar.current
+        let now = Date()
+        let unitFlags: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfYear, .month, .year]
+        let components = (calendar as NSCalendar).components(unitFlags, from: self, to: now, options: [])
+        if let year = components.year, year >= 2 {
+            return "\(year) 年前"
+        }
+        if let year = components.year, year >= 1 {
+            return "1 年前"
+        }
+        if let month = components.month, month >= 2 {
+            return "\(month) 个月前"
+        }
+        if let month = components.month, month >= 1 {
+            return "1 个月前"
+        }
+        if let week = components.weekOfYear, week >= 2 {
+            return "\(week) 周前"
+        }
+        if let week = components.weekOfYear, week >= 1 {
+            return "1 周前"
+        }
+        if let day = components.day, day >= 2 {
+            return "\(day) 天前"
+        }
+        if let day = components.day, day >= 1 {
+            return "1 天前"
+        }
+        if let hour = components.hour, hour >= 2 {
+            return "\(hour) 小时前"
+        }
+        if let hour = components.hour, hour >= 1 {
+            return "1 小时前"
+        }
+        if let minute = components.minute, minute >= 2 {
+            return "\(minute) 分钟前"
+        }
+        if let minute = components.minute, minute >= 1 {
+            return "1 分钟前"
+        }
+        if let second = components.second, second >= 3 {
+            return "\(second) 秒前"
+        }
+        return "刚刚"
+    }
+    
+}
+
 extension UIColor {
     
     convenience init(red: Int, green: Int, blue: Int) {
@@ -131,12 +219,46 @@ extension Array {
 
 extension UIView {
     
-    func cleanBlurBar(color: UIColor = Style.blurBarColor) {
+    func stylizeBar() {
+        if let bar = self as? UINavigationBar {
+            bar.isTranslucent = false
+            bar.shadowImage = UIImage()
+            bar.setBackgroundImage(Style.image(Style.tintColor), for: UIBarMetrics.default)
+        } else if let bar = self as? UITabBar {
+            bar.isTranslucent = false
+            bar.shadowImage = UIImage()
+            bar.backgroundImage = Style.image(Style.barColor)
+            let allSubViews = self.allSubViews
+            for view in allSubViews {
+                if view is UIImageView, view.bounds.height <= 1, view.bounds.width == UIScreen.main.bounds.width {
+                    print("****************** find shadow")
+                    view.isHidden = true
+                    if !(self is UINavigationBar) {
+                        let shadowView = UIView(frame: view.frame)
+                        shadowView.backgroundColor = Style.borderColor
+                        view.superview?.addSubview(shadowView)
+                    }
+                    break
+                }
+            }
+        }
+    }
+    
+    func stylizeBar113() {
+        var color: UIColor = Style.barColor
+        if self is UINavigationBar {
+            color = Style.tintColor
+        }
         let allSubViews = self.allSubViews
         for view in allSubViews {
             if view is UIImageView, view.bounds.height <= 1, view.bounds.width == UIScreen.main.bounds.width {
                 print("****************** find shadow")
                 view.isHidden = true
+                if !(self is UINavigationBar) {
+                    let shadowView = UIView(frame: view.frame)
+                    shadowView.backgroundColor = Style.borderColor
+                    view.superview?.addSubview(shadowView)
+                }
                 break
             }
         }
@@ -152,13 +274,13 @@ extension UIView {
             return
         }
         for view in allSubViews {
-            if view.isKind(of: _UIBarBackground) {
+            if NSObject.isKind(of: _UIBarBackground) {
                 print("****************** find _UIBarBackground")
                 let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
                 blurView.frame = view.frame
                 blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 for view in blurView.allSubViews {
-                    if view.isKind(of: _UIVisualEffectFilterView) {
+                    if NSObject.isKind(of: _UIVisualEffectFilterView) {
                         print("****************** find _UIVisualEffectFilterView")
                         view.backgroundColor = color.alpha(0.9)
                         break
@@ -207,7 +329,9 @@ extension String {
         let start = self.index(startIndex, offsetBy: integerRange.lowerBound)
         let end = self.index(startIndex, offsetBy: integerRange.upperBound)
         let range = start..<end
-        return self[range]
+        return String(self[range])
     }
     
 }
+
+

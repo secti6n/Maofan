@@ -10,20 +10,24 @@ import UIKit
 
 class Style {
     
+    static var onePixel: CGFloat {
+        return 1 / UIScreen.main.scale
+    }
+    
     static var linkFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        return UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
     }
     
     static var nameFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+        return UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
     }
     
     static var plainFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        return UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
     }
     
     static var metaFont: UIFont {
-        return UIFont.systemFont(ofSize: 10, weight: UIFontWeightRegular)
+        return UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular)
     }
     
     static var plainColor: UIColor {
@@ -31,31 +35,32 @@ class Style {
     }
     
     static var tintColor: UIColor {
-        return UIColor(hex: "0FB7FF")
+        return UIColor(hex: "10adff")
     }
     
     static var metaColor: UIColor {
-        return UIColor(hex: "CFD6DC")
+        return UIColor(hex: "ced4e0")
     }
     
     static var backgroundColor: UIColor {
         return UIColor(hex: "FFFFFF")
     }
     
-    static var blurBarColor: UIColor {
+    static var barColor: UIColor {
         return backgroundColor
     }
     
-    static var border: UIColor {
-        return plainColor.alpha(0.1)
+    static var borderColor: UIColor {
+        return plainColor.alpha(0.08)
     }
     
     static var unSelect: UIColor {
-        return UIColor(hex: "C1C9D1")
+        return metaColor
     }
     
-    static func image(_ tintColor: UIColor) -> UIImage {
-        let size = CGSize(width: 1, height: 1)
+    static func image(_ tintColor: UIColor, pixel: Bool = false) -> UIImage {
+        let length = pixel ? 1 / UIScreen.main.scale : 1
+        let size = CGSize(width: length, height: length)
         return image(tintColor: tintColor, size: size)
     }
     

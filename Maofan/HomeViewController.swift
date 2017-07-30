@@ -10,11 +10,23 @@ import UIKit
 import AsyncDisplayKit
 import SwiftyJSON
 
-class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSource, ASCollectionDelegate, ASTextNodeDelegate {
+class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSource, ASCollectionDelegate, ASTextNodeDelegate, UIScrollViewDelegate, FeedCellNodeDelegate {
     
     let collectionNode: ASCollectionNode
     var data: [Feed] = []
     private let refreshControl = UIRefreshControl()
+    
+    func reload(feed: Feed) {
+        for (_, item) in data.enumerated() {
+            if feed == item {
+                DispatchQueue.main.async {
+//                    self.collectionNode.reloadItems(at: [IndexPath(item: index, section: 0)])
+                }
+                break
+            }
+        }
+        
+    }
     
     func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, value: Any, at point: CGPoint, textRange: NSRange) {
         print(value)
@@ -30,9 +42,8 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
         refreshControl.addTarget(nil, action: #selector(loadData), for: .valueChanged)
     }
     
-    func loadData() {
-        self.refreshControl.endRefreshing()
-        Service.sharedInstance.home_timeline(parameters: ["count" : 60, "format" : "html"], success: { (res) in
+    @objc func loadData() {
+        Service.sharedInstance.home_timeline(parameters: ["count" : 20, "format" : "html"], success: { (res) in
             var feeds = [Feed]()
             for json in JSON(data: res.data).arrayValue {
                 let feed = Feed(json)
@@ -40,7 +51,9 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
             }
             self.data = feeds
             self.collectionNode.reloadData()
+            self.refreshControl.endRefreshing()
         }) { (e) in
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -55,14 +68,22 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASCollectionDataSourc
         loadData()
     }
     
-    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
-        let cellNodeBlock = { () -> ASCellNode in
-            let cellNode = FeedCellNode(with: self.data[indexPath.row])
-            cellNode.textNode.delegate = self
-            return cellNode
-        }
-        return cellNodeBlock
+    func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
+        let cellNode = FeedCellNode(with: self.data[indexPath.row])
+        cellNode.textNode.delegate = self
+        cellNode.delegate = self
+        return cellNode
     }
+    
+//    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+//        let cellNodeBlock = { () -> ASCellNode in
+//            let cellNode = FeedCellNode(with: self.data[indexPath.row])
+//            cellNode.textNode.delegate = self
+//            cellNode.delegate = self
+//            return cellNode
+//        }
+//        return cellNodeBlock
+//    }
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return data.count

@@ -59,6 +59,10 @@ class Feed {
         return json["created_at"].stringValue
     }
     
+    var feedTime: String {
+        return time.feedTime()
+    }
+    
 }
 
 extension Feed {
@@ -71,14 +75,14 @@ extension Feed {
         var index = 0
         for e in array {
             // Plain
-            let range = e.rangeAt(0)
+            let range = e.range(at: 0)
             let beforeRange = NSRange(location: index, length: range.location - index)
             index = range.location + range.length
             value.append(FeedText((string as NSString).substring(with: beforeRange).stringByDecodingHTMLEntities))
             // Link
-            let firstChar = (string as NSString).substring(with: e.rangeAt(1))
-            let text = firstChar + (string as NSString).substring(with: e.rangeAt(3)).stringByDecodingHTMLEntities + (string as NSString).substring(with: e.rangeAt(4))
-            let urlString = (string as NSString).substring(with: e.rangeAt(2))
+            let firstChar = (string as NSString).substring(with: e.range(at: 1))
+            let text = firstChar + (string as NSString).substring(with: e.range(at: 3)).stringByDecodingHTMLEntities + (string as NSString).substring(with: e.range(at: 4))
+            let urlString = (string as NSString).substring(with: e.range(at: 2))
             let type: FeedTextType
             switch firstChar {
             case "@":
@@ -107,19 +111,20 @@ extension Feed {
             let attr = NSMutableAttributedString(string: feedText.text)
             switch feedText.type {
             case .mention:
-                attr.addAttributes([NSForegroundColorAttributeName : Style.tintColor, kLinkAttributeName : feedText.urlString])
+                
+                attr.addAttributes([NSAttributedStringKey.foregroundColor : Style.tintColor, NSAttributedStringKey.link : feedText.urlString])
             case .tag:
-                attr.addAttributes([NSForegroundColorAttributeName : Style.metaColor, kLinkAttributeName : feedText.urlString])
+                attr.addAttributes([NSAttributedStringKey.foregroundColor : Style.metaColor, NSAttributedStringKey.link : feedText.urlString])
             case .link:
-                attr.addAttributes([NSForegroundColorAttributeName : Style.tintColor, kLinkAttributeName : feedText.urlString])
+                attr.addAttributes([NSAttributedStringKey.foregroundColor : Style.tintColor, NSAttributedStringKey.link : feedText.urlString])
             default:
-                attr.addAttributes([NSForegroundColorAttributeName : Style.plainColor])
+                attr.addAttributes([NSAttributedStringKey.foregroundColor : Style.plainColor])
             }
             mas.append(attr)
         }
         let parag = NSMutableParagraphStyle()
-        parag.lineHeightMultiple = 1.1
-        mas.addAttributes([NSFontAttributeName : Style.plainFont, NSParagraphStyleAttributeName : parag])
+        parag.lineHeightMultiple = 1.2
+        mas.addAttributes([NSAttributedStringKey.font : Style.plainFont, NSAttributedStringKey.paragraphStyle : parag])
         return mas
     }
     
@@ -161,7 +166,7 @@ func <(lhs: Feed, rhs: Feed?) -> Bool {
 
 extension NSMutableAttributedString {
     
-    func addAttributes(_ attrs: [String : Any]) {
+    func addAttributes(_ attrs: [NSAttributedStringKey : Any]) {
         self.addAttributes(attrs, range: NSRange(location: 0, length: length))
     }
     
