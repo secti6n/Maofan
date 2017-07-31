@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import PINRemoteImage
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20) {
             print("PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20)")
         }
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization
+        }
+        UIApplication.shared.registerForRemoteNotifications()
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        UIPasteboard.general.string = token
+        print(token)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
