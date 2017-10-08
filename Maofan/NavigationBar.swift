@@ -13,6 +13,7 @@ class NavigationBar: UINavigationBar {
     override func awakeFromNib() {
         super.awakeFromNib()
         tintColor = Style.tintColor
+        isTranslucent = false
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {

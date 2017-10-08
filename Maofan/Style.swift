@@ -31,21 +31,17 @@ class Style {
     }
     
     static var plainColor: UIColor {
-        return UIColor(hex: "39434D")
+        return UIColor(hex: "000000")
     }
     
     static var tintColor: UIColor {
-        return UIColor(hex: "00A4E6")
+        return UIColor(hex: "33a5ff")
     }
     
     static var metaColor: UIColor {
-        return UIColor(hex: "B8C5D9")
+        return UIColor(hex: "ced4e0")
     }
-    
-    static var borderColor: UIColor {
-        return UIColor(hex: "CCD5E0")
-    }
-    
+
     static var unSelect: UIColor {
         return metaColor
     }

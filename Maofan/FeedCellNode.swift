@@ -27,23 +27,28 @@ class FeedCellNode: ASCellNode {
     let nameNode = ASTextNode()
     let textNode = ASTextNode()
     let metaNode = ASTextNode()
+    let photoContainerNode = ASDisplayNode()
     let photoNode = ASNetworkImageNode()
     private var photoSize: CGSize?
     
+    override func didExitVisibleState() {
+        metaNode.attributedText = NSAttributedString(string: feed.feedTime, attributes: [.font: UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.regular), .foregroundColor: Style.metaColor])
+    }
+    
     required init(with feed : Feed) {
         super.init()
+        backgroundColor = .white
         self.feed = feed
         avatarNode.url = feed.user.avatar
         avatarNode.style.preferredSize = CGSize(width: 48, height: 48)
-        avatarNode.cornerRadius = 4
+        avatarNode.cornerRadius = 24
         avatarNode.clipsToBounds = true
         addSubnode(avatarNode)
-        separatorInset.left = CGFloat(75)
         //
         nameNode.attributedText = NSAttributedString(string: feed.user.name, attributes: [.font: UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium), .foregroundColor: Style.plainColor])
         addSubnode(nameNode)
         //
-        metaNode.attributedText = NSAttributedString(string: feed.feedTime, attributes: [.font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular), .foregroundColor: Style.metaColor])
+        metaNode.attributedText = NSAttributedString(string: feed.feedTime, attributes: [.font: UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.regular), .foregroundColor: Style.metaColor])
         addSubnode(metaNode)
         //
         textNode.linkAttributeNames = [kLinkAttributeName.rawValue]
@@ -51,16 +56,17 @@ class FeedCellNode: ASCellNode {
         textNode.isUserInteractionEnabled = true
         addSubnode(textNode)
         //
-        photoNode.clipsToBounds = true
-        addSubnode(photoNode)
+        photoContainerNode.clipsToBounds = true
+        addSubnode(photoContainerNode)
+        photoContainerNode.addSubnode(photoNode)
         if let url = feed.photo {
             if let image = PINRemoteImageManager.shared().synchronousImageFromCache(with: url, processorKey: nil).image {
                 if image.size.width / 2 > nicePhotoWidth {
-                    photoSize = CGSize(width: nicePhotoWidth, height: min(nicePhotoWidth * 2, nicePhotoWidth / image.size.width * image.size.height))
+                    photoSize = CGSize(width: nicePhotoWidth, height: nicePhotoWidth / image.size.width * image.size.height)
                 } else if image.size.width < nicePhotoWidth {
-                    photoSize = CGSize(width: nicePhotoWidth / 2, height: min(nicePhotoWidth * 2, nicePhotoWidth / 2 / image.size.width * image.size.height))
+                    photoSize = CGSize(width: nicePhotoWidth / 2, height: nicePhotoWidth / 2 / image.size.width * image.size.height)
                 } else {
-                    photoSize = CGSize(width: image.size.width / 2, height: min(nicePhotoWidth * 2, image.size.height / 2))
+                    photoSize = CGSize(width: image.size.width / 2, height:  image.size.height / 2)
                 }
                 photoNode.url = url
             } else {
@@ -77,10 +83,12 @@ class FeedCellNode: ASCellNode {
         let nameMeta = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .baselineFirst, children: [nameNode, metaNode])
         let content = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [nameMeta, textNode])
         textNode.style.spacingBefore = 3
-        if self.feed.hasPhoto {
-            photoNode.style.preferredSize = photoSize ?? CGSize(width: 72, height: 72)
-            content.children?.append(photoNode)
-            photoNode.style.spacingBefore = 9
+        if let photoSize = photoSize {
+            photoContainerNode.style.preferredSize = photoSize
+            photoContainerNode.style.maxHeight = ASDimensionMake(nicePhotoWidth * 1.5)
+            photoNode.frame = CGRect(origin: .zero, size: photoSize)
+            content.children?.append(photoContainerNode)
+            photoContainerNode.style.spacingBefore = 9
         }
         let body = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .start, alignItems: .start, children: [avatarNode, content])
         nameMeta.style.width = ASDimensionMake("100%")

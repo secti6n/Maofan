@@ -1,45 +1,42 @@
 PODS:
-  - OAuthSwift (1.1.1)
-  - PINCache (3.0.1-beta.4):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
-    - PINCache/Core (= 3.0.1-beta.4)
-  - PINCache/Arc-exception-safe (3.0.1-beta.4):
+  - OAuthSwift (1.2.0)
+  - PINCache (3.0.1-beta.5):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.5)
+    - PINCache/Core (= 3.0.1-beta.5)
+  - PINCache/Arc-exception-safe (3.0.1-beta.5):
     - PINCache/Core
-  - PINCache/Core (3.0.1-beta.4):
+  - PINCache/Core (3.0.1-beta.5):
     - PINOperation (= 1.0.3)
   - PINOperation (1.0.3)
-  - PINRemoteImage/Core (3.0.0-beta.9):
+  - PINRemoteImage/Core (3.0.0-beta.12):
     - PINOperation
-  - PINRemoteImage/iOS (3.0.0-beta.9):
+  - PINRemoteImage/iOS (3.0.0-beta.12):
     - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.9):
-    - PINCache (= 3.0.1-beta.4)
+  - PINRemoteImage/PINCache (3.0.0-beta.12):
+    - PINCache (= 3.0.1-beta.5)
     - PINRemoteImage/Core
   - SwiftyJSON (3.1.4)
-  - Texture (2.3.2):
-    - Texture/PINRemoteImage (= 2.3.2)
-  - Texture/Core (2.3.2)
-  - Texture/PINRemoteImage (2.3.2):
-    - PINRemoteImage/iOS (= 3.0.0-beta.9)
+  - Texture (2.5):
+    - Texture/PINRemoteImage (= 2.5)
+  - Texture/Core (2.5)
+  - Texture/PINRemoteImage (2.5):
+    - PINRemoteImage/iOS (= 3.0.0-beta.12)
     - PINRemoteImage/PINCache
     - Texture/Core
-  - Transition (1.0.1)
 
 DEPENDENCIES:
   - OAuthSwift
   - SwiftyJSON
   - Texture
-  - Transition
 
 SPEC CHECKSUMS:
-  OAuthSwift: 6e3a103b3e5639411769cc7e199ec7e14bd1547f
-  PINCache: a89c8f609232afac77128557bd12c861844423d7
+  OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
+  PINCache: 98e7b1ef782824ad231ade51987c218b758c30d8
   PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
-  PINRemoteImage: e4e02e15a6f96cedbcef2abf1c9c1228dc9897d7
+  PINRemoteImage: 0cefe720c2612960bd360710efbd6c73a1991d5f
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Texture: 18664254419f35de27af76399b3b265cbad5740a
-  Transition: c5106dddcb76b8070e9a226cdc513efb94a90de4
+  Texture: 12eb0807c117aaa21ef86f7f52dc61cc13e59739
 
-PODFILE CHECKSUM: 56dccbd2571f11f405deb8f154ec9e358096c974
+PODFILE CHECKSUM: b3a5cd70791c64dbce5b81fcc23144017b7e4282
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0.beta.1

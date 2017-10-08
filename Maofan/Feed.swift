@@ -38,7 +38,6 @@ class Feed {
         return json["rawid"].intValue
     }
     
-    
     var hasPhoto: Bool {
         return nil != photo
     }

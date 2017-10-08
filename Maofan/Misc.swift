@@ -193,6 +193,7 @@ extension UIColor {
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
+        
         if ((cString.characters.count) == 6) {
             var rgbValue:UInt32 = 0
             Scanner(string: cString).scanHexInt32(&rgbValue)

@@ -1,11 +1,18 @@
 //
 //  ASImageProtocols.h
-//  AsyncDisplayKit
+//  Texture
 //
 //  Copyright (c) 2014-present, Facebook, Inc.  All rights reserved.
 //  This source code is licensed under the BSD-style license found in the
-//  LICENSE file in the root directory of this source tree. An additional grant
-//  of patent rights can be found in the PATENTS file in the same directory.
+//  LICENSE file in the /ASDK-Licenses directory of this source tree. An additional
+//  grant of patent rights can be found in the PATENTS file in the same directory.
+//
+//  Modifications to this file made after 4/13/2017 are: Copyright (c) 2017-present,
+//  Pinterest, Inc.  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
 
 #import <UIKit/UIKit.h>
@@ -30,7 +37,7 @@ typedef void(^ASImageCacherCompletion)(id <ASImageContainerProtocol> _Nullable i
  @param URL The URL of the image to retrieve from the cache.
  @param callbackQueue The queue to call `completion` on.
  @param completion The block to be called when the cache has either hit or missed.
- @discussion If `URL` is nil, `completion` will be invoked immediately with a nil image. This method should not block
+ @discussion If `URL` is nil, `completion` should be invoked immediately with a nil image. This method should not block
  the calling thread as it is likely to be called from the main thread.
  */
 - (void)cachedImageWithURL:(NSURL *)URL
@@ -58,6 +65,19 @@ typedef void(^ASImageCacherCompletion)(id <ASImageContainerProtocol> _Nullable i
  if you have a memory and disk cache in which case you'll likely want to clear out the memory cache.
  */
 - (void)clearFetchedImageFromCacheWithURL:(NSURL *)URL;
+
+/**
+ @abstract Attempts to fetch an image with the given URLs from the cache in reverse order.
+ @param URLs The URLs of the image to retrieve from the cache.
+ @param callbackQueue The queue to call `completion` on.
+ @param completion The block to be called when the cache has either hit or missed.
+ @discussion If `URLs` is nil or empty, `completion` should be invoked immediately with a nil image. This method should not block
+ the calling thread as it is likely to be called from the main thread.
+ @see downloadImageWithURLs:callbackQueue:downloadProgress:completion:
+ */
+- (void)cachedImageWithURLs:(NSArray <NSURL *> *)URLs
+              callbackQueue:(dispatch_queue_t)callbackQueue
+                 completion:(ASImageCacherCompletion)completion;
 
 @end
 
@@ -147,6 +167,21 @@ typedef NS_ENUM(NSUInteger, ASImageDownloaderPriority) {
 - (void)setPriority:(ASImageDownloaderPriority)priority
 withDownloadIdentifier:(id)downloadIdentifier;
 
+/**
+ @abstract Downloads an image from a list of URLs depending on previously observed network speed conditions.
+ @param URLs An array of URLs ordered by the cost of downloading them, the URL at index 0 being the lowest cost.
+ @param callbackQueue The queue to call `downloadProgressBlock` and `completion` on.
+ @param downloadProgress The block to be invoked when the download of `URL` progresses.
+ @param completion The block to be invoked when the download has completed, or has failed.
+ @discussion This method is likely to be called on the main thread, so any custom implementations should make sure to background any expensive download operations.
+ @result An opaque identifier to be used in canceling the download, via `cancelImageDownloadForIdentifier:`. You must
+ retain the identifier if you wish to use it later.
+ */
+- (nullable id)downloadImageWithURLs:(NSArray <NSURL *> *)URLs
+                       callbackQueue:(dispatch_queue_t)callbackQueue
+                    downloadProgress:(nullable ASImageDownloaderProgress)downloadProgress
+                          completion:(ASImageDownloaderCompletion)completion;
+
 @end
 
 @protocol ASAnimatedImageProtocol <NSObject>
@@ -156,7 +191,7 @@ withDownloadIdentifier:(id)downloadIdentifier;
 /**
  @abstract A block which receives the cover image. Should be called when the objects cover image is ready.
  */
-@property (nonatomic, strong, readwrite) void (^coverImageReadyCallback)(UIImage *coverImage);
+@property (nonatomic, readwrite) void (^coverImageReadyCallback)(UIImage *coverImage);
 
 /**
  @abstract Returns whether the supplied data contains a supported animated image format.
@@ -202,7 +237,7 @@ withDownloadIdentifier:(id)downloadIdentifier;
 /**
  @abstract Should be called when playback is ready.
  */
-@property (nonatomic, strong, readwrite) dispatch_block_t playbackReadyCallback;
+@property (nonatomic, readwrite) dispatch_block_t playbackReadyCallback;
 
 /**
  @abstract Return the image at a given index.

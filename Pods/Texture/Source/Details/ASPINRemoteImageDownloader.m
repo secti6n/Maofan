@@ -1,13 +1,18 @@
 //
 //  ASPINRemoteImageDownloader.m
-//  AsyncDisplayKit
-//
-//  Created by Garrett Moon on 2/5/16.
+//  Texture
 //
 //  Copyright (c) 2014-present, Facebook, Inc.  All rights reserved.
 //  This source code is licensed under the BSD-style license found in the
-//  LICENSE file in the root directory of this source tree. An additional grant
-//  of patent rights can be found in the PATENTS file in the same directory.
+//  LICENSE file in the /ASDK-Licenses directory of this source tree. An additional
+//  grant of patent rights can be found in the PATENTS file in the same directory.
+//
+//  Modifications to this file made after 4/13/2017 are: Copyright (c) 2017-present,
+//  Pinterest, Inc.  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
 
 #import <AsyncDisplayKit/ASAvailability.h>
@@ -191,6 +196,23 @@ static ASPINRemoteImageDownloader *sharedDownloader = nil;
   }
 }
 
+- (void)cachedImageWithURLs:(NSArray <NSURL *> *)URLs
+              callbackQueue:(dispatch_queue_t)callbackQueue
+                 completion:(ASImageCacherCompletion)completion
+{
+  [self cachedImageWithURL:[URLs lastObject]
+             callbackQueue:callbackQueue
+                completion:^(id<ASImageContainerProtocol>  _Nullable imageFromCache) {
+                  if (imageFromCache.asdk_image == nil && URLs.count > 1) {
+                    [self cachedImageWithURLs:[URLs subarrayWithRange:NSMakeRange(0, URLs.count - 1)]
+                                callbackQueue:callbackQueue
+                                   completion:completion];
+                  } else {
+                    completion(imageFromCache);
+                  }
+                }];
+}
+
 - (void)clearFetchedImageFromCacheWithURL:(NSURL *)URL
 {
   if ([self sharedImageManagerSupportsMemoryRemoval]) {
@@ -205,43 +227,67 @@ static ASPINRemoteImageDownloader *sharedDownloader = nil;
                    downloadProgress:(ASImageDownloaderProgress)downloadProgress
                          completion:(ASImageDownloaderCompletion)completion;
 {
-  return [[self sharedPINRemoteImageManager] downloadImageWithURL:URL options:PINRemoteImageManagerDownloadOptionsSkipDecode progressDownload:^(int64_t completedBytes, int64_t totalBytes) {
-    if (downloadProgress == nil) { return; }
+    NSArray <NSURL *>*URLs = nil;
+    if (URL) {
+        URLs = @[URL];
+    }
+    return [self downloadImageWithURLs:URLs callbackQueue:callbackQueue downloadProgress:downloadProgress completion:completion];
+}
 
-    /// If we're targeting the main queue and we're on the main thread, call immediately.
-    if (ASDisplayNodeThreadIsMain() && callbackQueue == dispatch_get_main_queue()) {
-      downloadProgress(completedBytes / (CGFloat)totalBytes);
-    } else {
-      dispatch_async(callbackQueue, ^{
-        downloadProgress(completedBytes / (CGFloat)totalBytes);
-      });
-    }
-  } completion:^(PINRemoteImageManagerResult * _Nonnull result) {
-    /// If we're targeting the main queue and we're on the main thread, complete immediately.
-    if (ASDisplayNodeThreadIsMain() && callbackQueue == dispatch_get_main_queue()) {
-#if PIN_ANIMATED_AVAILABLE
-      if (result.alternativeRepresentation) {
-        completion(result.alternativeRepresentation, result.error, result.UUID);
-      } else {
-        completion(result.image, result.error, result.UUID);
-      }
-#else
-      completion(result.image, result.error, result.UUID);
-#endif
-    } else {
-      dispatch_async(callbackQueue, ^{
-#if PIN_ANIMATED_AVAILABLE
-        if (result.alternativeRepresentation) {
-          completion(result.alternativeRepresentation, result.error, result.UUID);
+- (nullable id)downloadImageWithURLs:(NSArray <NSURL *> *)URLs
+                       callbackQueue:(dispatch_queue_t)callbackQueue
+                    downloadProgress:(nullable ASImageDownloaderProgress)downloadProgress
+                          completion:(ASImageDownloaderCompletion)completion
+{
+    PINRemoteImageManagerProgressDownload progressDownload = ^(int64_t completedBytes, int64_t totalBytes) {
+        if (downloadProgress == nil) { return; }
+        
+        /// If we're targeting the main queue and we're on the main thread, call immediately.
+        if (ASDisplayNodeThreadIsMain() && callbackQueue == dispatch_get_main_queue()) {
+            downloadProgress(completedBytes / (CGFloat)totalBytes);
         } else {
-          completion(result.image, result.error, result.UUID);
+            dispatch_async(callbackQueue, ^{
+                downloadProgress(completedBytes / (CGFloat)totalBytes);
+            });
         }
+    };
+    
+    PINRemoteImageManagerImageCompletion imageCompletion = ^(PINRemoteImageManagerResult * _Nonnull result) {
+        if (self.resultProvider) {
+            self.resultProvider(result);
+        }
+        
+        /// If we're targeting the main queue and we're on the main thread, complete immediately.
+        if (ASDisplayNodeThreadIsMain() && callbackQueue == dispatch_get_main_queue()) {
+#if PIN_ANIMATED_AVAILABLE
+            if (result.alternativeRepresentation) {
+                completion(result.alternativeRepresentation, result.error, result.UUID);
+            } else {
+                completion(result.image, result.error, result.UUID);
+            }
 #else
-        completion(result.image, result.error, result.UUID);
+            completion(result.image, result.error, result.UUID);
 #endif
-      });
-    }
-  }];
+        } else {
+            dispatch_async(callbackQueue, ^{
+#if PIN_ANIMATED_AVAILABLE
+                if (result.alternativeRepresentation) {
+                    completion(result.alternativeRepresentation, result.error, result.UUID);
+                } else {
+                    completion(result.image, result.error, result.UUID);
+                }
+#else
+                completion(result.image, result.error, result.UUID);
+#endif
+            });
+        }
+    };
+    
+    return [[self sharedPINRemoteImageManager] downloadImageWithURLs:URLs
+                                                             options:PINRemoteImageManagerDownloadOptionsSkipDecode
+                                                       progressImage:nil
+                                                    progressDownload:progressDownload
+                                                          completion:imageCompletion];
 }
 
 - (void)cancelImageDownloadForIdentifier:(id)downloadIdentifier

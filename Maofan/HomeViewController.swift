@@ -37,7 +37,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASTableDataSource, AS
     }
     
     @objc func loadData() {
-        Service.sharedInstance.home_timeline(parameters: ["count" : 20, "format" : "html"], success: { (res) in
+        Service.sharedInstance.home_timeline(parameters: ["count" : 60, "format" : "html"], success: { (res) in
             var feeds = [Feed]()
             for json in JSON(data: res.data).arrayValue {
                 let feed = Feed(json)
@@ -55,7 +55,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASTableDataSource, AS
         super.viewDidLoad()
         tableNode.dataSource = self
         tableNode.delegate = self
-        tableNode.view.separatorColor = Style.borderColor
+        tableNode.view.separatorStyle = .none
         tableNode.view.refreshControl = refreshControl
         refreshControl.addTarget(nil, action: #selector(loadData), for: .valueChanged)
         Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)

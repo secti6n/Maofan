@@ -14,6 +14,7 @@ class TabBar: UITabBar {
         super.awakeFromNib()
         unselectedItemTintColor = Style.unSelect
         tintColor = Style.tintColor
+        isTranslucent = false
         items?.forEach({ (item) -> () in
             item.title = nil
             let f = 6 - 1 / UIScreen.main.scale
