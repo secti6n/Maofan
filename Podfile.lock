@@ -1,26 +1,26 @@
 PODS:
   - OAuthSwift (1.2.0)
-  - PINCache (3.0.1-beta.5):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.5)
-    - PINCache/Core (= 3.0.1-beta.5)
-  - PINCache/Arc-exception-safe (3.0.1-beta.5):
+  - PINCache (3.0.1-beta.6):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
+    - PINCache/Core (= 3.0.1-beta.6)
+  - PINCache/Arc-exception-safe (3.0.1-beta.6):
     - PINCache/Core
-  - PINCache/Core (3.0.1-beta.5):
-    - PINOperation (= 1.0.3)
-  - PINOperation (1.0.3)
-  - PINRemoteImage/Core (3.0.0-beta.12):
+  - PINCache/Core (3.0.1-beta.6):
+    - PINOperation (~> 1.1.0)
+  - PINOperation (1.1.1)
+  - PINRemoteImage/Core (3.0.0-beta.13):
     - PINOperation
-  - PINRemoteImage/iOS (3.0.0-beta.12):
+  - PINRemoteImage/iOS (3.0.0-beta.13):
     - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.12):
-    - PINCache (= 3.0.1-beta.5)
+  - PINRemoteImage/PINCache (3.0.0-beta.13):
+    - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
-  - SwiftyJSON (3.1.4)
-  - Texture (2.5):
-    - Texture/PINRemoteImage (= 2.5)
-  - Texture/Core (2.5)
-  - Texture/PINRemoteImage (2.5):
-    - PINRemoteImage/iOS (= 3.0.0-beta.12)
+  - SwiftyJSON (4.1.0)
+  - Texture (2.6):
+    - Texture/PINRemoteImage (= 2.6)
+  - Texture/Core (2.6)
+  - Texture/PINRemoteImage (2.6):
+    - PINRemoteImage/iOS (= 3.0.0-beta.13)
     - PINRemoteImage/PINCache
     - Texture/Core
 
@@ -29,14 +29,23 @@ DEPENDENCIES:
   - SwiftyJSON
   - Texture
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - OAuthSwift
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - SwiftyJSON
+    - Texture
+
 SPEC CHECKSUMS:
   OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
-  PINCache: 98e7b1ef782824ad231ade51987c218b758c30d8
-  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
-  PINRemoteImage: 0cefe720c2612960bd360710efbd6c73a1991d5f
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Texture: 12eb0807c117aaa21ef86f7f52dc61cc13e59739
+  PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
+  PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
+  PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
 
-PODFILE CHECKSUM: b3a5cd70791c64dbce5b81fcc23144017b7e4282
+PODFILE CHECKSUM: 0454bf02f1ee5b31eef6ef069afc30cab3af30c0
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.5.2

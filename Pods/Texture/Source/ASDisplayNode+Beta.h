@@ -28,8 +28,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 ASDISPLAYNODE_EXTERN_C_BEGIN
-void ASPerformBlockOnMainThread(void (^block)());
-void ASPerformBlockOnBackgroundThread(void (^block)()); // DISPATCH_QUEUE_PRIORITY_DEFAULT
+void ASPerformBlockOnMainThread(void (^block)(void));
+void ASPerformBlockOnBackgroundThread(void (^block)(void)); // DISPATCH_QUEUE_PRIORITY_DEFAULT
 ASDISPLAYNODE_EXTERN_C_END
 
 #if ASEVENTLOG_ENABLE
@@ -175,12 +175,15 @@ extern void ASDisplayNodePerformBlockOnEveryYogaChild(ASDisplayNode * _Nullable 
 
 - (void)addYogaChild:(ASDisplayNode *)child;
 - (void)removeYogaChild:(ASDisplayNode *)child;
+- (void)insertYogaChild:(ASDisplayNode *)child atIndex:(NSUInteger)index;
 
 - (void)semanticContentAttributeDidChange:(UISemanticContentAttribute)attribute;
 
 @property (nonatomic, assign) BOOL yogaLayoutInProgress;
 @property (nonatomic, strong, nullable) ASLayout *yogaCalculatedLayout;
-// These methods should not normally be called directly.
+
+// These methods are intended to be used internally to Texture, and should not be called directly.
+- (BOOL)shouldHaveYogaMeasureFunc;
 - (void)invalidateCalculatedYogaLayout;
 - (void)calculateLayoutFromYogaRoot:(ASSizeRange)rootConstrainedSize;
 
