@@ -68,7 +68,7 @@ extension Feed {
     
     func makeFeedTexts(string: String) -> [FeedText] {
         var value: [FeedText] = []
-        let pattern = "([@#]?)<a href=\"(.*?)\".*?>(.*?)</a>([#]?)"
+        let pattern = "([@#]?)<a href=\"(.*?)\".*?>([\\s\\S]*?)</a>([#]?)"
         let regular = try! NSRegularExpression(pattern: pattern, options: [])
         let array = regular.matches(in: string, options: [], range: NSMakeRange(0, (string as NSString).length))
         var index = 0
@@ -120,9 +120,10 @@ extension Feed {
             }
             mas.append(attr)
         }
-        let parag = NSMutableParagraphStyle()
-        parag.lineHeightMultiple = 1.2
-        mas.addAttributes([.font : Style.plainFont, .paragraphStyle : parag])
+        mas.addAttributes([.font : Style.plainFont])
+//        let parag = NSMutableParagraphStyle()
+//        parag.lineHeightMultiple = 1.2
+//        mas.addAttributes(.paragraphStyle : parag])
         return mas
     }
     

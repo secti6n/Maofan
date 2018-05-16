@@ -12,7 +12,7 @@ import AsyncDisplayKit
 import PINRemoteImage
 
 let kLinkAttributeName = NSAttributedStringKey(rawValue: "mf_NodeLinkAttributeName")
-let nicePhotoWidth = UIScreen.main.bounds.width - 2 * (18 + 48 + 9)
+let nicePhotoWidth = UIScreen.main.bounds.width - 2 * (16 + 48 + 8)
 
 protocol FeedCellNodeDelegate: class {
     func reload(feed: Feed)
@@ -41,7 +41,7 @@ class FeedCellNode: ASCellNode {
         self.feed = feed
         avatarNode.url = feed.user.avatar
         avatarNode.style.preferredSize = CGSize(width: 48, height: 48)
-        avatarNode.cornerRadius = 24
+        avatarNode.cornerRadius = 4
         avatarNode.clipsToBounds = true
         addSubnode(avatarNode)
         //
@@ -88,14 +88,14 @@ class FeedCellNode: ASCellNode {
             photoContainerNode.style.maxHeight = ASDimensionMake(nicePhotoWidth * 1.5)
             photoNode.frame = CGRect(origin: .zero, size: photoSize)
             content.children?.append(photoContainerNode)
-            photoContainerNode.style.spacingBefore = 9
+            photoContainerNode.style.spacingBefore = 8
         }
-        let body = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .start, alignItems: .start, children: [avatarNode, content])
+        let body = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [avatarNode, content])
         nameMeta.style.width = ASDimensionMake("100%")
         content.style.width = ASDimensionMake("100%")
         content.style.flexShrink = 1
         body.style.width = ASDimensionMake("100%")
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18), child: body)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), child: body)
     }
     
 }

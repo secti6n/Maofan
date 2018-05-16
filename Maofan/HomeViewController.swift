@@ -39,7 +39,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASTableDataSource, AS
     @objc func loadData() {
         Service.sharedInstance.home_timeline(parameters: ["count" : 60, "format" : "html"], success: { (res) in
             var feeds = [Feed]()
-            for json in JSON(data: res.data).arrayValue {
+            for json in JSON(res.data).arrayValue {
                 let feed = Feed(json)
                 feeds.append(feed)
             }
@@ -60,7 +60,7 @@ class HomeViewController: ASViewController<ASDisplayNode>, ASTableDataSource, AS
         refreshControl.addTarget(nil, action: #selector(loadData), for: .valueChanged)
         Login.xauth(username: FanfouConsumer.username, password: FanfouConsumer.password)
         if let account = CoreDataTool.sharedInstance.fetch().first {
-            let user = User(JSON(data: account.jsonData! as Data))
+            let user = User(JSON(account.jsonData!))
             print(user.name)
         }
         loadData()

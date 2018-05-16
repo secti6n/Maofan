@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        UIApplication.shared.statusBarStyle = .lightContent
-        PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20) {
+        UIApplication.shared.statusBarStyle = .default
+        PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(60) {
             print("PINRemoteImageManager.shared().setMaxNumberOfConcurrentDownloads(20)")
         }
         let center = UNUserNotificationCenter.current()
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         UIPasteboard.general.string = token
-        print(token)
+        print("deviceToken: \(token)")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

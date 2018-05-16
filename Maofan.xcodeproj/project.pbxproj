@@ -12,7 +12,6 @@
 		C74376001EC83B9A00ACF58A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74375FC1EC83B9A00ACF58A /* TabBarController.swift */; };
 		C74376011EC83B9A00ACF58A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74375FD1EC83B9A00ACF58A /* TabBar.swift */; };
 		C74376021EC83B9A00ACF58A /* TabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74375FE1EC83B9A00ACF58A /* TabNavigationController.swift */; };
-		C74376031EC83B9A00ACF58A /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74375FF1EC83B9A00ACF58A /* NavigationBar.swift */; };
 		C74376051EC83BAE00ACF58A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74376041EC83BAE00ACF58A /* Main.storyboard */; };
 		C7A83A331EC8CA64000D6EB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A83A321EC8CA64000D6EB2 /* TestViewController.swift */; };
 		C7DB86321EC60DD4000F8A9C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB862F1EC60DD4000F8A9C /* HomeViewController.swift */; };
@@ -41,7 +40,6 @@
 		C74375FC1EC83B9A00ACF58A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C74375FD1EC83B9A00ACF58A /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		C74375FE1EC83B9A00ACF58A /* TabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabNavigationController.swift; sourceTree = "<group>"; };
-		C74375FF1EC83B9A00ACF58A /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		C74376041EC83BAE00ACF58A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C74F42B31F2F95FD00F3BA52 /* Maofan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maofan.entitlements; sourceTree = "<group>"; };
 		C7A83A321EC8CA64000D6EB2 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				C7DE70021EC4D3D400EAAEEA /* Style.swift */,
 				C7DE70001EC4D3B000EAAEEA /* Misc.swift */,
 				C74375FE1EC83B9A00ACF58A /* TabNavigationController.swift */,
-				C74375FF1EC83B9A00ACF58A /* NavigationBar.swift */,
 				C7A83A321EC8CA64000D6EB2 /* TestViewController.swift */,
 				C7DB862F1EC60DD4000F8A9C /* HomeViewController.swift */,
 				C7DB86301EC60DD4000F8A9C /* FeedCellNode.swift */,
@@ -281,7 +278,6 @@
 				C7DE6FFD1EC4D32B00EAAEEA /* Feed.swift in Sources */,
 				C74376011EC83B9A00ACF58A /* TabBar.swift in Sources */,
 				C74376001EC83B9A00ACF58A /* TabBarController.swift in Sources */,
-				C74376031EC83B9A00ACF58A /* NavigationBar.swift in Sources */,
 				C74376021EC83B9A00ACF58A /* TabNavigationController.swift in Sources */,
 				C7DE6FFE1EC4D32B00EAAEEA /* FeedText.swift in Sources */,
 				C7DB86321EC60DD4000F8A9C /* HomeViewController.swift in Sources */,
@@ -433,7 +429,7 @@
 				);
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.catt.maofan;
+				PRODUCT_BUNDLE_IDENTIFIER = me.catt.maofan2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -453,7 +449,7 @@
 				);
 				INFOPLIST_FILE = Maofan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.catt.maofan;
+				PRODUCT_BUNDLE_IDENTIFIER = me.catt.maofan2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

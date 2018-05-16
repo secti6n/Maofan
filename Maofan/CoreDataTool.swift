@@ -53,13 +53,13 @@ class CoreDataTool {
         entity.jsonData = jsonData
         entity.token = token
         entity.secret = secret
-        entity.unique_id = JSON(data: jsonData)["unique_id"].stringValue
+        entity.unique_id = JSON(jsonData)["unique_id"].stringValue
         try! context.save()
     }
     
     private func update(jsonData: Data) -> Bool {
         let array = fetch()
-        let unique_id = JSON(data: jsonData)["unique_id"].stringValue
+        let unique_id = JSON(jsonData)["unique_id"].stringValue
         for account in array {
             if unique_id == account.unique_id {
                 account.jsonData = jsonData
